@@ -1,0 +1,44 @@
+.InfoYears{
+    width: 90%;
+    margin: auto;
+    padding: 10em 0;
+    display: flex;
+    justify-content: space-between;
+    color: var(--gray);
+}
+
+.InfoYears .block{
+    width: calc(20% - 4em);
+    height: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: flex-start;
+    /*background: rgba(255, 255, 255, 0.28);*/
+}
+.InfoYears .block span,
+.InfoYears .block p{
+    width: 100%;
+    text-align: center;
+}
+.InfoYears .block span{
+    font-size: 3.1em;
+    font-weight: 900;
+    margin-bottom: .8em;
+}
+.InfoYears .block p.title{
+    color: var(--white);
+}
+.InfoYears .block p.title.active{
+    color: var(--but-nav);
+}
+
+.InfoYears .line{
+    margin-top: 2.2em;
+    width: 3em;
+    height: 1px;
+    background:#43454F;
+}
+.InfoYears .line:last-child{
+    display: none;
+}

@@ -1,0 +1,39 @@
+.About{
+    color: white;
+    padding: 4em 0 9em;
+    background-size: contain;
+    background-position: bottom center;
+    background-repeat: no-repeat;
+    background-image: url("/public/images/about/bg.svg");
+    /*background-color: rgba(255, 255, 255, 0.1);*/
+}
+
+/*container blocks*/
+.About .content{
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    margin-top: 3em;
+}
+
+.About .container h1{
+    margin-bottom: 3em;
+}
+
+/*lock with image and info*/
+.About .content .block{
+    width: 31%;
+    display: flex;
+    align-items: flex-start;
+}
+.About .content .block span{
+    padding: 2em 0 0 2em;
+}
+.About .content .block span h4{
+    color: var(--white-op-80);
+    margin-bottom: 1em;
+}
+.About .content .block span p{
+    font-weight: 300;
+    color:var(--link-nav);
+}

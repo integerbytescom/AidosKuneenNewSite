@@ -1,0 +1,1 @@
+export const getLang = () => localStorage.getItem('lang');

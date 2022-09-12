@@ -1,0 +1,15 @@
+.FooterBottom.container{
+    padding: 3em 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.FooterBottom.container .logo span{
+    margin-left: 1em;
+    color: var(--white);
+}
+
+.FooterBottom.container p{
+    color: var(--footer-p);
+    margin: 0;
+}

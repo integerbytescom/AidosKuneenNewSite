@@ -1,0 +1,80 @@
+.InfoSlider{
+    padding: 3em 0 0;
+    background-image: url("/public/images/info-slider/gradient.svg");
+    background-position: 150% center;
+    background-size: 75%;
+    background-repeat: no-repeat;
+    color: var(--link-nav);
+    /*background-color: rgba(255, 255, 255, 0.15);*/
+}
+
+/*header*/
+.InfoSlider header{
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+}
+.InfoSlider header .content{
+    width: 50%;
+    display: flex;
+    justify-content: space-between;
+    padding: 1em 0 6em;
+    background-image: none;
+}
+/*block with number*/
+.InfoSlider header .block{
+    display: flex;
+    flex-wrap: wrap;
+    position: relative;
+    cursor: pointer;
+    transition: .3s;
+}
+.InfoSlider header .block:hover{opacity: .5;}
+.InfoSlider header .block.active:hover{opacity: 1;cursor: not-allowed}
+
+.InfoSlider header .block span{
+    width: 100%;
+    text-align: right;
+    font-size: 5em;
+    color: #212234;
+    font-weight: 900;
+    transition: .3s;
+}
+.InfoSlider header .block.active span{
+    color: var(--but-nav);
+}
+.InfoSlider header .block h4{
+    margin: -2em -3em 0 0;
+    color: #535571;
+    font-weight: 400;
+    transition: .3s;
+}
+.InfoSlider header .block.active h4{
+    color: var(--white);
+}
+
+/*info with image*/
+.InfoSlider .content{
+    width: 100%;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: top;
+    background-image: url("/public/images/info-slider/waves.svg");
+}
+
+.InfoSlider .content .container{
+    padding: 15em 0 5em;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    transition: .3s;
+}
+
+.InfoSlider .content .container img{
+    width: 35%;
+}
+.InfoSlider .content .container .info{
+    width: 50%;
+}
+.InfoSlider .content .container .info p{
+}

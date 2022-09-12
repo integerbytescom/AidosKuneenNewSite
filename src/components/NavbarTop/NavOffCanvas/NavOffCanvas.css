@@ -1,0 +1,44 @@
+.NavOffCanvas.offcanvas{
+    background-color: var(--offcanvas);
+    padding: 1em;
+}
+
+.NavOffCanvas .nav-link{
+    margin-bottom: 2em;
+}
+
+/*close button*/
+.NavOffCanvas .btn-close{
+    background: url('/public/images/general/x.svg') center/25px auto no-repeat;
+    transition: .3s;
+}
+.NavOffCanvas .btn-close:hover{opacity: 1;}
+
+/*body*/
+.NavOffCanvas .offcanvas-body{
+    display: flex;
+    align-content: space-between;
+    flex-wrap: wrap;
+}
+
+/*container with mm but and links*/
+.NavOffCanvas .offcanvas-body .content{
+    width: 100%;
+}
+
+.NavOffCanvas .links-container{
+    margin-top: 3em;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+.NavOffCanvas .links-container a{
+    font-size: 1.1em;
+    margin-bottom: .7em;
+    color: var(--link-nav);
+    text-decoration: none;
+    transition: .3s;
+}
+.NavOffCanvas .links-container a:hover{
+    color: var(--white);
+}

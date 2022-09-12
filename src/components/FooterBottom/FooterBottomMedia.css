@@ -1,0 +1,10 @@
+
+@media screen and (max-width: 600px){
+    .FooterBottom.container{
+        justify-content: center;
+    }
+
+    .FooterBottom p{
+        display: none;
+    }
+}

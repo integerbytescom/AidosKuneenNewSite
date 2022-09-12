@@ -1,0 +1,118 @@
+/*navbar main*/
+nav.navbar-expand{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.2em 1.5em;
+}
+
+/*logo and right block width (for centered menu) */
+.navbar-expand .logo,
+.navbar-expand .right{
+    width: 25%;
+    /*background: red;*/
+}
+
+/*logo*/
+.navbar-expand .logo{
+    display: inherit;
+    align-items: inherit;
+}
+.navbar-expand .logo span{
+    margin-left: .7em;
+    color: var(--white);
+    font-weight: 500;
+    font-size: 1.1em;
+}
+
+/*nav links*/
+.navbar-expand nav a{
+    margin: 0 1.5em;
+    text-decoration: none;
+    color: var(--link-nav);
+    transition: .3s;
+}
+.navbar-expand nav a:hover{
+    color: var(--white);
+}
+
+/*right block*/
+.navbar-expand .right{
+    display: inherit;
+    justify-content: flex-end;
+    align-items: inherit;
+}
+/*button*/
+.navbar-expand .right button,
+.NavOffCanvas button.mm{
+    border: none;
+    padding: .5em 1em;
+    background: var(--but-nav);
+    color: var(--bg-black);
+    border-radius: .3em;
+    transition: .3s;
+}
+.navbar-expand .right button:hover,
+.NavOffCanvas button.mm:hover{
+    background: var(--but-nav-hover);
+}
+
+.navbar-expand .right .vert-line{
+    width: 1px;
+    height: 2em;
+    background: var(--link-nav);
+    margin: 0 1em 0 1.2em;
+}
+/*dropdown*/
+.navbar-expand .right .nav-link,
+.NavOffCanvas .nav-link{
+    min-width: 70px;
+    margin: 0;
+    color: var(--link-nav);
+    transition: .3s;
+}
+.navbar-expand .dropdown-menu,
+.NavOffCanvas .dropdown-menu{
+    min-width: 100%;
+    margin-top: .3em;
+    right: auto;
+    left: 0;
+    background: var(--dropdown);
+    border: none;
+}
+.navbar-expand .dropdown-menu .dropdown-item,
+.NavOffCanvas .dropdown-menu .dropdown-item{
+    color: var(--white-op-50);
+    text-align: left;
+    transition: .3s;
+    padding: 5px 7px;
+    font-size: .8em;
+}
+.navbar-expand .dropdown-menu .dropdown-item:hover,
+.NavOffCanvas .dropdown-menu .dropdown-item:hover{
+    color: var(--white);
+    background: var(--dropdown);
+}
+
+.navbar-expand .dropdown-toggle::before,
+.navbar-expand .dropdown-toggle::after,
+.NavOffCanvas .dropup .dropdown-toggle::before,
+.NavOffCanvas .dropup .dropdown-toggle::after{
+    display: none;
+}
+.navbar-expand .right .nav-link:hover,
+.NavOffCanvas .nav-link:hover{
+    color: var(--white);
+}
+
+/*ofccanvas button*/
+button.open-canvas{
+    display: none;
+    background: none;
+    border: none;
+    transition: .3s;
+    padding: 10px 5px;
+}
+button.open-canvas:hover{
+    opacity: .5;
+}

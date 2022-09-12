@@ -1,0 +1,98 @@
+.Trade.container{
+    padding:10rem 0;
+    color: var(--white);
+}
+
+.Trade h1{
+    margin-bottom: 2em;
+}
+
+/*content*/
+.Trade .content{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+/*api*/
+.Trade .content .api-info{
+    width: 30%;
+    display: flex;
+    align-items: flex-start;
+    /*background: rgba(255, 255, 255, 0.2);*/
+}
+.Trade .content .api-info header{
+    width: 100%;
+    display: flex;
+    align-items: center;
+}
+.Trade .content .api-info div{
+    display: flex;
+    flex-wrap: wrap;
+    margin: .5em 0 0 2em;
+}
+
+.Trade .content .api-info div span.price h6,
+.Trade .content .api-info div span.price h3{
+    margin: 0;
+    padding: 0;
+}
+.Trade .content .api-info span.price h6{
+    width: 100%;
+    color:var(--but-nav);
+    font-weight: 400;
+}
+.Trade .content .api-info span.price h6.red{
+    color: #c72d2d;
+}
+
+.Trade .content .api-info div span.volume h6{
+    color: var(--link-nav);
+    font-weight: 400;
+}
+.Trade .content .api-info div span.volume{
+    margin-top: 2em;
+}
+.Trade .content .api-info div span.volume strong{
+    color: #aaacbd;
+    font-weight: 400;
+    margin-left: 1em;
+}
+
+/*logos companies*/
+.Trade .content .companies{
+    width: 60%;
+}
+.Trade .content .companies .block{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 80%;
+}
+.Trade .content .companies .block.one{
+    margin-left: 20%;
+}
+.Trade .content .companies .block.two{
+    margin-left: 10%;
+}
+.Trade .content .companies .block a.circle-comp{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    background: var(--compan-block);
+    margin: .5em;
+    transition: .3s;
+}
+.Trade .content .companies .block a.circle-comp:hover{
+    background: var(--compan-block-hover);
+}
+.Trade .content .companies .block a.circle-comp img{
+    transition: .3s;
+}
+.Trade .content .companies .block a.circle-comp:hover img{
+    opacity: .5;
+}

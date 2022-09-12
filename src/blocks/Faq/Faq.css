@@ -1,0 +1,31 @@
+.Faq.container{
+    padding: 0 0 8em;
+}
+.Faq.container .accordion-item{
+    background-color: var(--op-full);
+    border-bottom: 1px solid var(--white-op-20);
+}
+.Faq.container .accordion-item:last-child{
+    border-bottom: 1px solid var(--white-op-20);
+}
+.Faq.container .accordion-button{
+    padding: 1.5em 0;
+    color: var(--white-op-80);
+    background-color: var(--op-full);
+}
+.Faq.container .accordion-button:focus{
+    box-shadow: none;
+    /*border-bottom: 1px solid var(--white-op-20);*/
+}
+.Faq.container .accordion-body{
+    padding: 1em 0;
+    font-weight: 200;
+    color: var(--white-op-50);
+}
+
+.Faq.container .accordion-button::after{
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: 12px;
+    background-image: url("/public/images/faq/arrow.svg");
+}

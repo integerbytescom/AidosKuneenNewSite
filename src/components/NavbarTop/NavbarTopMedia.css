@@ -1,0 +1,27 @@
+@media screen and (max-width: 1200px){
+    .navbar-expand .logo{
+        width: auto;
+    }
+    .navbar-expand .right{
+        display: none;
+    }
+    /*nav links*/
+    .navbar-expand nav{
+        display: none;
+    }
+    /*ofccanvas button*/
+    button.open-canvas{
+        display: flex;
+    }
+}
+
+@media screen and (max-width: 600px){
+    .navbar-expand .logo span,
+    .FooterBottom .logo span{
+        font-size: .9em;
+    }
+    .navbar-expand .logo img,
+    .FooterBottom .logo img{
+        width: 30px;
+    }
+}
