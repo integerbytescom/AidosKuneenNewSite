@@ -1,0 +1,55 @@
+@media screen and (max-width: 1200px){
+    .Preview{
+        max-height: 650px;
+        min-height: 550px;
+    }
+}
+
+@media screen and (max-width: 850px){
+    .Preview{
+        max-height: 700px;
+        min-height: 700px;
+        overflow: hidden;
+    }
+    .Preview img.wave{
+        width:250%;
+        position: absolute;
+    }
+    .Preview .container{
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+    .Preview .container img{
+        width: 70%;
+        margin-left: -65%;
+        margin-top: -5em;
+    }
+    /*content*/
+    .Preview .container .content{
+        width: 100%;
+    }
+}
+
+@media screen and (max-width: 600px){
+    .Preview{
+        max-height: 600px;
+        min-height: 400px;
+    }
+    .Preview img.wave{
+        width:300%;
+    }
+}
+
+@media screen and (max-width: 450px){
+    .Preview .container img{
+        width: 90%;
+        margin-left: -55%;
+    }
+    .Preview{
+        max-height: 550px;
+        min-height: 530px;
+    }
+    .Preview img.wave{
+        width:300%;
+    }
+}

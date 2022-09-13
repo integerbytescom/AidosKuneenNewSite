@@ -1,5 +1,6 @@
 import React, {useState} from 'react';
 import './InfoSlider.css';
+import './InfoSliderMedia.css';
 
 const InfoSlider = ({lang}) => {
 

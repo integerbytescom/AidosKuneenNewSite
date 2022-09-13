@@ -1,5 +1,6 @@
 import React from 'react';
 import './Faq.css';
+import './FaqMedia.css';
 import {Accordion} from "react-bootstrap";
 import faqData from "./FaqData";
 

@@ -1,0 +1,101 @@
+@media screen and (max-width: 1100px){
+    .Trade.container{
+        padding:1rem 0 5rem;
+    }
+    .Trade .content{
+        flex-wrap: wrap;
+        justify-content: flex-start;
+    }
+
+    /*api info*/
+    .Trade .content .companies{
+        width: 100%;
+    }
+    .Trade .content .api-info{
+        width: 100%;
+        margin-bottom: 2em;
+    }
+    .Trade .content .api-info div{
+        flex-wrap: nowrap;
+    }
+    .Trade .content .api-info div span{
+        width: auto;
+    }
+    .Trade .content .api-info div span.volume{
+        margin-left: 2.5em;
+        margin-top: 0;
+    }
+
+    /*margin blocks*/
+    .Trade .content .companies .block{
+        width: 60%;
+    }
+    .Trade .content .companies .block.one{
+        margin-left: 0;
+    }
+    .Trade .content .companies .block.two{
+        margin-left: 20%;
+    }
+    .Trade .content .companies .block.three{
+        margin-left: 40%;
+    }
+
+    .Trade .content .companies .block a.circle-comp{
+        width: 30%;
+        height: 90px;
+        border-radius: 1em;
+    }
+    .Trade .content .companies .block a.circle-comp img{
+        width: 70%;
+        max-height: 50px;
+    }
+}
+
+@media screen and (max-width: 700px){
+    /*margin blocks*/
+    .Trade .content .companies .block{
+        width: 80%;
+    }
+    .Trade .content .companies .block.one{
+        margin-left: 0;
+    }
+    .Trade .content .companies .block.two{
+        margin-left: 10%;
+    }
+    .Trade .content .companies .block.three{
+        margin-left: 20%;
+    }
+}
+
+@media screen and (max-width: 550px){
+    .Trade .content .companies .block{
+        width: 100%;
+    }
+    .Trade .content .companies .block.one,
+    .Trade .content .companies .block.two,
+    .Trade .content .companies .block.three{
+        margin-left: 0;
+    }
+}
+@media screen and (max-width: 420px){
+    /*api*/
+    .Trade .content .api-info div{
+        flex-wrap: wrap;
+        margin: 1em 0 0 1em;
+    }
+    .Trade .content .api-info div span.volume{
+        width: 100%;
+        margin-top: 1em;
+        margin-left: 0;
+    }
+
+    /*krugi*/
+    .Trade .content .companies .block a.circle-comp{
+        width: 30%;
+        height: 65px;
+    }
+    .Trade .content .companies .block a.circle-comp img{
+        width: 80%;
+        max-height: 35px;
+    }
+}

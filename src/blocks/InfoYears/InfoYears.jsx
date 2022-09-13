@@ -1,5 +1,6 @@
 import React from 'react';
 import './InfoYears.css';
+import './InfoYearsMedia.css';
 import infoYearsData from "./InfoYearsData";
 
 const InfoYears = () => {

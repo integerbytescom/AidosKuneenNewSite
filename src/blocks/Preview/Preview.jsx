@@ -1,5 +1,6 @@
 import React from 'react';
 import './Preview.css';
+import './PreviewMedia.css';
 
 const Preview = ({lang}) => {
     return (

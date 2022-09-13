@@ -1,7 +1,7 @@
 import React, {useState} from 'react';
 import './NavbarTop.css';
 import './NavbarTopMedia.css';
-import {Button, Navbar, NavDropdown, Offcanvas} from "react-bootstrap";
+import {Navbar, NavDropdown} from "react-bootstrap";
 import {getLang} from "../../functions/getLang";
 import NavOffCanvas from "./NavOffCanvas/NavOffCanvas";
 

@@ -1,0 +1,33 @@
+@media screen and (max-width: 1400px){
+    .About .content .block img{
+        width: 60px;
+    }
+    .About .content .block span{
+        padding: 17px 0 0 1em;
+    }
+}
+
+@media screen and (max-width: 1000px){
+    .About{
+        padding: 1em 0 3em;
+    }
+    .About .container h1{
+        margin-bottom: 2em;
+    }
+    .About .content{
+        justify-content: space-between;
+        flex-wrap: wrap;
+    }
+    .About .content .block{
+        width: 48%;
+    }
+}
+
+@media screen and (max-width: 700px){
+    .About .content .block span h4{
+        margin-bottom: .5em;
+    }
+    .About .content .block{
+        width: 100%;
+    }
+}

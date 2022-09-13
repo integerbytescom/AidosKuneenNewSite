@@ -1,0 +1,56 @@
+@media screen and (max-width: 1400px){
+    .InfoSlider header .content{
+        width: 65%;
+        padding: 1em 0 1em;
+    }
+    .InfoSlider .content .container{
+        padding: 10em 0 5em;
+    }
+    .InfoSlider .content .container img{
+        width: 30%;
+    }
+    .InfoSlider .content .container .info{
+        width: 65%;
+    }
+}
+
+@media screen and (max-width: 900px){
+    .InfoSlider{
+        padding: 2em 0 0;
+        background-position: 150% 75%;
+    }
+    .InfoSlider header .content{
+        width: 80%;
+        padding: 1em 0 1em;
+    }
+    .InfoSlider .content .container{
+        padding: 5em 0 5em;
+    }
+    .InfoSlider .content .container .info{
+        width: 100%;
+    }
+    .InfoSlider .content .container img{
+        display: none;
+    }
+}
+
+@media screen and (max-width: 600px){
+    .InfoSlider .content .container{
+        padding: 1em 0 5em;
+    }
+    .InfoSlider header .block span{
+        font-size: 2.5em;
+    }
+    .InfoSlider .content .container .info p{
+        font-size: .7em;
+    }
+}
+
+@media screen and (max-width: 400px){
+    .InfoSlider header .content{
+        width: 95%;
+    }
+    .InfoSlider .content .container .info p{
+        font-size: .6em;
+    }
+}

@@ -1,5 +1,5 @@
 .Trade.container{
-    padding:10rem 0;
+    padding:5rem 0 5rem;
     color: var(--white);
 }
 
@@ -17,7 +17,7 @@
 
 /*api*/
 .Trade .content .api-info{
-    width: 30%;
+    width: 35%;
     display: flex;
     align-items: flex-start;
     /*background: rgba(255, 255, 255, 0.2);*/
@@ -28,11 +28,16 @@
     align-items: center;
 }
 .Trade .content .api-info div{
+    width: 100%;
     display: flex;
     flex-wrap: wrap;
     margin: .5em 0 0 2em;
+    /*background: var(--white-op-20);*/
 }
 
+.Trade .content .api-info div span{
+    width: 100%;
+}
 .Trade .content .api-info div span.price h6,
 .Trade .content .api-info div span.price h3{
     margin: 0;

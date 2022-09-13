@@ -1,5 +1,6 @@
 import React, {useEffect, useState} from 'react';
 import './Trade.css';
+import './TradeMedia.css';
 import dataCompanies from "./dataCompanies";
 import {useApi} from "../../hooks/useApi";
 

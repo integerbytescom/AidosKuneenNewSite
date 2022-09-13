@@ -51,6 +51,27 @@ h4{
 h6{
     font-size: 1.1em;
 }
+@media screen and (max-width: 1500px){
+    h1{font-size: 2.3em;}
+    h3{font-size: 1.7em;}
+    h4{font-size: 1.4em;}
+    h6{font-size: 1em;}
+    a,button,li,p{
+        font-size: .8em;
+    }
+}
+@media screen and (max-width: 1000px){
+    h1{font-size: 2em;}
+    h3{font-size: 1.5em;}
+    h4{font-size: 1.2em;}
+    h6{font-size: .9em;}
+}
+@media screen and (max-width: 700px){
+    h1{font-size: 1.4em;}
+    h3{font-size: 1.2em;}
+    h4{font-size: 1em;}
+    h6{font-size: .8em;}
+}
 
 /*container for blocks*/
 .container{

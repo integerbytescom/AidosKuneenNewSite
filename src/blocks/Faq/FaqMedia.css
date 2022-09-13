@@ -1,0 +1,17 @@
+@media screen and (max-width: 1200px){
+    .Faq.container{
+        padding: 0 0 4em;
+    }
+    .Faq.container .accordion-button{
+        font-size: .5em;
+        font-weight: 300;
+    }
+    .Faq.container .accordion-body{
+        font-size: .8em;
+    }
+}
+@media screen and (max-width: 600px){
+    .Faq.container .accordion-body{
+        font-size: .7em;
+    }
+}

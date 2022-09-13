@@ -1,5 +1,6 @@
 import React from 'react';
 import './About.css';
+import './AboutMedia.css';
 import aboutData from "./AboutData";
 
 const About = ({lang}) => {
