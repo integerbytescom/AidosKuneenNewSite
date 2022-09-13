@@ -9,6 +9,7 @@ import NavbarTop from "../components/NavbarTop/NavbarTop";
 import {getLang} from "../functions/getLang";
 import {setLang} from "../functions/setLang";
 import FooterBottom from "../components/FooterBottom/FooterBottom";
+import FormContact from "../blocks/FormContact/FormContact";
 
 
 const Main = () => {
@@ -31,6 +32,7 @@ const Main = () => {
             <InfoSlider lang={langState} />
             <InfoYears lang={langState} />
             <Faq lang={langState} />
+            <FormContact lang={langState} />
 
             <FooterBottom lang={langState} />
         </>

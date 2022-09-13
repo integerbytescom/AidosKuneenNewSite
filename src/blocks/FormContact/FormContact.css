@@ -1,0 +1,75 @@
+.FormContact.container{
+    color: var(--white);
+    padding: 2em 0 3em;
+}
+
+.FormContact.container h1{
+    margin-bottom: 1em;
+}
+
+.FormContact.container form{
+    width: 30%;
+    display: flex;
+    flex-wrap: wrap;
+}
+.FormContact.container form h5{
+    opacity: .5;
+    color: var(--link-nav);
+    font-weight: 400;
+    margin-bottom: .7em;
+}
+
+/*inputs*/
+.FormContact.container form input,
+.FormContact.container form textarea{
+    padding: 1em 0;
+    width: 100%;
+    background: none;
+    border: none;
+    resize: none;
+    outline: none;
+    color: var(--white);
+    transition: .3s;
+}
+/*placeholder*/
+.FormContact.container form input::placeholder,
+.FormContact.container form textarea::placeholder{
+    color: var(--link-nav);
+}
+
+.FormContact.container form input{
+    border-bottom: 1px solid var(--link-nav);
+}
+.FormContact.container form input:hover,
+.FormContact.container form input:focus{
+    border-bottom: 1px solid var(--but-nav);
+}
+
+/*button*/
+.FormContact.container form button{
+    margin-top: 1em;
+    border: none;
+    background: none;
+    color: var(--but-nav);
+    font-size: 1.3em;
+    font-weight: 600;
+    transition: .3s;
+}
+.FormContact.container form button:hover{
+    color: var(--link-nav);
+}
+
+.FormContact.container .error-p,
+.FormContact.container .success-p{
+    font-size: 1em;
+    margin: 0;
+    padding: 0;
+    font-weight: 300;
+    transition: .3s;
+}
+.FormContact.container .error-p{
+    color: #b42929;
+}
+.FormContact.container .success-p{
+    color: var(--but-nav);
+}
