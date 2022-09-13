@@ -7,6 +7,9 @@ import faqData from "./FaqData";
 const Faq = () => {
     return (
         <div className={`Faq container`}>
+
+            <a name={`faq`} className={'yakor'}></a>
+
             <Accordion defaultActiveKey="1" flush>
                 {
                     faqData.map(elem =>(

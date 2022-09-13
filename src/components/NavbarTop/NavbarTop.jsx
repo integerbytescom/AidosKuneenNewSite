@@ -22,29 +22,30 @@ const NavbarTop = ({langState,handleChangeLang}) => {
             </div>
 
             <nav>
-                <a href="/">
+                <a rel={'noreferrer'} target={"_blank"} href="https://github.com/AidosKuneen/ADK-V2-Wallet/releases/tag/adk">
                     {
                         langState==='en'?'Download':
                             langState==='ru'?'Скачать':'Herunterladen'
                     }
                 </a>
 
-                <a href="/">
+                <a href="#trade">
                     {
                         langState==='en'?'Exchanges':
                             langState==='ru'?'Обмены':'Austausch'
                     }
                 </a>
 
-                <a href="/">
+                <a href="#about">
                     {
                         langState==='en'?'About us':
                             langState==='ru'?'Про нас':'Über uns'
                     }
                 </a>
 
-                <a href="/">F.A.Q</a>
-                <a href="/">
+                <a href="#faq">F.A.Q</a>
+
+                <a href="#form">
                     {
                         langState==='en'?'Contacts':
                             langState==='ru'?'Контакты':'Kontakte'

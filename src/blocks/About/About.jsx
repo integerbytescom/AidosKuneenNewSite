@@ -6,6 +6,9 @@ import aboutData from "./AboutData";
 const About = ({lang}) => {
     return (
         <div className={'About'}>
+
+            <a name={'about'} className={'yakor'}></a>
+
             <div className="container">
                 <h1>
                     {

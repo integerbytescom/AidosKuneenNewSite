@@ -38,6 +38,9 @@ const Trade = ({lang}) => {
 
     return (
         <div className={`Trade container`}>
+
+            {/*<a className={'yakor'} name='trade' />*/}
+
             <h1>
                 {
                     lang==='en'?'Exсhanges':

@@ -24,7 +24,7 @@ const FormContact = ({lang}) => {
         setSpinner(true)
         await emailjs.sendForm('service_fwjjib6', 'template_eit5llq', formRef.current, 'i4qn_i5OB48CqVSFb')
             .then((result) => {
-                setResForm({error: false, ok:'\n' + 'The form has been submitted!'})
+                setResForm({error: false, ok:'The form has been submitted!'})
             }, (error) => {
                 setResForm({error: 'Form submission error.', ok:false})
             });
@@ -37,10 +37,12 @@ const FormContact = ({lang}) => {
     return (
         <div className={`FormContact container`}>
 
+            <a className={'yakor'} name="form"></a>
+
             <h1>
                 {
                     lang==='ru'? 'Контакты':
-                        lang==='en'? 'Contacts' : 'Kontakte'
+                        lang==='en'? 'Contacts us' : 'Kontaktiere uns'
                 }
             </h1>
 

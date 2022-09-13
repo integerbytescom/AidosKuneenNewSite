@@ -55,7 +55,7 @@
     font-weight: 600;
     transition: .3s;
 }
-.FormContact.container form button:hover{
+.FormContact.container form button:hover {
     color: var(--link-nav);
 }
 

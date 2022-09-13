@@ -5,6 +5,9 @@ import './PreviewMedia.css';
 const Preview = ({lang}) => {
     return (
         <div className={`Preview`}>
+
+            <a className={'preview'} name="preview" />
+
             <img className={`wave`} src="/images/preview/waves-black.svg" alt=""/>
 
             <div className="container">
@@ -27,7 +30,7 @@ const Preview = ({lang}) => {
                         }
                     </h6>
 
-                    <a href="/">
+                    <a target={'_blank'} href="https://github.com/AidosKuneen/ADK-V2-Wallet/releases/tag/adk">
                         {
                             lang==='en'?'Download':
                                 lang==='ru'?'Скачать':'Herunterladen'
