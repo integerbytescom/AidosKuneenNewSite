@@ -30,20 +30,8 @@
     --but-blue-hover: #38a0ff;
 }
 
-/*меню*/
-
-/*preview*/
-/*медленное появление*/
-
-/*trade*/
-/*api from left*/
-/*comp from right*/
-
-/*about*/
-/*fade up*/
-
 body{
-    scroll-behavior: smooth;
+    /*scroll-behavior: smooth;*/
     background: var(--bg-black);
 }
 

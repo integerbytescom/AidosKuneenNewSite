@@ -1,17 +1,15 @@
 import React from 'react';
 import './Preview.css';
 import './PreviewMedia.css';
+import {Fade} from "react-awesome-reveal";
 
 const Preview = ({lang}) => {
     return (
+        <Fade>
         <div className={`Preview`}>
-
-            <a className={'preview'} name="preview" />
-
             <img className={`wave`} src="/images/preview/waves-black.svg" alt=""/>
 
             <div className="container">
-
                 <img src="/images/preview/laptop.svg" alt=""/>
 
                 <div className="content">
@@ -30,16 +28,17 @@ const Preview = ({lang}) => {
                         }
                     </h6>
 
-                    <a target={'_blank'} href="https://github.com/AidosKuneen/ADK-V2-Wallet/releases/tag/adk">
+                    <a target={'_blank'} rel={'noreferrer'} href="https://github.com/AidosKuneen/ADK-V2-Wallet/releases/tag/adk">
                         {
                             lang==='en'?'Download':
                                 lang==='ru'?'Скачать':'Herunterladen'
                         }
                     </a>
                 </div>
-
             </div>
+
         </div>
+        </Fade>
     );
 };
 

@@ -2,9 +2,11 @@ import React from 'react';
 import './InfoYears.css';
 import './InfoYearsMedia.css';
 import infoYearsData from "./InfoYearsData";
+import {Slide} from "react-awesome-reveal";
 
 const InfoYears = () => {
     return (
+        <Slide direction={'up'}>
         <div className={`InfoYears`}>
             {
                 infoYearsData.map(elem =>(
@@ -21,6 +23,7 @@ const InfoYears = () => {
                 ))
             }
         </div>
+        </Slide>
     );
 };
 

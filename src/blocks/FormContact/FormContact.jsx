@@ -3,6 +3,7 @@ import {Form, Spinner} from "react-bootstrap";
 import './FormContact.css';
 import './FormContactMedia.css';
 import * as emailjs from "@emailjs/browser";
+import {Slide} from "react-awesome-reveal";
 
 const FormContact = ({lang}) => {
 
@@ -35,9 +36,7 @@ const FormContact = ({lang}) => {
     }
 
     return (
-        <div className={`FormContact container`}>
-
-            <a className={'yakor'} name="form"></a>
+        <div className={`FormContact container`} id={'form'}>
 
             <h1>
                 {
@@ -46,6 +45,7 @@ const FormContact = ({lang}) => {
                 }
             </h1>
 
+            <Slide direction={'left'}>
             <Form ref={formRef} onSubmit={handleSendForm}>
                 <h5>
                     {
@@ -101,6 +101,7 @@ const FormContact = ({lang}) => {
                 </footer>
 
             </Form>
+            </Slide>
         </div>
     );
 };

@@ -3,14 +3,14 @@ import './Faq.css';
 import './FaqMedia.css';
 import {Accordion} from "react-bootstrap";
 import faqData from "./FaqData";
+import {Fade} from "react-awesome-reveal";
 
 const Faq = () => {
     return (
         <div className={`Faq container`}>
 
-            <a name={`faq`} className={'yakor'}></a>
-
-            <Accordion defaultActiveKey="1" flush>
+            <Fade>
+            <Accordion id={'faq'} defaultActiveKey="1" flush>
                 {
                     faqData.map(elem =>(
                         <Accordion.Item eventKey={elem.id} key={elem.id}>
@@ -24,6 +24,8 @@ const Faq = () => {
                     ))
                 }
             </Accordion>
+            </Fade>
+
         </div>
     );
 };

@@ -39,6 +39,11 @@
     text-decoration: none;
     transition: .3s;
 }
-.NavOffCanvas .links-container a:hover{
+.NavOffCanvas .links-container a:not([href]):not([class]){
+    cursor: pointer;
+    color: var(--link-nav);
+}
+.NavOffCanvas .links-container a:hover,
+.NavOffCanvas .links-container a:not([href]):not([class]):hover{
     color: var(--white);
 }

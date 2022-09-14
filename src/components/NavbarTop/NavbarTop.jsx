@@ -4,6 +4,8 @@ import './NavbarTopMedia.css';
 import {Navbar, NavDropdown} from "react-bootstrap";
 import {getLang} from "../../functions/getLang";
 import NavOffCanvas from "./NavOffCanvas/NavOffCanvas";
+import {Link} from 'react-scroll';
+import {Slide} from "react-awesome-reveal";
 
 const NavbarTop = ({langState,handleChangeLang}) => {
 
@@ -15,6 +17,7 @@ const NavbarTop = ({langState,handleChangeLang}) => {
     const handleShow = () => setShow(true);
 
     return (
+        <Slide direction={`down`}>
         <Navbar>
             <div className="logo">
                 <img src="/images/general/logo.svg" alt=""/>
@@ -29,28 +32,34 @@ const NavbarTop = ({langState,handleChangeLang}) => {
                     }
                 </a>
 
-                <a href="#trade">
+                <Link to='trade' spy={true} smooth={true} offset={-100} duration={0}>
                     {
                         langState==='en'?'Exchanges':
                             langState==='ru'?'Обмены':'Austausch'
                     }
-                </a>
+                </Link>
 
-                <a href="#about">
+                <Link to='about' spy={true} smooth={true} offset={-200} duration={0}>
                     {
                         langState==='en'?'About us':
                             langState==='ru'?'Про нас':'Über uns'
                     }
-                </a>
+                </Link>
 
-                <a href="#faq">F.A.Q</a>
+                <Link
+                    to="faq"
+                    spy={true}
+                    smooth={true}
+                    offset={-300}
+                    duration={0}
+                >F.A.Q</Link>
 
-                <a href="#form">
+                <Link to="form" spy={true} smooth={true} offset={50} duration={0}>
                     {
                         langState==='en'?'Contacts':
                             langState==='ru'?'Контакты':'Kontakte'
                     }
-                </a>
+                </Link>
             </nav>
 
             <div className="right">
@@ -99,6 +108,7 @@ const NavbarTop = ({langState,handleChangeLang}) => {
             />
 
         </Navbar>
+        </Slide>
     );
 };
 

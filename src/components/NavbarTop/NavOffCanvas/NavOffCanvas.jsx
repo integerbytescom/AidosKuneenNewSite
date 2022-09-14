@@ -2,8 +2,15 @@ import React from 'react';
 import {NavDropdown, Offcanvas} from "react-bootstrap";
 import './NavOffCanvas.css';
 import {getLang} from "../../../functions/getLang";
+import {Link} from "react-scroll";
 
 const NavOffCanvas = ({show,handleClose,langState,handleChangeLang}) => {
+
+    const handleGoLink = (url,e) =>{
+        e.preventDefault()
+        window.location.replace(url)
+        handleClose()
+    }
 
     return (
         <Offcanvas show={show} onHide={handleClose} placement={'end'} className={'NavOffCanvas'} >
@@ -22,37 +29,40 @@ const NavOffCanvas = ({show,handleClose,langState,handleChangeLang}) => {
                     }
                 </button>
 
-                <div className={`links-container`}>
-                    <a rel={'noreferrer'} target={'_blank'} href="https://github.com/AidosKuneen/ADK-V2-Wallet/releases/tag/adk">
-                        {
-                            langState==='en'?'Download':
-                                langState==='ru'?'Скачать':'Herunterladen'
-                        }
-                    </a>
+                    <div className={`links-container`}>
+                        <a rel={'noreferrer'} target={'_blank'} href="https://github.com/AidosKuneen/ADK-V2-Wallet/releases/tag/adk">
+                            {
+                                langState==='en'?'Download':
+                                    langState==='ru'?'Скачать':'Herunterladen'
+                            }
+                        </a>
 
-                    <a href='#trade'>
-                        {
-                            langState==='en'?'Exchanges':
-                                langState==='ru'?'Обмены':'Austausch'
-                        }
-                    </a>
+                        <Link to='trade' spy={true} smooth={true} offset={-50} onClick={handleClose}>
+                            {
+                                langState==='en'?'Exchanges':
+                                    langState==='ru'?'Обмены':'Austausch'
+                            }
+                        </Link>
 
-                    <a href='#trade'>
-                        {
-                            langState==='en'?'About us':
-                                langState==='ru'?'Про нас':'Über uns'
-                        }
-                    </a>
+                        <Link to='about' spy={true} smooth={true} offset={-50} onClick={handleClose}>
+                            {
+                                langState==='en'?'About us':
+                                    langState==='ru'?'Про нас':'Über uns'
+                            }
+                        </Link>
 
-                    <a href={'#faq'}>F.A.Q</a>
+                        <Link to='faq' spy={true} smooth={true} offset={-100} onClick={handleClose}>
+                            F.A.Q
+                        </Link>
 
-                    <a href='#form'>
-                        {
-                            langState==='en'?'Contacts':
-                                langState==='ru'?'Контакты':'Kontakte'
-                        }
-                    </a>
-                </div>
+                        <Link to='form' spy={true} smooth={true} onClick={handleClose}>
+                            {
+                                langState==='en'?'Contacts':
+                                    langState==='ru'?'Контакты':'Kontakte'
+                            }
+                        </Link>
+                    </div>
+
                 </div>
 
                 <NavDropdown

@@ -31,8 +31,13 @@ nav.navbar-expand{
     text-decoration: none;
     color: var(--link-nav);
     transition: .3s;
+    cursor: pointer;
 }
-.navbar-expand nav a:hover{
+.navbar-expand nav a:not([href]):not([class]){
+    color: var(--link-nav);
+}
+.navbar-expand nav a:hover,
+.navbar-expand nav a:not([href]):not([class]):hover{
     color: var(--white);
 }
 

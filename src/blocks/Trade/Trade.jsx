@@ -3,6 +3,7 @@ import './Trade.css';
 import './TradeMedia.css';
 import dataCompanies from "./dataCompanies";
 import {useApi} from "../../hooks/useApi";
+import {Slide} from "react-awesome-reveal";
 
 const Trade = ({lang}) => {
 
@@ -37,9 +38,7 @@ const Trade = ({lang}) => {
 
 
     return (
-        <div className={`Trade container`}>
-
-            {/*<a className={'yakor'} name='trade' />*/}
+        <div id={`trade`} className={`Trade container`}>
 
             <h1>
                 {
@@ -49,6 +48,7 @@ const Trade = ({lang}) => {
             </h1>
 
             <div className="content">
+                <Slide direction={'left'}>
                 <div className="api-info">
                     <img src="/images/trade/logoAidos.svg" alt=""/>
                     <div>
@@ -66,17 +66,20 @@ const Trade = ({lang}) => {
                         </span>
                     </div>
                 </div>
+                </Slide>
 
                 <div className="companies">
-                    <div className="block one">
-                        {getCompanies(0,3)}
-                    </div>
-                    <div className="block two">
-                        {getCompanies(3,6)}
-                    </div>
-                    <div className="block three">
-                        {getCompanies(6,9)}
-                    </div>
+                    <Slide direction={'right'}>
+                        <div className="block one">
+                            {getCompanies(0,3)}
+                        </div>
+                        <div className="block two">
+                            {getCompanies(3,6)}
+                        </div>
+                        <div className="block three">
+                            {getCompanies(6,9)}
+                        </div>
+                    </Slide>
                 </div>
             </div>
         </div>

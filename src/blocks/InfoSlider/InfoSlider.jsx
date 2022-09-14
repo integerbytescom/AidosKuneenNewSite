@@ -1,6 +1,7 @@
 import React, {useState} from 'react';
 import './InfoSlider.css';
 import './InfoSliderMedia.css';
+import {Fade} from "react-awesome-reveal";
 
 const InfoSlider = ({lang}) => {
 
@@ -13,6 +14,7 @@ const InfoSlider = ({lang}) => {
     return (
         <div className={`InfoSlider`}>
 
+            <Fade>
             <header className={`container`}>
                 <div className="content">
                     <div
@@ -38,7 +40,9 @@ const InfoSlider = ({lang}) => {
                     </div>
                 </div>
             </header>
+            </Fade>
 
+            <Fade>
             <div className="content">
                 <div className="container">
                     <img src="/images/info-slider/card.svg" alt=""/>
@@ -75,6 +79,7 @@ const InfoSlider = ({lang}) => {
                     </div>
                 </div>
             </div>
+            </Fade>
         </div>
     );
 };
