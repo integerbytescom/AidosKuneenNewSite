@@ -32,6 +32,8 @@
 
 body{
     /*scroll-behavior: smooth;*/
+    overflow-x: hidden;
+    /*if delete overflow-x: hidden; this animation will be with scroll line*/
     background: var(--bg-black);
 }
 

@@ -17,7 +17,7 @@ const NavbarTop = ({langState,handleChangeLang}) => {
     const handleShow = () => setShow(true);
 
     return (
-        <Slide direction={`down`}>
+        <Slide style={{zIndex:10}} direction={`down`}>
         <Navbar>
             <div className="logo">
                 <img src="/images/general/logo.svg" alt=""/>

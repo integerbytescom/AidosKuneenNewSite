@@ -75,6 +75,7 @@ nav.navbar-expand{
     margin: 0;
     color: var(--link-nav);
     transition: .3s;
+    overflow: auto;
 }
 .navbar-expand .dropdown-menu,
 .NavOffCanvas .dropdown-menu{
@@ -85,6 +86,7 @@ nav.navbar-expand{
     background: var(--dropdown);
     border: none;
 }
+
 .navbar-expand .dropdown-menu .dropdown-item,
 .NavOffCanvas .dropdown-menu .dropdown-item{
     color: var(--white-op-50);
