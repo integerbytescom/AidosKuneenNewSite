@@ -1,10 +1,10 @@
 .About{
     color: white;
     padding: 4em 0 9em;
-    background-size: contain;
-    background-position: bottom center;
-    background-repeat: no-repeat;
-    background-image: url("/public/images/about/bg.svg");
+    /*background-size: contain;*/
+    /*background-position: bottom center;*/
+    /*background-repeat: no-repeat;*/
+    /*background-image: url("/public/images/about/bg.svg");*/
     /*background-color: rgba(255, 255, 255, 0.1);*/
 }
 

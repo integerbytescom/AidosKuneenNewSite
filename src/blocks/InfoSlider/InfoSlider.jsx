@@ -12,9 +12,9 @@ const InfoSlider = ({lang}) => {
     }
 
     return (
+        <Fade delay={500}>
         <div className={`InfoSlider`}>
-
-            <Fade>
+                
             <header className={`container`}>
                 <div className="content">
                     <div
@@ -40,11 +40,10 @@ const InfoSlider = ({lang}) => {
                     </div>
                 </div>
             </header>
-            </Fade>
 
-            <Fade>
             <div className="content">
                 <div className="container">
+
                     <img src="/images/info-slider/card.svg" alt=""/>
 
                     <div className="info">
@@ -79,8 +78,8 @@ const InfoSlider = ({lang}) => {
                     </div>
                 </div>
             </div>
-            </Fade>
         </div>
+        </Fade>
     );
 };
 

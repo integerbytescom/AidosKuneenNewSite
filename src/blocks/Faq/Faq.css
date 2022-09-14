@@ -1,6 +1,12 @@
 .Faq.container{
     padding: 0 0 8em;
 }
+
+.Faq.container h1{
+    color: var(--white);
+    margin-bottom: 1em;
+}
+
 .Faq.container .accordion-item{
     background-color: var(--op-full);
     border-bottom: 1px solid var(--white-op-20);

@@ -8,6 +8,13 @@
     /*background-color: rgba(255, 255, 255, 0.15);*/
 }
 
+.bg-info-slider{
+    z-index: -1;
+    width: 85%;
+    right: -5%;
+    position: absolute;
+}
+
 /*header*/
 .InfoSlider header{
     width: 100%;

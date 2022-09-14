@@ -2,11 +2,17 @@ import React from 'react';
 import './InfoYears.css';
 import './InfoYearsMedia.css';
 import infoYearsData from "./InfoYearsData";
-import {Slide} from "react-awesome-reveal";
+import {Fade} from "react-awesome-reveal";
 
 const InfoYears = () => {
     return (
-        <Slide direction={'up'}>
+        <Fade delay={500}>
+
+        <Fade delay={1000}>
+            <img className={'bg-info-years'} src="/images/about/bg.svg" alt=""/>
+        </Fade>
+
+
         <div className={`InfoYears`}>
             {
                 infoYearsData.map(elem =>(
@@ -23,7 +29,7 @@ const InfoYears = () => {
                 ))
             }
         </div>
-        </Slide>
+        </Fade>
     );
 };
 

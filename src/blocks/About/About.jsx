@@ -2,11 +2,15 @@ import React from 'react';
 import './About.css';
 import './AboutMedia.css';
 import aboutData from "./AboutData";
-import {Slide} from "react-awesome-reveal";
+import {Fade} from "react-awesome-reveal";
 
 const About = ({lang}) => {
     return (
         <div className={'About'} id={'about'}>
+
+            <Fade delay={500}>
+                <img className={'bg-info-years'} src="/images/about/bg.svg" alt=""/>
+            </Fade>
 
             <div className="container">
                 <h1>
@@ -15,7 +19,7 @@ const About = ({lang}) => {
                             lang==='en'?'About us':'Über uns'
                     }
                 </h1>
-                <Slide direction={'up'}>
+                <Fade delay={100}>
                     <div className="content">
                         {
                             aboutData.map(elem =>(
@@ -29,7 +33,7 @@ const About = ({lang}) => {
                             ))
                         }
                     </div>
-                </Slide>
+                </Fade>
             </div>
         </div>
     );

@@ -17,7 +17,7 @@
 
 /*api*/
 .Trade .content .api-info{
-    width: 35%;
+    /*width: 35%;*/
     display: flex;
     align-items: flex-start;
     /*background: rgba(255, 255, 255, 0.2);*/
@@ -96,6 +96,7 @@
     background: var(--compan-block-hover);
 }
 .Trade .content .companies .block a.circle-comp img{
+    cursor: inherit;
     transition: .3s;
 }
 .Trade .content .companies .block a.circle-comp:hover img{

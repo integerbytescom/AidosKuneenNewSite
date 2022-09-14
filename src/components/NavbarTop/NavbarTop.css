@@ -114,6 +114,7 @@ nav.navbar-expand{
 
 /*ofccanvas button*/
 button.open-canvas{
+    position: static;
     display: none;
     background: none;
     border: none;

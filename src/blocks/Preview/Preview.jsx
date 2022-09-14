@@ -7,6 +7,7 @@ const Preview = ({lang}) => {
     return (
         <Fade>
         <div className={`Preview`}>
+
             <img className={`wave`} src="/images/preview/waves-black.svg" alt=""/>
 
             <div className="container">
