@@ -15,6 +15,13 @@
 .NavOffCanvas .btn-close:hover{opacity: 1;}
 
 /*body*/
+.NavOffCanvas.offcanvas{
+    background-image:url("/public/images/general/logo-off.svg");
+    background-size: 70%;
+    background-repeat: no-repeat;
+    background-position: bottom right;
+}
+
 .NavOffCanvas .offcanvas-body{
     display: flex;
     align-content: space-between;

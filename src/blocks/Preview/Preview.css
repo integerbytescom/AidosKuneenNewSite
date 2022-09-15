@@ -4,10 +4,9 @@
     height: 90vh;
     min-height: 600px;
     display: flex;
-    background-color: var(--bg-black);
-    background-position:left 1em;
-    background-repeat: no-repeat;
-    background-image: url("/public/images/preview/bg.svg");
+    /*background-position:left 1em;*/
+    /*background-repeat: no-repeat;*/
+    /*background-image: url("/public/images/preview/bg.svg");*/
     /*border-bottom: 2px solid red;*/
 }
 

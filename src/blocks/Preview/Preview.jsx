@@ -5,13 +5,11 @@ import {Fade} from "react-awesome-reveal";
 
 const Preview = ({lang}) => {
     return (
-        <Fade>
+        <Fade delay={500}>
         <div className={`Preview`}>
 
-            <img className={`wave`} src="/images/preview/waves-black.svg" alt=""/>
-
             <div className="container">
-                <img src="/images/preview/laptop.svg" alt=""/>
+                <img src="/images/preview/laptop.png" alt=""/>
 
                 <div className="content">
                     <h1>
