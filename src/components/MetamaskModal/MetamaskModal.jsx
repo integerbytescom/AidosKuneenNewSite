@@ -18,12 +18,11 @@ const MetamaskModal = ({show}) => {
     }
 
     const [mmConnectRes,setMMConnectRes] = useState('');
+    const [mmConnectResNet,setMMConnectResNet] = useState('');
 
-    //for connect mm
+    //for connect mm (return adress of wallet)
     const connectMetamask = () => {
-        // Asking if metamask is already present or not
         if (window.ethereum) {
-            // res[0] for fetching a first wallet
             window.ethereum
                 .request({ method: "eth_requestAccounts" })
                 .then((res) => setMMConnectRes('Adress start with: ' + res))
@@ -32,6 +31,51 @@ const MetamaskModal = ({show}) => {
             setMMConnectRes("Error! Install metamask extension!");
         }
     };
+
+    //for connect with our net
+    const connectMetamaskNet = async () =>{
+        if (window.ethereum) {
+            await window.ethereum.request({
+                method: 'wallet_addEthereumChain',
+                params: [{
+                    chainId: '0x9d50',
+                    chainName: 'ADK Mainnet v2.1',
+                    nativeCurrency: {
+                        name: 'ADK',
+                        symbol: 'ADK',
+                        decimals: 18
+                    },
+                    rpcUrls: ['https://api1.mainnet.aidoskuneen.com:9443'],
+                    blockExplorerUrls: ['https://explorer.mainnet.aidoskuneen.com']
+                }]
+            })
+            .then(checkNet())
+            .catch(() => setMMConnectResNet('Connecting error. Try again later.'))
+        }else {
+            setMMConnectResNet("Error! Install metamask extension!");
+        }
+    }
+
+    //check connect with our net
+    const checkNet = async () =>{
+        try {
+            await window.ethereum.request({
+                method: 'eth_chainId',
+            })
+            .then(res => setMMConnectResNet(res))
+        } catch (err) {
+            alert(err);
+        }
+    }
+
+    const handleConnect = async () =>{
+        await checkNet()
+        if (mmConnectResNet !== '0x9d50'){
+            alert('Error connect')
+        }else {
+            alert('Connect success')
+        }
+    }
 
     return (
         <div
@@ -64,13 +108,17 @@ const MetamaskModal = ({show}) => {
                                 onClick={handleShowInfo}
                             />
                         </div>
-                        <button className={'add'}>
+                        <button onClick={connectMetamaskNet} className={'add'}>
                             <img src="/images/general/logo.svg" alt=""/>
                             Aidos Kuneen
                         </button>
                     </div>
 
-                    <button className={`connect`}>Connect</button>
+                    <p className={'res-mm-conn mb-4'}>
+                        {mmConnectResNet?mmConnectResNet:''}
+                    </p>
+
+                    <button onClick={handleConnect} className={`connect`}>Connect</button>
 
                 </div>
             </div>
