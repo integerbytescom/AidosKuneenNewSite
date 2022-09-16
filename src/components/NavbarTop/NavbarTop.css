@@ -50,11 +50,18 @@ nav.navbar-expand{
 /*button*/
 .navbar-expand .right button,
 .NavOffCanvas button.mm{
+    display: flex;
+    align-items: center;
     border: none;
     padding: .5em 1em;
     background: var(--but-nav);
     color: var(--bg-black);
     border-radius: .3em;
+    transition: .3s;
+}
+.navbar-expand .right button img{
+    cursor: inherit;
+    margin-left: .5em;
     transition: .3s;
 }
 .navbar-expand .right button:hover,

@@ -6,17 +6,22 @@ import {getLang} from "../../functions/getLang";
 import NavOffCanvas from "./NavOffCanvas/NavOffCanvas";
 import {Link} from 'react-scroll';
 import {Slide} from "react-awesome-reveal";
+import MetamaskModal from "../MetamaskModal/MetamaskModal";
 
 const NavbarTop = ({langState,handleChangeLang}) => {
 
     console.log(`lang:${getLang()}`)
 
+    //for offcanvas
     const [show, setShow] = useState(false);
-
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
 
+    //for modal metamask show
+    const [showMetamask,setShowMetamask] = useState(false)
+
     return (
+        <>
         <Slide style={{zIndex:10}} direction={`down`}>
         <Navbar>
             <div className="logo">
@@ -63,14 +68,20 @@ const NavbarTop = ({langState,handleChangeLang}) => {
             </nav>
 
             <div className="right">
-                <button>
+                <button onClick={() => setShowMetamask(!showMetamask)}>
                     {
                         langState==='en'?'Connect Metamask':
                             langState==='ru'?'Подключить Metamask':'Einstecken Metamask'
                     }
+                    <img
+                        style={{transform:`${showMetamask?'':'rotate(180deg)'}`}}
+                        src="/images/general/arrow.svg"
+                        alt="arrow"
+                    />
                 </button>
 
                 <div className="vert-line" />
+
                 <NavDropdown
                     title={langState==='en'?
                         'English':langState==='ru'
@@ -109,6 +120,9 @@ const NavbarTop = ({langState,handleChangeLang}) => {
 
         </Navbar>
         </Slide>
+
+        <MetamaskModal show={showMetamask} />
+        </>
     );
 };
 

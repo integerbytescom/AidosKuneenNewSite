@@ -6,12 +6,6 @@ import {Link} from "react-scroll";
 
 const NavOffCanvas = ({show,handleClose,langState,handleChangeLang}) => {
 
-    const handleGoLink = (url,e) =>{
-        e.preventDefault()
-        window.location.replace(url)
-        handleClose()
-    }
-
     return (
         <Offcanvas show={show} onHide={handleClose} placement={'end'} className={'NavOffCanvas'} >
             <Offcanvas.Header closeButton>

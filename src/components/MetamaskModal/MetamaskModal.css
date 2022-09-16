@@ -1,0 +1,105 @@
+.MetamaskModal{
+    z-index: 10;
+    width: 20em;
+    position: absolute;
+    right: 5em;
+    background: linear-gradient(270deg, #27293B 0%, #292B3E 100%);
+    border-radius: .2em;
+    transition: .3s;
+}
+.MetamaskModal .bg-container{
+    width: inherit;
+    height: inherit;
+    background-image: url("/public/images/about/bg.svg");
+    background-repeat: no-repeat;
+    background-size: 500%;
+    background-position: 0 -200%;
+}
+
+/*container for content*/
+.MetamaskModal .content{
+    display: flex;
+    justify-content: flex-end;
+    flex-wrap: wrap;
+    padding: 2em;
+}
+
+.MetamaskModal .block{
+    width: 100%;
+    margin-bottom: 1.5em;
+    /*background: rgba(255, 0, 0, 0.1);*/
+}
+
+.MetamaskModal .block .text{
+    position: relative;
+    padding: 10px 0;
+    display: flex;
+    align-items: center;
+    margin-bottom: .2em;
+}
+
+/*for info button*/
+.MetamaskModal .block .text img.info{
+    cursor: pointer;
+    margin-left: .5em;
+    height: 1em;
+    transition: .3s;
+}
+.MetamaskModal .block .text img.info:hover{
+    opacity: .5;
+}
+
+.MetamaskModal .block .text .circle{
+    width: 2em;
+    height: 2em;
+    margin-right: .8em;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: 500;
+    border-radius: 50%;
+    color: var(--white);
+    background: linear-gradient(5.67deg, #2A706B -5.62%, #16637A 99.74%);
+}
+.MetamaskModal .block .text p{
+    font-weight: 300;
+    color: var(--white);
+    padding: 0;
+    margin: 0;
+}
+
+/*button block inner*/
+.MetamaskModal .block button{
+    width: 80%;
+    margin-left: 20%;
+    color: var(--white);
+    background: var(--dropdown);
+    border: none;
+    padding: 10px 0;
+    border-radius: .2em;
+}
+/*button with logo*/
+.MetamaskModal .block button.add{
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    background: rgba(4, 202, 115, 0.1);
+}
+.MetamaskModal .block button.add img{
+    height: 1.4em;
+}
+
+
+/*button connect blue*/
+.MetamaskModal button.connect{
+    color: var(--white);
+    border-radius: .2em;
+    padding: .7em 2em;
+    border: none;
+    background: var(--but-blue);
+    transition: .3s;
+}
+.MetamaskModal button.connect:hover{
+    padding: .7em 3em;
+    background: var(--but-blue-hover);
+}
