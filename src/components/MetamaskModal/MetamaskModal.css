@@ -1,8 +1,9 @@
 .MetamaskModal{
-    z-index: 10;
+    z-index: 10000;
     width: 20em;
     position: absolute;
-    right: 5em;
+    top: 4.5em;
+    right: 8em;
     background: linear-gradient(270deg, #27293B 0%, #292B3E 100%);
     border-radius: .2em;
     transition: .3s;
@@ -86,6 +87,7 @@
     background: rgba(4, 202, 115, 0.1);
 }
 .MetamaskModal .block button.add img{
+    cursor: inherit;
     height: 1.4em;
 }
 
@@ -102,4 +104,14 @@
 .MetamaskModal button.connect:hover{
     padding: .7em 3em;
     background: var(--but-blue-hover);
+}
+
+/*errors or res p*/
+.res-mm-conn{
+    overflow-x: hidden;
+    padding: 0;
+    margin: 0;
+    color: var(--white);
+    font-size: .8em;
+    font-weight: 300;
 }

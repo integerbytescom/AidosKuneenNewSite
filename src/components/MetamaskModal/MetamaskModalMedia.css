@@ -1,0 +1,17 @@
+@media screen and (max-width: 1200px){
+    .MetamaskModal{
+        top: 7.5em;
+        right: 2.9em;
+    }
+}
+@media screen and (max-width: 400px){
+    .MetamaskModal{
+        right: auto;
+        left: 10%;
+        width: 17.5em;
+    }
+    .MetamaskModal .bg-container{
+        background-size: 600%;
+        background-position: 0 -150%;
+    }
+}

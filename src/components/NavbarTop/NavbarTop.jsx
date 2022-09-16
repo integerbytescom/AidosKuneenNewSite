@@ -116,6 +116,9 @@ const NavbarTop = ({langState,handleChangeLang}) => {
                 handleClose={handleClose}
                 handleChangeLang={handleChangeLang}
                 langState={langState}
+                //mm
+                showMetamask={showMetamask}
+                setShowMetamask={setShowMetamask}
             />
 
         </Navbar>

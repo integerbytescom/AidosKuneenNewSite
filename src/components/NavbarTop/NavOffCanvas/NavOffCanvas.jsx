@@ -3,10 +3,12 @@ import {NavDropdown, Offcanvas} from "react-bootstrap";
 import './NavOffCanvas.css';
 import {getLang} from "../../../functions/getLang";
 import {Link} from "react-scroll";
+import MetamaskModal from "../../MetamaskModal/MetamaskModal";
 
-const NavOffCanvas = ({show,handleClose,langState,handleChangeLang}) => {
+const NavOffCanvas = ({show,handleClose,langState,handleChangeLang,showMetamask,setShowMetamask}) => {
 
     return (
+        <>
         <Offcanvas show={show} onHide={handleClose} placement={'end'} className={'NavOffCanvas'} >
             <Offcanvas.Header closeButton>
                 <Offcanvas.Title>
@@ -16,11 +18,21 @@ const NavOffCanvas = ({show,handleClose,langState,handleChangeLang}) => {
             <Offcanvas.Body>
 
                 <div className={'content'}>
-                <button className={'mm'}>
+                <button onClick={() => setShowMetamask(!showMetamask)} className={'mm'}>
                     {
                         langState==='en'?'Connect Metamask':
                             langState==='ru'?'Подключить Metamask':'Einstecken Metamask'
                     }
+                    <img
+                        style={{
+                            transform:`${showMetamask?'':'rotate(180deg)'}`,
+                            marginLeft:5,
+                            transition:".3s",
+                            cursor:"inherit"
+                        }}
+                        src="/images/general/arrow.svg"
+                        alt="arrow"
+                    />
                 </button>
 
                     <div className={`links-container`}>
@@ -83,6 +95,9 @@ const NavOffCanvas = ({show,handleClose,langState,handleChangeLang}) => {
 
             </Offcanvas.Body>
         </Offcanvas>
+
+        <MetamaskModal show={showMetamask} />
+        </>
     );
 };
 

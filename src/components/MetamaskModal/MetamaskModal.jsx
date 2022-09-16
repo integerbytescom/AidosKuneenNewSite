@@ -1,8 +1,10 @@
-import React from 'react';
+import React, {useState} from 'react';
 import './MetamaskModal.css';
+import './MetamaskModalMedia.css';
 
 const MetamaskModal = ({show}) => {
 
+    //for info button (img)
     const handleShowInfo = () =>{
         alert(
             `1. Open Metamask \n` +
@@ -15,10 +17,21 @@ const MetamaskModal = ({show}) => {
         )
     }
 
-    const connectMetamask = async () =>{
-        let value = await window.ethereum.request({ method: 'eth_requestAccounts' })
-        alert(value)
-    }
+    const [mmConnectRes,setMMConnectRes] = useState('');
+
+    //for connect mm
+    const connectMetamask = () => {
+        // Asking if metamask is already present or not
+        if (window.ethereum) {
+            // res[0] for fetching a first wallet
+            window.ethereum
+                .request({ method: "eth_requestAccounts" })
+                .then((res) => setMMConnectRes('Adress start with: ' + res))
+                .catch(() => setMMConnectRes('Connecting error. Try again later.'))
+        } else {
+            setMMConnectRes("Error! Install metamask extension!");
+        }
+    };
 
     return (
         <div
@@ -35,6 +48,10 @@ const MetamaskModal = ({show}) => {
                         </div>
                         <button onClick={connectMetamask}>Connect</button>
                     </div>
+
+                    <p className={'res-mm-conn'}>
+                        {mmConnectRes?mmConnectRes:''}
+                    </p>
 
                     <div className="block">
                         <div className="text">
