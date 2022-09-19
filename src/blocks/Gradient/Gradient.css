@@ -1,0 +1,5 @@
+.Gradient{
+    margin: -30vh 0 0;
+    height: 30vh;
+    background: linear-gradient(rgba(0, 0, 0, 0),var(--bg-black));
+}

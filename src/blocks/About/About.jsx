@@ -13,12 +13,13 @@ const About = ({lang}) => {
             </Fade>
 
             <div className="container">
-                <h1>
-                    {
-                        lang==='ru'?'Про нас':
-                            lang==='en'?'About us':'Über uns'
-                    }
-                </h1>
+                {/*<h1>*/}
+                {/*    {*/}
+                {/*        lang==='ru'?'Про нас':*/}
+                {/*            lang==='en'?'About us':'Über uns'*/}
+                {/*    }*/}
+                {/*</h1>*/}
+
                 <Fade delay={100}>
                     <div className="content">
                         {

@@ -5,7 +5,7 @@ import {Navbar, NavDropdown} from "react-bootstrap";
 import {getLang} from "../../functions/getLang";
 import NavOffCanvas from "./NavOffCanvas/NavOffCanvas";
 import {Link} from 'react-scroll';
-import {Slide} from "react-awesome-reveal";
+import {Fade} from "react-awesome-reveal";
 import MetamaskModal from "../MetamaskModal/MetamaskModal";
 
 const NavbarTop = ({langState,handleChangeLang}) => {
@@ -22,7 +22,7 @@ const NavbarTop = ({langState,handleChangeLang}) => {
 
     return (
         <>
-        <Slide style={{zIndex:10}} direction={`down`}>
+        <Fade style={{zIndex:10}} direction={`down`}>
         <Navbar>
             <div className="logo">
                 <img src="/images/general/logo.svg" alt=""/>
@@ -30,12 +30,12 @@ const NavbarTop = ({langState,handleChangeLang}) => {
             </div>
 
             <nav>
-                <a rel={'noreferrer'} target={"_blank"} href="https://github.com/AidosKuneen/ADK-V2-Wallet/releases/tag/adk">
+                <Link to='about' spy={true} smooth={true} offset={-200} duration={0}>
                     {
-                        langState==='en'?'Download':
-                            langState==='ru'?'Скачать':'Herunterladen'
+                        langState==='en'?'About us':
+                            langState==='ru'?'Про нас':'Über uns'
                     }
-                </a>
+                </Link>
 
                 <Link to='trade' spy={true} smooth={true} offset={-100} duration={0}>
                     {
@@ -44,12 +44,12 @@ const NavbarTop = ({langState,handleChangeLang}) => {
                     }
                 </Link>
 
-                <Link to='about' spy={true} smooth={true} offset={-200} duration={0}>
+                <a rel={'noreferrer'} target={"_blank"} href="https://github.com/AidosKuneen/ADK-V2-Wallet/releases/tag/adk">
                     {
-                        langState==='en'?'About us':
-                            langState==='ru'?'Про нас':'Über uns'
+                        langState==='en'?'Wallet':
+                            langState==='ru'?'Кошелек':'Geldbörse'
                     }
-                </Link>
+                </a>
 
                 <Link
                     to="faq"
@@ -61,7 +61,7 @@ const NavbarTop = ({langState,handleChangeLang}) => {
 
                 <Link to="form" spy={true} smooth={true} offset={50} duration={0}>
                     {
-                        langState==='en'?'Contacts':
+                        langState==='en'?'Contact us':
                             langState==='ru'?'Контакты':'Kontakte'
                     }
                 </Link>
@@ -122,7 +122,7 @@ const NavbarTop = ({langState,handleChangeLang}) => {
             />
 
         </Navbar>
-        </Slide>
+        </Fade>
 
         <MetamaskModal show={showMetamask} />
         </>

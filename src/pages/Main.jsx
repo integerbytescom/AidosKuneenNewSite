@@ -12,6 +12,8 @@ import FooterBottom from "../components/FooterBottom/FooterBottom";
 import FormContact from "../blocks/FormContact/FormContact";
 import {Parallax} from "react-parallax";
 import { useMediaQuery } from 'react-responsive'
+import BgVideo from "../blocks/BgVideo/BgVideo";
+import Gradient from "../blocks/Gradient/Gradient";
 
 
 const Main = () => {
@@ -34,24 +36,36 @@ const Main = () => {
         <>
             <NavbarTop langState={langState} handleChangeLang={handleChangeLang} />
 
-            <Parallax
-                className={'parallax-container'}
-                blur={0}
-                bgImage={'/images/preview/bg-main.png'}
-                strength={media1000?400:700}
-                bgImageStyle={{width:media1000?"200%":"100%",height:"100vh",top:media1000?"-5%":"5%"}}
-            >
-                <Preview lang={langState} />
-                <Trade lang={langState} />
-            </Parallax>
+            <BgVideo lang={langState} />
 
+            <Gradient />
+
+            <Trade lang={langState} />
             <About lang={langState} />
             <InfoSlider lang={langState} />
             <InfoYears lang={langState} />
             <Faq lang={langState} />
-            <FormContact lang={langState} />
+            {/*<FormContact lang={langState} />*/}
 
-            <FooterBottom lang={langState} />
+            <Parallax
+                className={'parallax-container'}
+                blur={0}
+                bgImage={'/images/preview/bg-main.png'}
+                strength={media1000?400:-250}
+                bgImageStyle={{width:media1000?"200%":"100%",height:"110vh",top:media1000?"30%":"15%"}}
+            >
+                <Preview lang={langState} />
+
+                {/*form text block with email*/}
+                <div className="form-text container mb-5">
+                    <h6>
+                        For any feedback , suggestions or business proposals write email to:
+                    </h6>
+                    <h3><a href="mailto:admin@aidoskuneen.com">admin@aidoskuneen.com</a></h3>
+                </div>
+
+                <FooterBottom lang={langState} />
+            </Parallax>
         </>
     );
 };

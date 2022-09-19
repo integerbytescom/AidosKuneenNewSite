@@ -40,12 +40,12 @@ const Trade = ({lang}) => {
     return (
         <div id={`trade`} className={`Trade container`}>
 
-            <h1>
-                {
-                    lang==='en'?'Exсhanges':
-                        lang==='ru'?'Обмены':'Austausch'
-                }
-            </h1>
+            {/*<h1>*/}
+            {/*    {*/}
+            {/*        lang==='en'?'Exсhanges':*/}
+            {/*            lang==='ru'?'Обмены':'Austausch'*/}
+            {/*    }*/}
+            {/*</h1>*/}
 
             <div className="content">
                 <Slide direction={'left'}>

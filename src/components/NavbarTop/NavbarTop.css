@@ -1,5 +1,7 @@
 /*navbar main*/
 nav.navbar-expand{
+    width: 100%;
+    position: absolute;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -29,16 +31,16 @@ nav.navbar-expand{
 .navbar-expand nav a{
     margin: 0 1.5em;
     text-decoration: none;
-    color: var(--link-nav);
+    color: var(--white);
     transition: .3s;
     cursor: pointer;
 }
 .navbar-expand nav a:not([href]):not([class]){
-    color: var(--link-nav);
+    color: var(--white);
 }
 .navbar-expand nav a:hover,
 .navbar-expand nav a:not([href]):not([class]):hover{
-    color: var(--white);
+    color: var(--white-op-50);
 }
 
 /*right block*/

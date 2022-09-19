@@ -9,7 +9,7 @@ const Faq = () => {
     return (
         <div className={`Faq container`}>
 
-            <h1>FAQ</h1>
+            {/*<h1>FAQ</h1>*/}
 
             <Fade>
             <Accordion id={'faq'} defaultActiveKey="1" flush>
