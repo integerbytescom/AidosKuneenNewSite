@@ -9,11 +9,10 @@ import NavbarTop from "../components/NavbarTop/NavbarTop";
 import {getLang} from "../functions/getLang";
 import {setLang} from "../functions/setLang";
 import FooterBottom from "../components/FooterBottom/FooterBottom";
-import FormContact from "../blocks/FormContact/FormContact";
+// import FormContact from "../blocks/FormContact/FormContact";
 import {Parallax} from "react-parallax";
 import { useMediaQuery } from 'react-responsive'
 import BgVideo from "../blocks/BgVideo/BgVideo";
-import Gradient from "../blocks/Gradient/Gradient";
 
 
 const Main = () => {
@@ -38,9 +37,8 @@ const Main = () => {
 
             <BgVideo lang={langState} />
 
-            <Gradient />
-
             <Trade lang={langState} />
+
             <About lang={langState} />
             <InfoSlider lang={langState} />
             <InfoYears lang={langState} />
@@ -59,9 +57,13 @@ const Main = () => {
                 {/*form text block with email*/}
                 <div className="form-text container mb-5">
                     <h6>
-                        For any feedback , suggestions or business proposals write email to:
+                        {
+                            langState==='en'?'For any feedback , suggestions or business proposals write email to:':
+                                langState==='ru'?'Для любых отзывов или деловых предложений пишите на почту':
+                                    'Für Feedback, Vorschläge oder Geschäftsvorschläge schreiben Sie eine E-Mail an'
+                        }
                     </h6>
-                    <h3><a href="mailto:admin@aidoskuneen.com">admin@aidoskuneen.com</a></h3>
+                    <h4><a href="mailto:admin@aidoskuneen.com">admin@aidoskuneen.com</a></h4>
                 </div>
 
                 <FooterBottom lang={langState} />

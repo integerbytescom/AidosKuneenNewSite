@@ -56,8 +56,8 @@ nav.navbar-expand{
     align-items: center;
     border: none;
     padding: .5em 1em;
-    background: var(--but-nav);
-    color: var(--bg-black);
+    background: var(--but-blue);
+    color: var(--white);
     border-radius: .3em;
     transition: .3s;
 }
@@ -68,7 +68,7 @@ nav.navbar-expand{
 }
 .navbar-expand .right button:hover,
 .NavOffCanvas button.mm:hover{
-    background: var(--but-nav-hover);
+    background: var(--but-blue-hover);
 }
 
 .navbar-expand .right .vert-line{

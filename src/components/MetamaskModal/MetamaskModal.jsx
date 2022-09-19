@@ -1,4 +1,4 @@
-import React, {useCallback, useEffect, useState} from 'react';
+import React from 'react';
 import './MetamaskModal.css';
 import './MetamaskModalMedia.css';
 
@@ -31,7 +31,10 @@ const MetamaskModal = ({show}) => {
                             <div className="circle">1</div>
                             <p>Connect Metamask</p>
                         </div>
-                        <button>Connect</button>
+                        <button className={'success'}>
+                            <img src="/images/general/success.svg" alt="success"/>
+                            Connect
+                        </button>
                     </div>
 
                     <p className={'res-mm-conn'}></p>
@@ -56,7 +59,7 @@ const MetamaskModal = ({show}) => {
                     <p className={'res-mm-conn mb-4'}>
                     </p>
 
-                    <button className={`connect`}>Connect</button>
+                    {/*<button className={`connect`}>Connect</button>*/}
 
                 </div>
             </div>

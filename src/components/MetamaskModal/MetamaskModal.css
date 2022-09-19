@@ -4,8 +4,8 @@
     position: absolute;
     top: 4.5em;
     right: 8em;
-    background: linear-gradient(270deg, #27293B 0%, #292B3E 100%);
-    border-radius: .2em;
+    background: linear-gradient(317.34deg, #1D1F2F 7.43%, #212331 90.42%);
+    border-radius: .4em;
     transition: .3s;
 }
 .MetamaskModal .bg-container{
@@ -14,7 +14,7 @@
     background-image: url("/public/images/about/bg.svg");
     background-repeat: no-repeat;
     background-size: 500%;
-    background-position: 0 -200%;
+    background-position: 0 -100%;
 }
 
 /*container for content*/
@@ -51,8 +51,8 @@
 }
 
 .MetamaskModal .block .text .circle{
-    width: 2em;
-    height: 2em;
+    width: 2.2em;
+    height: 2.2em;
     margin-right: .8em;
     display: flex;
     justify-content: center;
@@ -61,6 +61,7 @@
     border-radius: 50%;
     color: var(--white);
     background: linear-gradient(5.67deg, #2A706B -5.62%, #16637A 99.74%);
+
 }
 .MetamaskModal .block .text p{
     font-weight: 300;
@@ -70,14 +71,20 @@
 }
 
 /*button block inner*/
-.MetamaskModal .block button{
+.MetamaskModal .block button {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
     width: 80%;
     margin-left: 20%;
     color: var(--white);
-    background: var(--dropdown);
+    background: var(--but-blue);
     border: none;
     padding: 10px 0;
-    border-radius: .2em;
+}
+/*button with success arrow*/
+.MetamaskModal .block button img{
+    cursor: inherit;
 }
 /*button with logo*/
 .MetamaskModal .block button.add{
@@ -87,7 +94,6 @@
     background: rgba(4, 202, 115, 0.1);
 }
 .MetamaskModal .block button.add img{
-    cursor: inherit;
     height: 1.4em;
 }
 

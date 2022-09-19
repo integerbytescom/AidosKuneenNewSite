@@ -75,7 +75,7 @@ const NavbarTop = ({langState,handleChangeLang}) => {
                     }
                     <img
                         style={{transform:`${showMetamask?'':'rotate(180deg)'}`}}
-                        src="/images/general/arrow.svg"
+                        src="/images/general/arrow-white.svg"
                         alt="arrow"
                     />
                 </button>
