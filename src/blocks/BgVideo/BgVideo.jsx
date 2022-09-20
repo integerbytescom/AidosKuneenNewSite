@@ -3,6 +3,7 @@ import './BgVideo.css';
 import Gradient from "../Gradient/Gradient";
 
 const BgVideo = () => {
+
     return (
         <div className={'BgVideo'}>
             {/*для платного перехода между видео и далее блоками*/}

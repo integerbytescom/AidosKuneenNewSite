@@ -14,7 +14,7 @@
     background-image: url("/public/images/about/bg.svg");
     background-repeat: no-repeat;
     background-size: 500%;
-    background-position: 0 -100%;
+    background-position: 0 -50%;
 }
 
 /*container for content*/
@@ -22,32 +22,46 @@
     display: flex;
     justify-content: flex-end;
     flex-wrap: wrap;
-    padding: 2em;
+    padding: 1.5em 2em;
 }
 
 .MetamaskModal .content header{
     width: 100%;
     display: flex;
-    justify-content: space-between;
-}
-.MetamaskModal .content header h6{
-    margin: 0;
-    color: var(--white);
+    flex-wrap: wrap;
 }
 .MetamaskModal .content header .block{
-    width: 48%;
-    height: 50px;
+    width: 100%;
+    margin: 0;
+    height: auto;
+    padding: .8em;
     background: var(--op);
     border-radius: .5em;
     display: flex;
-    justify-content: center;
-    align-content: center;
-    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: flex-end;
+}
+.MetamaskModal .content header .block.acc{
+    margin: .6em 0;
+}
+.MetamaskModal .content header .block span{
+    display: flex;
+    align-items: flex-end;
+}
+.MetamaskModal .content header h6{
+    font-size: .75em;
+    font-weight: 400;
+    margin: 0;
+    color: var(--white);
 }
 .MetamaskModal .content header .block p{
-    width: auto;
-    margin: 0;
-    color: var(--white-op-80);
+    font-size: .85em;
+    margin: 0 0 -.13em .5em;
+    color: var(--but-nav);
+    transition: .3s;
+}
+.MetamaskModal .content header .block.acc p{
+    margin: 0 0 -.13em 0;
 }
 
 .MetamaskModal .block{
@@ -97,6 +111,7 @@
 
 /*button block inner*/
 .MetamaskModal .block button {
+    height: 3em;
     display: flex;
     justify-content: space-evenly;
     align-items: center;
@@ -106,6 +121,7 @@
     background: var(--but-blue);
     border: none;
     padding: 10px 0;
+    transition: .3s;
 }
 /*button with success arrow*/
 .MetamaskModal .block button img{
@@ -120,6 +136,12 @@
 }
 .MetamaskModal .block button.add img{
     height: 1.4em;
+}
+.MetamaskModal .block button:hover{
+    background: var(--but-blue-hover);
+}
+.MetamaskModal .block button.add:hover{
+    background: rgba(4, 202, 115, 0.3);
 }
 
 

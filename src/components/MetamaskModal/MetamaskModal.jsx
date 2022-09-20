@@ -38,7 +38,7 @@ const MetamaskModal = ({show}) => {
                 setError('Connect error!')
             }
         }else {
-            setError('Install metamask!')
+            setError('Install metamask extension!')
         }
     }
 
@@ -51,7 +51,7 @@ const MetamaskModal = ({show}) => {
                 setError('Disconnect error!')
             }
         }else {
-            setError('Install metamask!')
+            setError('Install metamask extension!')
         }
     }
 
@@ -76,6 +76,13 @@ const MetamaskModal = ({show}) => {
             })
     }
 
+    const [copy,setCopy] = useState(false)
+    const handleCopy =() =>{
+        setCopy(true)
+        navigator.clipboard.writeText(account)
+        setTimeout(() => setCopy(false),3000)
+    }
+
     useEffect(() => {
         const connectWalletOnPageLoad = async () => {
             if (window.ethereum){
@@ -88,7 +95,7 @@ const MetamaskModal = ({show}) => {
                     }
                 }
             }else {
-                setError('Install metamask!')
+                setError('Install metamask extension!')
             }
         }
         connectWalletOnPageLoad()
@@ -103,21 +110,33 @@ const MetamaskModal = ({show}) => {
                 <div className="content">
 
                     <header>
-                        <div className="block">
-                            <h6>Account</h6>
-                            <p className={'small'}>
-                                {active ? account.slice(0,10)+'...' : 'Not connected'}
-                            </p>
-                        </div>
-                        <div className="block">
-                            <h6>Network</h6>
-                            <p className={'small'}>
-                                {
-                                    chainId === 40272?
-                                        'ADK Mainnet':'Not connected'
-                                }
-                            </p>
-                        </div>
+                        {
+                            chainId === 40272?
+                                <div className="block">
+                                    <img src="/images/general/globe.svg" alt="globe"/>
+                                    <span>
+                                        <h6>Connect to</h6>
+                                        <p className={'small'}>Aidos Network</p>
+                                    </span>
+                                </div>:''
+                        }
+                        {
+                            active?
+                                <div className="block acc">
+                                    <p className={'small'}>
+                                        {account ?
+                                            copy?'Copied': account.slice(0,18)+'...'
+                                            :
+                                            'Account not connected'
+                                        }
+                                    </p>
+                                    <img onClick={handleCopy}
+                                         style={{cursor:"grab"}}
+                                         src="/images/general/copy.svg"
+                                         alt="copy"
+                                    />
+                                </div>:''
+                        }
                     </header>
 
                     <div className="block">
