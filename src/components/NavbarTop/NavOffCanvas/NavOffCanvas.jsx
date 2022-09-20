@@ -4,8 +4,11 @@ import './NavOffCanvas.css';
 import {getLang} from "../../../functions/getLang";
 import {Link} from "react-scroll";
 import MetamaskModal from "../../MetamaskModal/MetamaskModal";
+import {useWeb3React} from "@web3-react/core";
 
 const NavOffCanvas = ({show,handleClose,langState,handleChangeLang,showMetamask,setShowMetamask}) => {
+
+    const {active, chainId} = useWeb3React()
 
     return (
         <>
@@ -18,10 +21,13 @@ const NavOffCanvas = ({show,handleClose,langState,handleChangeLang,showMetamask,
             <Offcanvas.Body>
 
                 <div className={'content'}>
-                <button onClick={() => setShowMetamask(!showMetamask)} className={'mm'}>
+                <button
+                    onClick={() => setShowMetamask(!showMetamask)}
+                    className={active && chainId !== 40272?'mm mmCon':chainId === 40272?'mm accCon':'mm'}
+                >
                     {
-                        langState==='en'?'Connect Metamask':
-                            langState==='ru'?'Подключить Metamask':'Einstecken Metamask'
+                        active && chainId !== 40272 ? 'Metamask connected':
+                            chainId === 40272 ? 'Account connected': 'Connect Metamask'
                     }
                     <img
                         style={{

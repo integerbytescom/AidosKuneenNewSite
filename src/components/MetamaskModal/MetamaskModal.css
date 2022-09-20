@@ -25,6 +25,31 @@
     padding: 2em;
 }
 
+.MetamaskModal .content header{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+.MetamaskModal .content header h6{
+    margin: 0;
+    color: var(--white);
+}
+.MetamaskModal .content header .block{
+    width: 48%;
+    height: 50px;
+    background: var(--op);
+    border-radius: .5em;
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    flex-wrap: wrap;
+}
+.MetamaskModal .content header .block p{
+    width: auto;
+    margin: 0;
+    color: var(--white-op-80);
+}
+
 .MetamaskModal .block{
     width: 100%;
     margin-bottom: 1.5em;

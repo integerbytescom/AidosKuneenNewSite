@@ -13,6 +13,8 @@ import FooterBottom from "../components/FooterBottom/FooterBottom";
 import {Parallax} from "react-parallax";
 import { useMediaQuery } from 'react-responsive'
 import BgVideo from "../blocks/BgVideo/BgVideo";
+import Web3 from "web3";
+import { Web3ReactProvider } from '@web3-react/core'
 
 
 const Main = () => {
@@ -20,6 +22,10 @@ const Main = () => {
         query: '(max-width: 1000px)'
     })
 
+    //ethereum
+    function getLibrary(provider) {
+        return new Web3(provider)
+    }
 
     //for language
     const [langState,setLangState] = useState(getLang())
@@ -32,7 +38,7 @@ const Main = () => {
     }
 
     return (
-        <>
+        <Web3ReactProvider getLibrary={getLibrary}>
             <NavbarTop langState={langState} handleChangeLang={handleChangeLang} />
 
             <BgVideo lang={langState} />
@@ -68,7 +74,7 @@ const Main = () => {
 
                 <FooterBottom lang={langState} />
             </Parallax>
-        </>
+        </Web3ReactProvider>
     );
 };
 

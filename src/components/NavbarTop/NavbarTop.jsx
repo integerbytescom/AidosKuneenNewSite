@@ -7,6 +7,7 @@ import NavOffCanvas from "./NavOffCanvas/NavOffCanvas";
 import {Link} from 'react-scroll';
 import {Fade} from "react-awesome-reveal";
 import MetamaskModal from "../MetamaskModal/MetamaskModal";
+import {useWeb3React} from "@web3-react/core";
 
 const NavbarTop = ({langState,handleChangeLang}) => {
 
@@ -19,6 +20,8 @@ const NavbarTop = ({langState,handleChangeLang}) => {
 
     //for modal metamask show
     const [showMetamask,setShowMetamask] = useState(false)
+
+    const {active, chainId} = useWeb3React()
 
     return (
         <>
@@ -68,10 +71,13 @@ const NavbarTop = ({langState,handleChangeLang}) => {
             </nav>
 
             <div className="right">
-                <button onClick={() => setShowMetamask(!showMetamask)}>
+                <button
+                    className={active && chainId !== 40272?'mmCon':chainId === 40272?'accCon':''}
+                    onClick={() => setShowMetamask(!showMetamask)}
+                >
                     {
-                        langState==='en'?'Connect Metamask':
-                            langState==='ru'?'Подключить Metamask':'Einstecken Metamask'
+                        active && chainId !== 40272 ? 'Metamask connected':
+                            chainId === 40272 ? 'Account connected': 'Connect Metamask'
                     }
                     <img
                         style={{transform:`${showMetamask?'':'rotate(180deg)'}`}}
