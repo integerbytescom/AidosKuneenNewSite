@@ -4,18 +4,25 @@ import './InfoYearsMedia.css';
 import infoYearsData from "./InfoYearsData";
 import {Fade} from "react-awesome-reveal";
 import {useMediaQuery} from "react-responsive";
+import {getLang} from "../../functions/getLang";
+import InfoYearsModal from "./InfoYearsModal/InfoYearsModal";
 
 const InfoYears = () => {
+
+    const [modal,setModal] = useState(false)
+    const [modalInfo,setModalInfo] = useState({})
+    const handleOpenModal = elem =>{
+        setModalInfo({...elem});
+        setModal(true)
+    }
 
     //media query
     const media1400 = useMediaQuery({query: '(min-width: 1400px)'})
     const media1000 = useMediaQuery({query: '(min-width: 1000px) and (max-width: 1399px)'})
     const media600 = useMediaQuery({query: '(min-width: 600px) and (max-width: 999px)'})
-    console.log(media1400,'media1400')
-    console.log(media1000,'media1000')
 
     //what elems show in slider
-    const [showElem,setShowElem] = useState(
+    const [showElem] = useState(
         media1400?4:media1000?3:media600?2:1
     )
     const [showElems,setShowElems] = useState([0, showElem])
@@ -64,6 +71,12 @@ const InfoYears = () => {
                                 <div>
                                     <p className={`title ${elem.active?'active':''}`}>{elem.title}</p>
                                     <p>{elem.text}</p>
+                                    <button onClick={() => handleOpenModal(elem)} className={`more`}>
+                                        {
+                                            getLang() === 'ru'?'Подробнее':
+                                                getLang()==='en'?'More info': 'Mehr'
+                                        }
+                                    </button>
                                 </div>
                             </div>
                             {elem.delLine ?? <div className={'line'}/>}
@@ -85,6 +98,10 @@ const InfoYears = () => {
                 />
             </button>
         </div>
+
+            {/*modal*/}
+            <InfoYearsModal show={modal} onHide={() => setModal(false)} info={modalInfo} />
+
         </Fade>
     );
 };

@@ -1,0 +1,18 @@
+.InfoYearsModal .modal-content{
+    padding: 1em;
+    background: var(--bg-black);
+    color: var(--white);
+}
+.InfoYearsModal .modal-header{
+    border-bottom: none;
+}
+
+.InfoYearsModal .modal-body p{
+    font-weight: 300;
+    font-size: .8em;
+    color: var(--white-op-50);
+}
+
+.InfoYearsModal .btn-close{
+    background: url("/public/images/general/x.svg") center/1.5em auto no-repeat;
+}

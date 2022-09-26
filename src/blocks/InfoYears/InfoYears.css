@@ -52,6 +52,11 @@ button.arrow-but:disabled:hover{
     transition: .3s;
     /*background: rgba(255, 255, 255, 0.28);*/
 }
+.InfoYears .block div{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
 .InfoYears .block span,
 .InfoYears .block p{
     width: 100%;
@@ -67,6 +72,18 @@ button.arrow-but:disabled:hover{
 }
 .InfoYears .block p.title.active{
     color: var(--but-nav);
+}
+
+
+/*buttom for modal*/
+.InfoYears .block button.more{
+    color: var(--but-blue);
+    background: none;
+    border: none;
+    transition: .3s;
+}
+.InfoYears .block button.more:hover{
+    color: var(--but-blue-hover);
 }
 
 .InfoYears .line{
