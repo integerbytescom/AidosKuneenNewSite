@@ -1,40 +1,24 @@
-@media screen and (max-width: 1200px){
-    .InfoYears{
-        width: 100%;
-        padding: 2em 0 5em;
-        justify-content: center;
-        flex-wrap: wrap;
-    }
-    .InfoYears .line{display: none}
+@media screen and (max-width: 1400px){
     .InfoYears .block{
-        margin: 1.5em 1em;
-        width: calc(32% - 2em);
-    }
-}
-
-@media screen and (max-width: 900px){
-    .InfoYears{
-        justify-content: flex-start;
-    }
-    .InfoYears .block{
-        margin: 1em 1em;
-        width: calc(50% - 2em);
+        width: calc(33% - 4em);
     }
     .InfoYears .block span{
-        font-size: 2.1em;
-        margin-bottom: .1em;
+        font-size: 2.4em;
     }
 }
 
-@media screen and (max-width: 500px){
-    .InfoYears .block{
-        width: calc(100% - 2em);
-        margin: .5em 1em;
-        justify-content: flex-start;
+@media screen and (max-width: 1000px){
+    .InfoYears{
+        padding: 4em .5% 8em;
     }
-    .InfoYears .block span,
-    .InfoYears .block p{
-        width: 100%;
-        text-align: start;
+    .InfoYears .block{
+        width: calc(50% - 4em);
+    }
+}
+
+@media screen and (max-width: 600px){
+    .InfoYears .block{
+        margin: auto;
+        width: calc(100% - 2em);
     }
 }

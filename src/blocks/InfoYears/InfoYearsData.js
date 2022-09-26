@@ -54,6 +54,21 @@ const infoYearsData = [
         active:false,
         text:''
     },
+    {
+        id:6,
+        year:2021,
+        title:`ADK in 2021`,
+        active:false,
+        text:'',
+    },
+    {
+        id:7,
+        year:2022,
+        title:`ADK in 2022`,
+        active:false,
+        text:'',
+        delLine:true,
+    },
 ];
 
 export default infoYearsData;
