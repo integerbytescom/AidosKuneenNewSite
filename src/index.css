@@ -98,23 +98,6 @@ h6{
     }
 }
 
-/*form text*/
-.form-text h6{
-    font-weight: 300;
-    color: var(--white-op-80);
-}
-.form-text a{
-    font-weight: 300;
-    text-decoration: none;
-    font-size: inherit;
-    color: var(--but-nav);
-    transition: .3s;
-}
-.form-text a:hover{
-    color: var(--white-op-80);
-}
-/*form text end*/
-
 /*scroll*/
 ::-webkit-scrollbar {
     width: 8px; /* ширина для вертикального скролла */

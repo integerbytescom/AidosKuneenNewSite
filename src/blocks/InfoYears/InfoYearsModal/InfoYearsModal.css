@@ -13,6 +13,10 @@
     color: var(--white-op-50);
 }
 
+.InfoYearsModal .modal-body hr{
+    width: 30%;
+}
+
 .InfoYearsModal .btn-close{
     background: url("/public/images/general/x.svg") center/1.5em auto no-repeat;
 }
