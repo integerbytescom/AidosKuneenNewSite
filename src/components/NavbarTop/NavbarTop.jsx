@@ -1,17 +1,16 @@
 import React, {useState} from 'react';
 import './NavbarTop.css';
 import './NavbarTopMedia.css';
-import {Navbar, NavDropdown} from "react-bootstrap";
+import {Badge, Navbar, NavDropdown} from "react-bootstrap";
 import {getLang} from "../../functions/getLang";
 import NavOffCanvas from "./NavOffCanvas/NavOffCanvas";
 import {Link} from 'react-scroll';
 import {Fade} from "react-awesome-reveal";
 import MetamaskModal from "../MetamaskModal/MetamaskModal";
 import {useWeb3React} from "@web3-react/core";
+import {checkAdmin} from "../../functions/checkAdmin";
 
 const NavbarTop = ({langState,handleChangeLang}) => {
-
-    console.log(`lang:${getLang()}`)
 
     //for offcanvas
     const [show, setShow] = useState(false);
@@ -23,13 +22,18 @@ const NavbarTop = ({langState,handleChangeLang}) => {
 
     const {active, chainId} = useWeb3React()
 
+    console.log(checkAdmin(),'checkAdmin')
+
     return (
         <>
         <Fade style={{zIndex:10}} direction={`down`}>
         <Navbar>
             <div className="logo">
                 <img src="/images/general/logo.svg" alt=""/>
-                <span>Aidos Kuneen</span>
+                <span>
+                    Aidos Kuneen
+                    {checkAdmin() && <Badge>Admin</Badge>}
+                </span>
             </div>
 
             <nav>

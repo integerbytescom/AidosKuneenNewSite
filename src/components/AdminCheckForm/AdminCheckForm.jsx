@@ -1,10 +1,16 @@
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import {Alert, Badge, Button, Form} from "react-bootstrap";
 import './AdminCheckForm.css';
+import { useNavigate } from 'react-router-dom'
+import {useGetCategory} from "../../hooks/useGetData";
 
-const AdminCheckForm = ({}) => {
+const AdminCheckForm = () => {
 
-    const dataAdmin = {log:'admin',pas:'cjdsv2233'};
+    const navigate = useNavigate()
+
+    const dataAdmin = useGetCategory('/adminData')
+    // console.log(dataAdmin)
+
     const [dataForm,setDataForm] = useState({log:'',pas:''});
 
     const [error,setError] = useState('')
@@ -17,13 +23,18 @@ const AdminCheckForm = ({}) => {
 
     const handleSendForm = async (e) =>{
         e.preventDefault()
-        if (dataForm.log === dataAdmin.log && dataForm.pas === dataAdmin.pas){
-            alert("Welcome!")
+        if (dataForm.log === dataAdmin["login"] && dataForm.pas === dataAdmin["password"]){
+            window.sessionStorage.setItem('admin',true)
+            navigate('/admin/success')
         }else {
             setError('Incorrect login or password')
             setDataForm({log:'',pas:''})
         }
     }
+
+    useEffect(() =>{
+
+    },[dataAdmin])
 
     return (
         <Form className={`AdminCheckForm`} onSubmit={e =>handleSendForm(e)} >
