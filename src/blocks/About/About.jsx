@@ -12,6 +12,7 @@ import {getLinkForDB} from "../../functions/getLinkForDB";
 
 const About = ({lang}) => {
 
+    //check admin
     const admin = checkAdmin()
 
     //data from database
@@ -52,7 +53,7 @@ const About = ({lang}) => {
                                                 <input
                                                     className={`admin-red`}
                                                     value={elem.title}
-                                                    onChange={(e) => setDataInDBTitle(e.target.value,getLinkForDB(ids))}
+                                                    onChange={(e) => setDataInDBTitle(e.target.value,getLinkForDB(ids,'about'))}
                                                 />:
                                                 <h4>{elem.title}</h4>
                                         }
@@ -62,7 +63,7 @@ const About = ({lang}) => {
                                                     className={'admin-red mt-2 small'}
                                                     value={elem.text}
                                                     rows={10}
-                                                    onChange={(e) => setDataInDBText(e.target.value,getLinkForDB(ids))}
+                                                    onChange={(e) => setDataInDBText(e.target.value,getLinkForDB(ids,'about'))}
                                                 />:
                                                 <p>{elem.text}</p>
                                         }

@@ -4,20 +4,57 @@ import './InfoSliderMedia.css';
 import {Fade} from "react-awesome-reveal";
 import {useGetData} from "../../hooks/useGetData";
 import {Spinner} from "react-bootstrap";
+import {checkAdmin} from "../../functions/checkAdmin";
+import {getLinkForDB} from "../../functions/getLinkForDB";
+import {ref, update} from "firebase/database";
+import {realtimeDB} from "../../database/connect";
 
 const InfoSlider = ({lang}) => {
+
+    //check admin
+    const admin = checkAdmin()
 
     //active num for slider info show
     const [activeNum,setActiveNum] = useState(1)
 
     //data from database
     const data = useGetData(`/pageData/infoSlider/${lang}`)
-    console.log(data)
 
     //spinner return
     const spinnerLight = () =>{
         return(
             <Spinner animation={"border"} variant={"light"} />
+        )
+    }
+
+    //for header block with big num
+    const getHeaderBlock = (actNum,num,textPr,textAft) => {
+        return(
+            <div
+                className={`block ${activeNum===actNum?'active':''}`}
+                onClick={() => setActiveNum(actNum)}
+            >
+                <span>{num}</span>
+                <h4>{textPr}<br />{textAft}</h4>
+            </div>
+        )
+    }
+
+    const setDataInDB = (value,url) => {
+        return update(ref(realtimeDB,url),{
+            text:value
+        })
+    }
+
+    //for get textarea for admin
+    const getAdminTextarea = (blockNum,id) =>{
+        return(
+            <textarea
+                rows={11}
+                className={`admin-red w-100`}
+                value={data[blockNum].text}
+                onChange={(e) => setDataInDB(e.target.value,getLinkForDB(id,'infoSlider'))}
+            />
         )
     }
 
@@ -27,27 +64,9 @@ const InfoSlider = ({lang}) => {
                 
             <header className={`container`}>
                 <div className="content">
-                    <div
-                        className={`block ${activeNum===1?'active':''}`}
-                        onClick={() => setActiveNum(1)}
-                    >
-                        <span>01</span>
-                        <h4>IMesh<br />AidosMesh</h4>
-                    </div>
-                    <div
-                        className={`block ${activeNum===2?'active':''}`}
-                        onClick={() => setActiveNum(2)}
-                    >
-                        <span>02</span>
-                        <h4>ADK vs <br/>Blockchain</h4>
-                    </div>
-                    <div
-                        className={`block ${activeNum===3?'active':''}`}
-                        onClick={() => setActiveNum(3)}
-                    >
-                        <span>03</span>
-                        <h4>Transaction <br/>System</h4>
-                    </div>
+                    {getHeaderBlock(1,'01','IMesh','AidosMesh')}
+                    {getHeaderBlock(2,'02','ADK vs ','Blockchain')}
+                    {getHeaderBlock(3,'03','Transaction ','System')}
                 </div>
             </header>
 
@@ -60,10 +79,23 @@ const InfoSlider = ({lang}) => {
                         Object.values(data).length?
                             <div className="info">
                                 {
-                                    activeNum === 1? <p>{data['firstBlock'].text}</p>:
+                                    activeNum === 1?
+                                        <>{
+                                                admin?
+                                                    getAdminTextarea('firstBlock',0) :
+                                                    <p>{data['firstBlock'].text}</p>
+                                        }</>:
                                         activeNum === 2?
-                                            <p>{data['secondBlock'].text}</p>:
-                                            <p>{data['thirdBlock'].text}</p>
+                                            <>{
+                                                    admin?
+                                                        getAdminTextarea('secondBlock',1):
+                                                        <p>{data['secondBlock'].text}</p>
+                                            }</>:
+                                            <>{
+                                                    admin?
+                                                        getAdminTextarea('thirdBlock',2):
+                                                        <p>{data['thirdBlock'].text}</p>
+                                            }</>
                                 }
                             </div>:spinnerLight()
                     }
