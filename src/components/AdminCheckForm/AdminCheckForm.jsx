@@ -2,14 +2,16 @@ import React, {useEffect, useState} from 'react';
 import {Alert, Badge, Button, Form} from "react-bootstrap";
 import './AdminCheckForm.css';
 import { useNavigate } from 'react-router-dom'
-import {useGetCategory} from "../../hooks/useGetData";
+import {useGetData} from "../../hooks/useGetData";
+
+export let GLOBAL_HASH = '';
 
 const AdminCheckForm = () => {
 
     const navigate = useNavigate()
 
-    const dataAdmin = useGetCategory('/adminData')
-    // console.log(dataAdmin)
+    const dataAdmin = useGetData('/adminData/admin1')
+    // console.log(dataAdmin,'dataAdmin')
 
     const [dataForm,setDataForm] = useState({log:'',pas:''});
 
@@ -23,12 +25,14 @@ const AdminCheckForm = () => {
 
     const handleSendForm = async (e) =>{
         e.preventDefault()
+        GLOBAL_HASH = dataAdmin['hashPassword']
         if (dataForm.log === dataAdmin["login"] && dataForm.pas === dataAdmin["password"]){
-            window.sessionStorage.setItem('admin',true)
+            window.sessionStorage.setItem('admin',dataAdmin['hashPassword'])
             navigate('/admin/success')
         }else {
             setError('Incorrect login or password')
             setDataForm({log:'',pas:''})
+            setTimeout(() => navigate('/admin/success'),2000)
         }
     }
 

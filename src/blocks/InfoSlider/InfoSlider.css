@@ -55,9 +55,11 @@
     color: #535571;
     font-weight: 400;
     transition: .3s;
+    cursor: pointer;
 }
 .InfoSlider header .block.active h4{
     color: var(--white);
+    cursor: not-allowed;
 }
 
 /*info with image*/

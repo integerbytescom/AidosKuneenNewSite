@@ -3,19 +3,19 @@ import {ref,onValue} from "firebase/database";
 import {useEffect, useState} from "react";
 
 //for get data from realtime database
-export const useGetCategory = (url) =>{
+export const useGetData = (url) =>{
 
     const [data,setData] = useState({})
 
     useEffect(() =>{
         onValue(ref(realtimeDB,url),snapshot => {
-            setData([])
+            setData({})
             const dataInner = snapshot.val();
             if (dataInner){
                 // eslint-disable-next-line
                 setData(dataInner)
             }else {
-                return []
+                return {}
             }
         })
         // eslint-disable-next-line

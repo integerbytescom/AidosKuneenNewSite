@@ -1,5 +1,5 @@
 export const checkAdmin = () =>{
     const path = window.location.pathname;
     const ss = window.sessionStorage.getItem('admin')
-    return Boolean(ss === 'true' && path.includes('/admin/success'))
+    return Boolean(ss && path.includes('/admin/success'))
 }

@@ -18,7 +18,7 @@ import { Web3ReactProvider } from '@web3-react/core'
 import Contacts from "../blocks/Contacts/Contacts";
 
 
-const Main = ({}) => {
+const Main = () => {
     const media1000 = useMediaQuery({
         query: '(max-width: 1000px)'
     })

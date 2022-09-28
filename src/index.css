@@ -7,7 +7,7 @@
     text-decoration: none;
     box-sizing: border-box;
     position: relative;
-    user-select:none;
+    /*user-select:none;*/
 }
 
 :root{
@@ -43,7 +43,7 @@ body{
 /*cursor and select*/
 h1,h3,h4,h6,p,li,img{
     cursor: default;
-    user-select:none;
+    /*user-select:none;*/
 }
 
 /*font-sizes*/
