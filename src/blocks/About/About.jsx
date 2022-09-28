@@ -44,8 +44,8 @@ const About = ({lang}) => {
                     <div className="content">
                         {
                             Object.values(data).length?
-                                Object.values(data).map((elem,ids) =>(
-                                <div className="block" key={ids}>
+                                Object.values(data).map(elem =>(
+                                <div className="block" key={elem.id}>
                                     <img src={elem.img} alt=""/>
                                     <span>
                                         {
@@ -53,7 +53,7 @@ const About = ({lang}) => {
                                                 <input
                                                     className={`admin-red`}
                                                     value={elem.title}
-                                                    onChange={(e) => setDataInDBTitle(e.target.value,getLinkForDB(ids,'about'))}
+                                                    onChange={(e) => setDataInDBTitle(e.target.value,getLinkForDB(elem.id,'about'))}
                                                 />:
                                                 <h4>{elem.title}</h4>
                                         }
@@ -63,7 +63,7 @@ const About = ({lang}) => {
                                                     className={'admin-red mt-2 small'}
                                                     value={elem.text}
                                                     rows={10}
-                                                    onChange={(e) => setDataInDBText(e.target.value,getLinkForDB(ids,'about'))}
+                                                    onChange={(e) => setDataInDBText(e.target.value,getLinkForDB(elem.id,'about'))}
                                                 />:
                                                 <p>{elem.text}</p>
                                         }

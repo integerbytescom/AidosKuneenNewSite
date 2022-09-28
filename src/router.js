@@ -1,10 +1,19 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import {Route,Routes} from "react-router-dom";
 import Main from "./pages/Main";
 import Admin from "./pages/Admin";
 import AdminLogin from "./pages/AdminLogin";
+import {getLang} from "./functions/getLang";
+import {setLang} from "./functions/setLang";
 
 const Router = () => {
+
+    useEffect(() =>{
+        //check language and if its false set en
+        if(!getLang()){
+            setLang('en')
+        }
+    },[])
 
     return (
         <>

@@ -8,7 +8,6 @@ const Admin = () => {
 
     const hashPassword = useGetData(`/adminData/admin1/hashPassword`)
     const ss = window.sessionStorage.getItem(`admin`)
-    console.log(hashPassword)
 
     return (
         <div className={`Admin`}>

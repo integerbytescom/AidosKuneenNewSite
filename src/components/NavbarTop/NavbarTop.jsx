@@ -22,7 +22,7 @@ const NavbarTop = ({langState,handleChangeLang}) => {
 
     const {active, chainId} = useWeb3React()
 
-    console.log(checkAdmin(),'checkAdmin')
+    // console.log(checkAdmin(),'checkAdmin')
 
     return (
         <>

@@ -30,8 +30,11 @@
     z-index: -1;
 }
 
+
+/*MEDIA FOR FIRST BLOCK WITH VIDEO*/
+@media screen and (max-width: 1100px){
+    .BgVideo{height: 85vh;}
+}
 @media screen and (max-width: 800px){
-    .BgVideo{
-        height: 65vh;
-    }
+    .BgVideo{height: 65vh;}
 }
