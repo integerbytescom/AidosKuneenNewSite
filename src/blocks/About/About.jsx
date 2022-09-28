@@ -8,30 +8,24 @@ import {Spinner} from "react-bootstrap";
 import {checkAdmin} from "../../functions/checkAdmin";
 import {ref, update} from "firebase/database";
 import {realtimeDB} from "../../database/connect";
+import {getLinkForDB} from "../../functions/getLinkForDB";
 
 const About = ({lang}) => {
 
     const admin = checkAdmin()
 
-    //get link
-    const getink = (id) =>{
-        const block = id===0?'firstBlock':id===1?'secondBlock':'thirdBlock';
-        return `/pageData/about/${lang}/${block}`
-    }
-
     //data from database
     const data = useGetData(`/pageData/about/${lang}`)
 
-    //title
+    //set title in database
     const setDataInDBTitle = (value,url) =>{
-        update(ref(realtimeDB,url),{
+        return update(ref(realtimeDB,url),{
             title:value
         })
     }
-
-    //text
+    //set text in database
     const setDataInDBText = (value,url) =>{
-        update(ref(realtimeDB,url),{
+        return update(ref(realtimeDB,url),{
             text:value
         })
     }
@@ -56,18 +50,19 @@ const About = ({lang}) => {
                                         {
                                             admin?
                                                 <input
+                                                    className={`admin-red`}
                                                     value={elem.title}
-                                                    onChange={(e) => setDataInDBTitle(e.target.value,getink(ids,'title'))}
+                                                    onChange={(e) => setDataInDBTitle(e.target.value,getLinkForDB(ids))}
                                                 />:
                                                 <h4>{elem.title}</h4>
                                         }
                                         {
                                             admin?
                                                 <textarea
-                                                    className={'mt-2 small'}
+                                                    className={'admin-red mt-2 small'}
                                                     value={elem.text}
                                                     rows={10}
-                                                    onChange={(e) => setDataInDBText(e.target.value,getink(ids,'text'))}
+                                                    onChange={(e) => setDataInDBText(e.target.value,getLinkForDB(ids))}
                                                 />:
                                                 <p>{elem.text}</p>
                                         }
