@@ -6,13 +6,14 @@ import {Badge} from "react-bootstrap";
 
 const Admin = () => {
 
-    const hashPassword = useGetData(`/adminData/admin1/hashPassword`)
-    const ss = window.sessionStorage.getItem(`admin`)
+    const hashPassword = useGetData(`/adminData/admin1/hashPassword`);
+    const ss = window.sessionStorage.getItem(`admin`);
+    const ls = window.localStorage.getItem(`admin`);
 
     return (
         <div className={`Admin`}>
             {
-                !hashPassword || hashPassword !== ss?
+                !hashPassword || (hashPassword !== ss && hashPassword !== ls) ?
                     <>
                         <Link className={`m-5`} to={'/'}>
                             <Badge style={{fontSize:20}}>Back</Badge>

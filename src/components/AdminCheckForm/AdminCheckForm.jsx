@@ -13,10 +13,15 @@ const AdminCheckForm = () => {
     const dataAdmin = useGetData('/adminData/admin1')
     // console.log(dataAdmin,'dataAdmin')
 
+    //for data form (inputs text)
     const [dataForm,setDataForm] = useState({log:'',pas:''});
+    //data form checkbox
+    const [checkRemember,setCheckRemember] = useState(false)
 
+    //errors
     const [error,setError] = useState('')
 
+    //change input
     const handleChangeInput = (value,stateValue) =>{
         const copy = Object.assign({},dataForm)
         copy[stateValue] = value;
@@ -27,12 +32,15 @@ const AdminCheckForm = () => {
         e.preventDefault()
         GLOBAL_HASH = dataAdmin['hashPassword']
         if (dataForm.log === dataAdmin["login"] && dataForm.pas === dataAdmin["password"]){
+            if (checkRemember){
+                window.localStorage.setItem('admin',dataAdmin['hashPassword'])
+            }
             window.sessionStorage.setItem('admin',dataAdmin['hashPassword'])
             navigate('/admin/success')
         }else {
             setError('Incorrect login or password')
             setDataForm({log:'',pas:''})
-            setTimeout(() => navigate('/admin/success'),2000)
+            setTimeout(() => navigate('/'),2000)
         }
     }
 
@@ -69,9 +77,14 @@ const AdminCheckForm = () => {
                 />
             </Form.Group>
 
-            {/*<Form.Group className="mb-3" controlId="formBasicCheckbox">*/}
-            {/*    <Form.Check type="checkbox" label="To remember me" />*/}
-            {/*</Form.Group>*/}
+            <Form.Group className="mb-3" controlId="formBasicCheckbox">
+                <Form.Check
+                    type="checkbox"
+                    label="To remember me"
+                    value={checkRemember}
+                    onClick={() => setCheckRemember(!checkRemember)}
+                />
+            </Form.Group>
 
             <Button variant="primary" size={"sm"} type="submit">
                 Enter
