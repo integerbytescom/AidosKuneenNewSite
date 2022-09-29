@@ -33,7 +33,7 @@ const MetamaskModal = ({show}) => {
         if (window.ethereum){
             try {
                 await activate(injected)
-                localStorage.setItem('isWalletConnected', true)
+                window.localStorage.setItem('isWalletConnected', true)
             } catch (ex) {
                 setError('Connect error!')
             }
@@ -46,7 +46,7 @@ const MetamaskModal = ({show}) => {
         if (window.ethereum){
             try {
                 deactivate()
-                localStorage.setItem('isWalletConnected', false)
+                window.localStorage.setItem('isWalletConnected', false)
             } catch (ex) {
                 setError('Disconnect error!')
             }
@@ -86,10 +86,10 @@ const MetamaskModal = ({show}) => {
     useEffect(() => {
         const connectWalletOnPageLoad = async () => {
             if (window.ethereum){
-                if (localStorage?.getItem('isWalletConnected') === 'true') {
+                if (window.localStorage.getItem('isWalletConnected') === 'true') {
                     try {
                         await activate(injected)
-                        localStorage.setItem('isWalletConnected', true)
+                        window.localStorage.setItem('isWalletConnected', true)
                     } catch (ex) {
                         setError('Connect error!')
                     }

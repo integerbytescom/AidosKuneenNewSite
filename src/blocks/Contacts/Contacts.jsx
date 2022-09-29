@@ -16,7 +16,7 @@ const Contacts = ({lang}) => {
 
     //data from database
     const data = useGetData(`/pageData/contactsText/${lang}`)
-    console.log(data,'Contacts text data')
+    // console.log(data,'Contacts text data')
 
     //set text in database
     const setDataInDBText = (value,url) =>{

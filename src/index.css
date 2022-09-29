@@ -115,6 +115,8 @@ h6{
     background-color: var(--footer-p);
 }
 
+
+/*admin input for redact blocks*/
 .admin-red{
     padding: .5em;
     border: none;
@@ -125,6 +127,14 @@ h6{
     cursor: pointer;
     outline: none;
 }
-.admin-red:hover{
+.admin-red.light{
+    background: var(--compan-block-hover);
+}
+.admin-red:hover,
+.admin-red:focus{
     background: var(--white-op-10);
+}
+.admin-red.light:hover,
+.admin-red.light:focus{
+    background: var(--footer-p);
 }

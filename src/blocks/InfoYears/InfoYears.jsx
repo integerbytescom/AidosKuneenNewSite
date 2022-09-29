@@ -1,7 +1,7 @@
 import React, {useState} from 'react';
 import './InfoYears.css';
 import './InfoYearsMedia.css';
-import infoYearsData from "./InfoYearsData";
+// import infoYearsData from "./InfoYearsData";
 import {Fade} from "react-awesome-reveal";
 import {useMediaQuery} from "react-responsive";
 import {getLang} from "../../functions/getLang";
@@ -12,6 +12,8 @@ import {Spinner} from "react-bootstrap";
 import {ref, update} from "firebase/database";
 import {realtimeDB} from "../../database/connect";
 import {getLinkForDB} from "../../functions/getLinkForDB";
+import AddBlockYears from "./AddBlockYears/AddBlockYears";
+import DeleteBlockDB from "../../components/DeleteBlockDB/DeleteBlockDB";
 
 const InfoYears = ({lang}) => {
 
@@ -31,13 +33,13 @@ const InfoYears = ({lang}) => {
     // console.log(data,'infoYears data')
 
     //media query
-    const media1400 = useMediaQuery({query: '(min-width: 1400px)'})
-    const media1000 = useMediaQuery({query: '(min-width: 1000px) and (max-width: 1399px)'})
+    const media1500 = useMediaQuery({query: '(min-width: 1500px)'})
+    const media1000 = useMediaQuery({query: '(min-width: 1000px) and (max-width: 1499px)'})
     const media600 = useMediaQuery({query: '(min-width: 600px) and (max-width: 999px)'})
 
     //what elems show in slider
     const [showElem] = useState(
-        media1400?4:media1000?3:media600?2:1
+        media1500?4:media1000?3:media600?2:1
     )
     const [showElems,setShowElems] = useState([0, showElem])
 
@@ -138,6 +140,9 @@ const InfoYears = ({lang}) => {
                                                 onChange={(e) => setDataInDBText(e.target.value,getLinkForDB(elem.id,'infoYears'))}
                                             />
                                             {getButMoreInfo(elem)}
+
+                                            <DeleteBlockDB url={getLinkForDB(elem.id,'infoYears')} />
+
                                         </div>
                                     </div>:
                                     <div key={elem.id} className="block">
@@ -159,7 +164,7 @@ const InfoYears = ({lang}) => {
 
             <button
                 className={'arrow-but'}
-                disabled={showElems[1] === infoYearsData.length}
+                disabled={showElems[1] === Object.values(data).length}
                 onClick={() => handleChangeShowElems(1,showElems[1] + 1)}
             >
                 <img
@@ -170,6 +175,9 @@ const InfoYears = ({lang}) => {
                 />
             </button>
         </div>
+
+            {/*add block for admin*/}
+            {admin && Object.values(data).length ? <AddBlockYears data={data} lang={lang} /> : false}
 
             {/*modal*/}
             <InfoYearsModal show={modal} onHide={() => setModal(false)} info={modalInfo} />
