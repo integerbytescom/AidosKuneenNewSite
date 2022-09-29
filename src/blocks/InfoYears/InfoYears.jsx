@@ -6,15 +6,29 @@ import {Fade} from "react-awesome-reveal";
 import {useMediaQuery} from "react-responsive";
 import {getLang} from "../../functions/getLang";
 import InfoYearsModal from "./InfoYearsModal/InfoYearsModal";
+import {checkAdmin} from "../../functions/checkAdmin";
+import {useGetData} from "../../hooks/useGetData";
+import {Spinner} from "react-bootstrap";
+import {ref, update} from "firebase/database";
+import {realtimeDB} from "../../database/connect";
+import {getLinkForDB} from "../../functions/getLinkForDB";
 
-const InfoYears = () => {
+const InfoYears = ({lang}) => {
 
+    //check admin status
+    const admin = checkAdmin();
+
+    //modal
     const [modal,setModal] = useState(false)
     const [modalInfo,setModalInfo] = useState({})
     const handleOpenModal = elem =>{
         setModalInfo({...elem});
         setModal(true)
     }
+
+    //data from database
+    const data = useGetData(`/pageData/infoYears/${lang}`)
+    // console.log(data,'infoYears data')
 
     //media query
     const media1400 = useMediaQuery({query: '(min-width: 1400px)'})
@@ -37,6 +51,38 @@ const InfoYears = () => {
             copy[0] = copy[0] + 1
         }
         setShowElems(copy)
+    }
+
+    //for button that open modal with button about year
+    const getButMoreInfo = (elem) =>{
+        return (
+            <button onClick={() => handleOpenModal(elem)} className={`more`}>
+                {
+                    getLang() === 'ru'?'Подробнее':
+                        getLang()==='en'?'More info': 'Mehr'
+                }
+            </button>
+        )
+    }
+
+
+    //set year in database
+    const setDataInDBYear = (value,url) =>{
+        return update(ref(realtimeDB,url),{
+            year:value
+        })
+    }
+    //set title in database
+    const setDataInDBTitle = (value,url) =>{
+        return update(ref(realtimeDB,url),{
+            title:value
+        })
+    }
+    //set text in database
+    const setDataInDBText = (value,url) =>{
+        return update(ref(realtimeDB,url),{
+            text:value
+        })
     }
 
     return (
@@ -64,24 +110,50 @@ const InfoYears = () => {
 
             <div className={'slider'}>
                 {
-                    infoYearsData.slice(showElems[0],showElems[1]).map(elem =>(
+                    Object.values(data).length?
+                        Object.values(data)
+                            .sort((a,b) => a.id - b.id)//сортировка по годам
+                            .slice(showElems[0],showElems[1]).map(elem =>(
                         <>
-                            <div key={elem.id} className="block">
-                                <span>{elem.year}</span>
-                                <div>
-                                    <p className={`title ${elem.active?'active':''}`}>{elem.title}</p>
-                                    <p>{elem.text}</p>
-                                    <button onClick={() => handleOpenModal(elem)} className={`more`}>
-                                        {
-                                            getLang() === 'ru'?'Подробнее':
-                                                getLang()==='en'?'More info': 'Mehr'
-                                        }
-                                    </button>
-                                </div>
-                            </div>
-                            {elem.delLine ?? <div className={'line'}/>}
+                            {
+                                admin?
+                                    <div key={elem.id} className="block">
+                                        <input
+                                            className={`admin-red`}
+                                            value={elem.year}
+                                            onChange={(e) => setDataInDBYear(e.target.value,getLinkForDB(elem.id,'infoYears'))}
+                                        />
+
+                                        <div>
+                                            <input
+                                                className={`admin-red my-2`}
+                                                value={elem.title}
+                                                onChange={(e) => setDataInDBTitle(e.target.value,getLinkForDB(elem.id,'infoYears'))}
+                                            />
+
+                                            <textarea
+                                                className={`admin-red mb-2 w-100`}
+                                                value={elem.text}
+                                                rows={5}
+                                                onChange={(e) => setDataInDBText(e.target.value,getLinkForDB(elem.id,'infoYears'))}
+                                            />
+                                            {getButMoreInfo(elem)}
+                                        </div>
+                                    </div>:
+                                    <div key={elem.id} className="block">
+                                        <span>{elem.year}</span>
+                                        <div>
+                                            <p className={`title ${elem.active?'active':''}`}>{elem.title}</p>
+                                            <p>{elem.text}</p>
+                                            {getButMoreInfo(elem)}
+                                        </div>
+                                    </div>
+                            }
+                            <div className={'line'}/>
+                            {/*{elem.delLine ?? <div className={'line'}/>}*/}
                         </>
-                    ))
+                    )):
+                    <Spinner animation={"border"} variant={"light"} />
                 }
             </div>
 

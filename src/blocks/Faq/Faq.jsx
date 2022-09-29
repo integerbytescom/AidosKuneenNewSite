@@ -14,7 +14,7 @@ const Faq = ({lang}) => {
 
     const admin = checkAdmin();
 
-    const data = useGetData(`pageData/accordionFAQ/${lang}`)
+    const data = useGetData(`/pageData/accordionFAQ/${lang}`)
     // console.log(data,'accordionFAQ data')
 
     //set title in database
