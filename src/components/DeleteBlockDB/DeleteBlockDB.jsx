@@ -3,7 +3,7 @@ import {Button} from "react-bootstrap";
 import {realtimeDB} from "../../database/connect";
 import {ref, remove} from "firebase/database";
 
-const DeleteBlockDB = ({url}) => {
+const DeleteBlockDB = ({url,id = false,disable}) => {
 
     // console.log(url,'delete this block')
 
@@ -14,18 +14,24 @@ const DeleteBlockDB = ({url}) => {
         return remove(ref(realtimeDB,url))
     }
 
+
     return (
         <>
+
             {
+                disable?
+                <p>You can't remove the last inner block from a block.</p>:
                 !confirm?
                     <Button
+                        disabled={disable}
                         onClick={() => setConfirm(true)}
                         variant={"outline-danger"}
                         className={'mt-1'}
                         size={"sm"}
                     >
-                        Delete this block
-                    </Button>:
+                        Delete {id?id:'this'} block
+                    </Button>
+                    :
                     <Button
                         onClick={handleDeleteBlock}
                         variant={"success"}
