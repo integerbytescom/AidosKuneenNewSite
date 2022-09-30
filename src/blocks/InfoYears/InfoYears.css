@@ -62,14 +62,23 @@ button.arrow-but:disabled:hover{
     width: 100%;
     text-align: center;
 }
+.InfoYears .block p.admin{
+    color: var(--but-nav)
+}
 .InfoYears .block span{
     font-size: 3.1em;
     font-weight: 900;
     margin-bottom: .5em;
 }
 .InfoYears .block p.title{
+    cursor: pointer;
     color: var(--white);
+    transition: .3s;
 }
+.InfoYears .block p.title:hover{
+    opacity: .5;
+}
+/*for active title with green color*/
 .InfoYears .block p.title.active{
     color: var(--but-nav);
 }

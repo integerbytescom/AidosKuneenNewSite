@@ -4,14 +4,13 @@ import './InfoYearsMedia.css';
 // import infoYearsData from "./InfoYearsData";
 import {Fade} from "react-awesome-reveal";
 import {useMediaQuery} from "react-responsive";
-import {getLang} from "../../functions/getLang";
 import InfoYearsModal from "./InfoYearsModal/InfoYearsModal";
 import {checkAdmin} from "../../functions/checkAdmin";
 import {useGetData} from "../../hooks/useGetData";
-import {Spinner} from "react-bootstrap";
+import {Button, Spinner} from "react-bootstrap";
 import {ref, update} from "firebase/database";
 import {realtimeDB} from "../../database/connect";
-import {getLinkForDB} from "../../functions/getLinkForDB";
+import {getLinkForDB, numbers} from "../../functions/getLinkForDB";
 import AddBlockYears from "./AddBlockYears/AddBlockYears";
 import DeleteBlockDB from "../../components/DeleteBlockDB/DeleteBlockDB";
 
@@ -55,18 +54,6 @@ const InfoYears = ({lang}) => {
         setShowElems(copy)
     }
 
-    //for button that open modal with button about year
-    const getButMoreInfo = (elem) =>{
-        return (
-            <button onClick={() => handleOpenModal(elem)} className={`more`}>
-                {
-                    getLang() === 'ru'?'Подробнее':
-                        getLang()==='en'?'More info': 'Mehr'
-                }
-            </button>
-        )
-    }
-
 
     //set year in database
     const setDataInDBYear = (value,url) =>{
@@ -80,7 +67,7 @@ const InfoYears = ({lang}) => {
             title:value
         })
     }
-    //set text in database
+    //set title in database
     const setDataInDBText = (value,url) =>{
         return update(ref(realtimeDB,url),{
             text:value
@@ -127,19 +114,24 @@ const InfoYears = ({lang}) => {
                                         />
 
                                         <div>
-                                            <input
-                                                className={`admin-red my-2`}
-                                                value={elem.title}
-                                                onChange={(e) => setDataInDBTitle(e.target.value,getLinkForDB(elem.id,'infoYears'))}
-                                            />
-
-                                            <textarea
-                                                className={`admin-red mb-2 w-100`}
-                                                value={elem.text}
-                                                rows={5}
-                                                onChange={(e) => setDataInDBText(e.target.value,getLinkForDB(elem.id,'infoYears'))}
-                                            />
-                                            {getButMoreInfo(elem)}
+                                            {
+                                                elem['titles'].map((title,ids) =>(
+                                                    <>
+                                                        <p className={'admin small m-0 mt-3'}>Inner block {ids + 1}:</p>
+                                                        <input
+                                                            className={`admin-red my-1 w-100`}
+                                                            value={title.title}
+                                                            onChange={(e) => setDataInDBTitle(e.target.value,`/pageData/infoYears/${lang}/${numbers[elem.id]}/titles/${ids}`)}
+                                                        />
+                                                        <input
+                                                            className={`admin-red my-1 w-100`}
+                                                            value={title.text}
+                                                            onChange={(e) => setDataInDBText(e.target.value,`/pageData/infoYears/${lang}/${numbers[elem.id]}/titles/${ids}`)}
+                                                        />
+                                                    </>
+                                                ))
+                                            }
+                                            <Button size={"sm"}>Add inner block</Button>
 
                                             <DeleteBlockDB url={getLinkForDB(elem.id,'infoYears')} />
 
@@ -148,14 +140,20 @@ const InfoYears = ({lang}) => {
                                     <div key={elem.id} className="block">
                                         <span>{elem.year}</span>
                                         <div>
-                                            <p className={`title ${elem.active?'active':''}`}>{elem.title}</p>
-                                            <p>{elem.text}</p>
-                                            {getButMoreInfo(elem)}
+                                            {
+                                                elem['titles'].map(title =>(
+                                                    <p
+                                                        onClick={() => handleOpenModal({...title,year:elem.year})}
+                                                        className={`title`}
+                                                    >
+                                                        {title.title}
+                                                    </p>
+                                                ))
+                                            }
                                         </div>
                                     </div>
                             }
                             <div className={'line'}/>
-                            {/*{elem.delLine ?? <div className={'line'}/>}*/}
                         </>
                     )):
                     <Spinner animation={"border"} variant={"light"} />

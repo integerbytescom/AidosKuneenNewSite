@@ -61,32 +61,14 @@ const Contacts = ({lang}) => {
                             {getInputChange('TEXT','text',setDataInDBText)}
                             {getInputChange('LINK','link',setDataInDBLink)}
                             {getInputChange('HREF','linkHref',setDataInDBHref)}
-                            {/*<h5 className={'m-0'}>TEXT:</h5>*/}
-                            {/*<input*/}
-                            {/*    className={`admin-red w-100 mb-3`}*/}
-                            {/*    value={data[`firstBlock`].text}*/}
-                            {/*    onChange={(e) => setDataInDBText(e.target.value,getLinkForDB(data[`firstBlock`].id,'contactsText'))}*/}
-                            {/*/>*/}
-                            {/*<h5 className={'m-0'}>LINK:</h5>*/}
-                            {/*<input*/}
-                            {/*    className={`admin-red w-100 mb-3`}*/}
-                            {/*    value={data[`firstBlock`].link}*/}
-                            {/*    onChange={(e) => setDataInDBLink(e.target.value,getLinkForDB(data[`firstBlock`].id,'contactsText'))}*/}
-                            {/*/>*/}
-                            {/*<h5 className={'m-0'}>HREF:</h5>*/}
-                            {/*<input*/}
-                            {/*    className={`admin-red w-100 mb-3`}*/}
-                            {/*    value={data[`firstBlock`].linkHref}*/}
-                            {/*    onChange={(e) => setDataInDBHref(e.target.value,getLinkForDB(data[`firstBlock`].id,'contactsText'))}*/}
-                            {/*/>*/}
                         </>:
                         <>
-                            <h4>{data[`firstBlock`].text}</h4>
-                            <h1>
+                            <h6>{data[`firstBlock`].text}</h6>
+                            <h3>
                                 <a href={`mailto:${data[`firstBlock`][`linkHref`]}`}>
                                     {data[`firstBlock`][`link`]}
                                 </a>
-                            </h1>
+                            </h3>
                         </>:
                         <Spinner animation={"border"} variant={"light"} />
                 }

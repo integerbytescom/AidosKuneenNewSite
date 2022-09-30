@@ -1,7 +1,6 @@
 import React from 'react';
 import {Modal} from "react-bootstrap";
 import './InfoYearsModal.css';
-import {getLang} from "../../../functions/getLang";
 
 const InfoYearsModal = ({show,onHide,info}) => {
     return (
@@ -14,12 +13,12 @@ const InfoYearsModal = ({show,onHide,info}) => {
         >
             <Modal.Header closeButton>
                 <Modal.Title id="contained-modal-title-vcenter">
-                    {getLang()==='en'?'Year':getLang()==='ru'?'Год':'Jahr'}: {info.year}
+                    {info.year}
                 </Modal.Title>
             </Modal.Header>
             <Modal.Body>
-                <h5>{info.title}</h5>
                 <hr/>
+                <h5>{info.title}</h5>
                 <p>{info.text}</p>
             </Modal.Body>
         </Modal>

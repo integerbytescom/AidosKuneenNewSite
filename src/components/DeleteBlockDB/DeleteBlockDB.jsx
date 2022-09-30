@@ -22,6 +22,7 @@ const DeleteBlockDB = ({url}) => {
                         onClick={() => setConfirm(true)}
                         variant={"outline-danger"}
                         className={'m-3'}
+                        size={"sm"}
                     >
                         Delete this block
                     </Button>:
@@ -29,6 +30,7 @@ const DeleteBlockDB = ({url}) => {
                         onClick={handleDeleteBlock}
                         variant={"success"}
                         className={'m-3'}
+                        size={"sm"}
                     >
                         Confirm delete
                     </Button>

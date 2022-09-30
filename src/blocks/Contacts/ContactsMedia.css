@@ -11,6 +11,9 @@
     }
 }
 @media screen and (max-width: 550px){
+    .form-text{
+        margin-bottom: 1em;
+    }
     a.soc-link img{height: 20px;}
     a.soc-link{
         width: 30%;

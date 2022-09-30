@@ -7,13 +7,17 @@
     border-bottom: none;
 }
 
-.InfoYearsModal .modal-body p{
+.InfoYearsModal .modal-body h5{
     font-weight: 300;
-    font-size: .8em;
-    color: var(--white-op-50);
+}
+.InfoYearsModal .modal-body p{
+    font-size: .9em;
+    font-weight: 300;
+    color: var(--white-op-80);
 }
 
 .InfoYearsModal .modal-body hr{
+    margin-top: 0;
     width: 30%;
 }
 

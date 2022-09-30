@@ -8,12 +8,12 @@
 .form-text{
     width: 45%;
 }
-.form-text h4{
+.form-text h6{
     margin-bottom: .7em;
     font-weight: 300;
     color: var(--white);
 }
-.form-text a{
+.form-text h3 a{
     margin: 0;
     font-weight: 300;
     text-decoration: none;
@@ -21,7 +21,7 @@
     color: var(--but-nav);
     transition: .3s;
 }
-.form-text a:hover{
+.form-text h3 a:hover{
     color: var(--white-op-80);
 }
 /*form text end*/
