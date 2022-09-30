@@ -7,12 +7,14 @@ import {useMediaQuery} from "react-responsive";
 import InfoYearsModal from "./InfoYearsModal/InfoYearsModal";
 import {checkAdmin} from "../../functions/checkAdmin";
 import {useGetData} from "../../hooks/useGetData";
-import {Button, Spinner} from "react-bootstrap";
+import {Spinner} from "react-bootstrap";
 import {ref, update} from "firebase/database";
 import {realtimeDB} from "../../database/connect";
 import {getLinkForDB, numbers} from "../../functions/getLinkForDB";
 import AddBlockYears from "./AddBlockYears/AddBlockYears";
 import DeleteBlockDB from "../../components/DeleteBlockDB/DeleteBlockDB";
+import AddInnerBlock from "./AddInnerBlock";
+import DeleteInnerBlock from "./DeleteInnerBlock";
 
 const InfoYears = ({lang}) => {
 
@@ -128,10 +130,13 @@ const InfoYears = ({lang}) => {
                                                             value={title.text}
                                                             onChange={(e) => setDataInDBText(e.target.value,`/pageData/infoYears/${lang}/${numbers[elem.id]}/titles/${ids}`)}
                                                         />
+                                                        <DeleteInnerBlock id={ids + 1} url={`/pageData/infoYears/${lang}/${numbers[elem.id]}/titles/${ids}`} />
                                                     </>
                                                 ))
                                             }
-                                            <Button size={"sm"}>Add inner block</Button>
+                                            <>
+                                                <AddInnerBlock data={elem['titles']} lang={lang} elemID={elem.id} />
+                                            </>
 
                                             <DeleteBlockDB url={getLinkForDB(elem.id,'infoYears')} />
 

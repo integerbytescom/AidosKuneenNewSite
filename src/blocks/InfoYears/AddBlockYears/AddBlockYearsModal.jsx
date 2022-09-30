@@ -6,29 +6,20 @@ import {realtimeDB} from "../../../database/connect";
 const AddBlockYearsModal = ({show,onHide,getLastId,lang}) => {
 
     //for data from form
-    const [dataForm,setDataForm] = useState({
-        title: '',
-        text: '',
-        year: '',
-    })
+    const [dataFormYear,setDataFormYear] = useState('')
 
     //for message after form
     const [res,setRes] = useState('')
-
-    const handleChangeInput = (value,inp) => {
-        const copy = Object.assign({},dataForm)
-        copy[inp] = value;
-        setDataForm(copy)
-    }
 
     //set year in database
     const addNewBlock = e =>{
         e.preventDefault()
         set(ref(realtimeDB,`/pageData/infoYears/${lang}/${getLastId()[1]}`),{
             id: getLastId()[0],
-            year: dataForm.year,
-            title: dataForm.title,
-            text: dataForm.text,
+            year: dataFormYear,
+            titles:{
+                0:{title:'',text:''}
+            }
         })
         .then(() =>setRes('Block has been added'))
         .catch(err => setRes('Error: ' + err.message))
@@ -52,20 +43,7 @@ const AddBlockYearsModal = ({show,onHide,getLastId,lang}) => {
                     <input
                         className={'admin-red light my-1 p-3 w-100'}
                         placeholder="Enter year"
-                        onChange={e => handleChangeInput(e.target.value,'year')}
-                    />
-
-                    <input
-                        className={'admin-red light my-1 p-3 w-100'}
-                        placeholder="Enter title"
-                        onChange={e => handleChangeInput(e.target.value,'title')}
-                    />
-
-                    <textarea
-                        className={'admin-red light my-1 p-3 w-100'}
-                        placeholder="Enter text"
-                        onChange={e => handleChangeInput(e.target.value,'text')}
-                        rows={4}
+                        onChange={e => setDataFormYear(e.target.value)}
                     />
 
                     <Button variant="outline-success" type="submit" className={'w-100'}>
