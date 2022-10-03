@@ -109,7 +109,7 @@ const InfoYears = ({lang}) => {
                                 admin?
                                     <div key={elem.id} className="block">
                                         <input
-                                            className={`admin-red`}
+                                            className={`admin-red w-50`}
                                             value={elem.year}
                                             onChange={(e) => setDataInDBYear(e.target.value,getLinkForDB(elem.id,'infoYears'))}
                                         />
@@ -135,9 +135,8 @@ const InfoYears = ({lang}) => {
                                             }
                                             <>
                                                 <AddInnerBlock data={elem['titles']} lang={lang} elemID={elem.id} />
+                                                <DeleteBlockDB disable={false} url={getLinkForDB(elem.id,'infoYears')} />
                                             </>
-
-                                            <DeleteBlockDB disable={false} url={getLinkForDB(elem.id,'infoYears')} />
 
                                         </div>
                                     </div>:

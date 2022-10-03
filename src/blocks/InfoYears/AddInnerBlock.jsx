@@ -21,7 +21,7 @@ const AddInnerBlock = ({data,lang,elemID}) => {
     }
 
     return (
-        <Button onClick={addNewInnerBlock} size={"sm mt-3"}>Add inner block</Button>
+        <Button className={'mx-2 mt-1'} onClick={addNewInnerBlock} size={"sm"}>Add inner block</Button>
     );
 };
 

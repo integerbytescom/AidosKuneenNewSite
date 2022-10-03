@@ -60,7 +60,7 @@ const About = ({lang}) => {
                                         {
                                             admin?
                                                 <textarea
-                                                    className={'admin-red mt-2 small'}
+                                                    className={'admin-red mt-2 small w-100'}
                                                     value={elem.text}
                                                     rows={10}
                                                     onChange={(e) => setDataInDBText(e.target.value,getLinkForDB(elem.id,'about'))}

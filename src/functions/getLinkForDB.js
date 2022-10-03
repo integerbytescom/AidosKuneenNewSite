@@ -6,7 +6,8 @@ export const numbers = [
     'sevenBlock','eighthBlock','ninthBlock',
     'tenthBlock','eleventhBlock','twelfthBlock',
     'thirteenthBlock','fourteenthBlock','fifteenthBlock',
-    'sixteenthBlock','seventeenthBlock','eighteenthBlock'
+    'sixteenthBlock','seventeenthBlock','eighteenthBlock',
+    'nineteenthBlock','twentiethBlock'
 ]
 
 export const getLinkForDB = (id,blockPage) =>{
