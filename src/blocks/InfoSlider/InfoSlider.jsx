@@ -5,9 +5,10 @@ import {Fade} from "react-awesome-reveal";
 import {useGetData} from "../../hooks/useGetData";
 import {Spinner} from "react-bootstrap";
 import {checkAdmin} from "../../functions/checkAdmin";
-import {getLinkForDB} from "../../functions/getLinkForDB";
+import {getLinkForDB, numbers} from "../../functions/getLinkForDB";
 import {ref, update} from "firebase/database";
 import {realtimeDB} from "../../database/connect";
+import AddBlockInfo from "./AddBlockInfo/AddBlockInfo";
 
 const InfoSlider = ({lang}) => {
 
@@ -101,7 +102,9 @@ const InfoSlider = ({lang}) => {
                 <div className="content">
                     {
                         Object.values(data).length?
-                            Object.values(data).map(elem =>(
+                            Object.values(data)
+                                .sort((a,b) => a.id - b.id)
+                                .map(elem =>(
                                 admin?
                                     getHeaderBlockAdmin(elem.id,elem.id + 1,elem["titleNum"],elem.title):
                                     getHeaderBlock(elem.id + 1,elem["titleNum"],elem.title)
@@ -109,6 +112,11 @@ const InfoSlider = ({lang}) => {
                     }
                 </div>
             </header>
+
+            {
+                admin && Object.values(data).length?
+                <AddBlockInfo data={data} lang={lang} />:false
+            }
 
             <div className="content">
                 <div className="container">
@@ -119,23 +127,9 @@ const InfoSlider = ({lang}) => {
                         Object.values(data).length?
                             <div className="info">
                                 {
-                                    activeNum === 1?
-                                        <>{
-                                                admin?
-                                                    getAdminTextarea('firstBlock',0) :
-                                                    <p>{data['firstBlock'].text}</p>
-                                        }</>:
-                                        activeNum === 2?
-                                            <>{
-                                                    admin?
-                                                        getAdminTextarea('secondBlock',1):
-                                                        <p>{data['secondBlock'].text}</p>
-                                            }</>:
-                                            <>{
-                                                    admin?
-                                                        getAdminTextarea('thirdBlock',2):
-                                                        <p>{data['thirdBlock'].text}</p>
-                                            }</>
+                                    admin?
+                                        getAdminTextarea(numbers[activeNum - 1],activeNum - 1):
+                                        <p>{data[numbers[activeNum - 1]].text}</p>
                                 }
                             </div>:spinnerLight()
                     }

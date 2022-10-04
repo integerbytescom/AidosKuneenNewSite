@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import {Alert, Badge, Button, Form, Modal} from "react-bootstrap";
+import {Alert, Badge, Button, Form, FormControl, Modal} from "react-bootstrap";
 import {ref, set} from "firebase/database";
 import {realtimeDB} from "../../../database/connect";
 
@@ -14,8 +14,8 @@ const AddBlockYearsModal = ({show,onHide,getLastId,lang}) => {
     //set year in database
     const addNewBlock = e =>{
         e.preventDefault()
-        set(ref(realtimeDB,`/pageData/infoYears/${lang}/${getLastId()[1]}`),{
-            id: getLastId()[0],
+        set(ref(realtimeDB,`/pageData/infoYears/${lang}/${getLastId[1]}`),{
+            id: getLastId[0],
             year: dataFormYear,
             titles:{
                 0:{title:'',text:''}
@@ -39,14 +39,14 @@ const AddBlockYearsModal = ({show,onHide,getLastId,lang}) => {
             </Modal.Header>
 
             <Modal.Body>
-                <Form onSubmit={addNewBlock} className={`border p-3 border`}>
-                    <input
-                        className={'admin-red light my-1 p-3 w-100'}
+                <Form onSubmit={addNewBlock}>
+                    <FormControl
+                        className={'my-1 w-100'}
                         placeholder="Enter year"
                         onChange={e => setDataFormYear(e.target.value)}
                     />
 
-                    <Button variant="outline-success" type="submit" className={'w-100'}>
+                    <Button variant="outline-success" type="submit" className={'w-100'} size={"sm"}>
                         Submit
                     </Button>
                 </Form>
@@ -56,7 +56,7 @@ const AddBlockYearsModal = ({show,onHide,getLastId,lang}) => {
             {res && <Alert className={'mx-3'} variant={"secondary"}>{res}</Alert>}
 
             <Modal.Footer>
-                <Button onClick={onHide} variant={"secondary"}>
+                <Button onClick={onHide} variant={"secondary"} size={"sm"}>
                     Close
                 </Button>
             </Modal.Footer>
