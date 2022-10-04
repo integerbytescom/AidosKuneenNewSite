@@ -51,7 +51,9 @@
     color: var(--but-nav);
 }
 .InfoSlider header .block h4{
-    margin: -2em -3em 0 0;
+    position: absolute;
+    bottom: -.5em;
+    left: -1em;
     color: #535571;
     font-weight: 400;
     transition: .3s;
