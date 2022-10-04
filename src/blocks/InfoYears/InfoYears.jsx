@@ -137,7 +137,6 @@ const InfoYears = ({lang}) => {
                                                 <AddInnerBlock data={elem['titles']} lang={lang} elemID={elem.id} />
                                                 <DeleteBlockDB disable={false} url={getLinkForDB(elem.id,'infoYears')} />
                                             </>
-
                                         </div>
                                     </div>:
                                     <div key={elem.id} className="block">

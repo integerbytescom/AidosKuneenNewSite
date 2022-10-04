@@ -19,6 +19,7 @@ const InfoSlider = ({lang}) => {
 
     //data from database
     const data = useGetData(`/pageData/infoSlider/${lang}`)
+    // console.log(data,'InfoSlider')
 
     //spinner return
     const spinnerLight = () =>{
@@ -27,25 +28,59 @@ const InfoSlider = ({lang}) => {
         )
     }
 
-    //for header block with big num
-    const getHeaderBlock = (actNum,num,textPr,textAft) => {
-        return(
-            <div
-                className={`block ${activeNum===actNum?'active':''}`}
-                onClick={() => setActiveNum(actNum)}
-            >
-                <span>{num}</span>
-                <h4>{textPr}<br />{textAft}</h4>
-            </div>
-        )
+    //set data in db functions
+    const setDataInDBNumTitle = (value,url) => {
+        return update(ref(realtimeDB,url),{
+            titleNum:value
+        })
     }
-
-    const setDataInDB = (value,url) => {
+    const setDataInDBTitle = (value,url) => {
+        return update(ref(realtimeDB,url),{
+            title:value
+        })
+    }
+    const setDataInDBText = (value,url) => {
         return update(ref(realtimeDB,url),{
             text:value
         })
     }
 
+    //for header block with big num
+    const getHeaderBlock = (actNum,num,text) => {
+        return(
+            <div
+                className={`block ${activeNum===actNum?'active':''}`}
+                onClick={() => setActiveNum(actNum)}
+            >
+                <span>0{num}</span>
+                <h4>
+                    {text.slice(0,text.lastIndexOf(' '))}
+                    <br />
+                    {text.slice(text.lastIndexOf(' '),text.length)}
+                </h4>
+            </div>
+        )
+    }
+    //for header block for admin
+    const getHeaderBlockAdmin = (id,actNum,num,text) => {
+        return(
+            <div
+                className={`block ${activeNum===actNum?'active':''}`}
+                onClick={() => setActiveNum(actNum)}
+            >
+                <input
+                    value={num}
+                    className={'admin-red mx-2 w-25'}
+                    onChange={(e) => setDataInDBNumTitle(e.target.value,getLinkForDB(id,'infoSlider'))}
+                />
+                <input
+                    value={text}
+                    className={'admin-red mx-2 mt-2 w-75'}
+                    onChange={(e) => setDataInDBTitle(e.target.value,getLinkForDB(id,'infoSlider'))}
+                />
+            </div>
+        )
+    }
     //for get textarea for admin
     const getAdminTextarea = (blockNum,id) =>{
         return(
@@ -53,7 +88,7 @@ const InfoSlider = ({lang}) => {
                 rows={11}
                 className={`admin-red w-100`}
                 value={data[blockNum].text}
-                onChange={(e) => setDataInDB(e.target.value,getLinkForDB(id,'infoSlider'))}
+                onChange={(e) => setDataInDBText(e.target.value,getLinkForDB(id,'infoSlider'))}
             />
         )
     }
@@ -64,16 +99,21 @@ const InfoSlider = ({lang}) => {
                 
             <header className={`container`}>
                 <div className="content">
-                    {getHeaderBlock(1,'01','IMesh','AidosMesh')}
-                    {getHeaderBlock(2,'02','ADK vs ','Blockchain')}
-                    {getHeaderBlock(3,'03','Transaction ','System')}
+                    {
+                        Object.values(data).length?
+                            Object.values(data).map(elem =>(
+                                admin?
+                                    getHeaderBlockAdmin(elem.id,elem.id + 1,elem["titleNum"],elem.title):
+                                    getHeaderBlock(elem.id + 1,elem["titleNum"],elem.title)
+                            )):''
+                    }
                 </div>
             </header>
 
             <div className="content">
                 <div className="container">
 
-                    <img src="/images/info-slider/card.svg" alt=""/>
+                    <img src="/images/info-slider/card.svg" alt="adk card"/>
 
                     {
                         Object.values(data).length?
