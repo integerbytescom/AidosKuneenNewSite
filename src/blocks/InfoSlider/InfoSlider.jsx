@@ -9,6 +9,7 @@ import {getLinkForDB, numbers} from "../../functions/getLinkForDB";
 import {ref, update} from "firebase/database";
 import {realtimeDB} from "../../database/connect";
 import AddBlockInfo from "./AddBlockInfo/AddBlockInfo";
+import DeleteBlockDB from "../../components/DeleteBlockDB/DeleteBlockDB";
 
 const InfoSlider = ({lang}) => {
 
@@ -79,6 +80,8 @@ const InfoSlider = ({lang}) => {
                     className={'admin-red mx-2 mt-2 w-75'}
                     onChange={(e) => setDataInDBTitle(e.target.value,getLinkForDB(id,'infoSlider'))}
                 />
+
+                <DeleteBlockDB url={getLinkForDB(id,'infoSlider')} id={id + 1} disable={false} />
             </div>
         )
     }
@@ -88,7 +91,7 @@ const InfoSlider = ({lang}) => {
             <textarea
                 rows={11}
                 className={`admin-red w-100`}
-                value={data[blockNum].text}
+                value={data[blockNum]?data[blockNum].text:''}
                 onChange={(e) => setDataInDBText(e.target.value,getLinkForDB(id,'infoSlider'))}
             />
         )

@@ -12,7 +12,7 @@ const AddBlockInfoModal = ({show,onHide,newId,lang}) => {
         text:'',
     })
 
-    console.log(formData)
+    // console.log(formData)
 
     //change inputs
     const handleChange = (elem,value) =>{
