@@ -41,6 +41,7 @@ const AddBlockYearsModal = ({show,onHide,getLastId,lang}) => {
             <Modal.Body>
                 <Form onSubmit={addNewBlock}>
                     <FormControl
+                        required
                         className={'my-1 w-100'}
                         placeholder="Enter year"
                         onChange={e => setDataFormYear(e.target.value)}

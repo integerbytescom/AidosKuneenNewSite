@@ -84,7 +84,7 @@ button.arrow-but:disabled:hover{
 }
 
 
-/*buttom for modal*/
+/*button for modal*/
 .InfoYears .block button.more{
     color: var(--but-blue);
     background: none;

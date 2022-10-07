@@ -5,6 +5,7 @@ import {Badge, Navbar, NavDropdown} from "react-bootstrap";
 import {getLang} from "../../functions/getLang";
 import NavOffCanvas from "./NavOffCanvas/NavOffCanvas";
 import {Link} from 'react-scroll';
+import {Link as LinkRtDom} from 'react-router-dom';
 import {Fade} from "react-awesome-reveal";
 import MetamaskModal from "../MetamaskModal/MetamaskModal";
 import {useWeb3React} from "@web3-react/core";
@@ -33,6 +34,7 @@ const NavbarTop = ({langState,handleChangeLang}) => {
                 <span>
                     Aidos Kuneen
                     {checkAdmin() && <Badge>Admin</Badge>}
+                    {checkAdmin() && <LinkRtDom className={'mx-3 text-white fw-bold'} to={'/'}>Back</LinkRtDom>}
                 </span>
             </div>
 

@@ -48,10 +48,12 @@ const AddBlockInfoModal = ({show,onHide,newId,lang}) => {
             <Modal.Body>
                 <Form>
                     <FormControl
+                        required={true}
                         placeholder={'Enter title'}
                         onChange={e => handleChange('title',e.target.value)}
                     />
                     <FormControl
+                        required={true}
                         as={"textarea"}
                         rows={5}
                         placeholder={'Enter text'}
