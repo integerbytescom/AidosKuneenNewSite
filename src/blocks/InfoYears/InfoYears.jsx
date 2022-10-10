@@ -143,8 +143,9 @@ const InfoYears = ({lang}) => {
                                         <span>{elem.year}</span>
                                         <div>
                                             {
-                                                elem['titles'].map(title =>(
+                                                elem['titles'].map((title,ids) =>(
                                                     <p
+                                                        key={ids}
                                                         onClick={() => handleOpenModal({...title,year:elem.year})}
                                                         className={`title`}
                                                     >

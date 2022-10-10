@@ -51,6 +51,7 @@ const InfoSlider = ({lang}) => {
     const getHeaderBlock = (actNum,num,text) => {
         return(
             <div
+                key={num}
                 className={`block ${activeNum===actNum?'active':''}`}
                 onClick={() => setActiveNum(actNum)}
             >
@@ -67,6 +68,7 @@ const InfoSlider = ({lang}) => {
     const getHeaderBlockAdmin = (id,actNum,num,text) => {
         return(
             <div
+                key={id}
                 className={`block ${activeNum===actNum?'active':''}`}
                 onClick={() => setActiveNum(actNum)}
             >

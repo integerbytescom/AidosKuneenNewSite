@@ -20,12 +20,12 @@
     width: 100%;
     display: flex;
     justify-content: flex-end;
+    padding: 1em 0 6em;
 }
 .InfoSlider header .content{
     width: 50%;
     display: flex;
     justify-content: space-between;
-    padding: 1em 0 6em;
     background-image: none;
 }
 /*block with number*/

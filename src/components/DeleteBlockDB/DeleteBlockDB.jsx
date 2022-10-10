@@ -25,11 +25,17 @@ const DeleteBlockDB = ({url,id = false,disable}) => {
                     <Button
                         disabled={disable}
                         onClick={() => setConfirm(true)}
-                        variant={"outline-danger"}
+                        variant={"danger"}
                         className={'mt-1'}
                         size={"sm"}
                     >
                         Delete {id?id:'this'} block
+                        {/*<img*/}
+                        {/*    width={20}*/}
+                        {/*    src="/images/general/x.svg"*/}
+                        {/*    alt="x"*/}
+                        {/*    style={{cursor:"pointer"}}*/}
+                        {/*/>*/}
                     </Button>
                     :
                     <Button

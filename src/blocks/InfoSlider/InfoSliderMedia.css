@@ -1,7 +1,9 @@
 @media screen and (max-width: 1400px){
+    .InfoSlider header{
+        padding: 1em 0 1em;
+    }
     .InfoSlider header .content{
         width: 65%;
-        padding: 1em 0 1em;
     }
     .InfoSlider .content .container{
         padding: 10em 0 5em;
@@ -12,6 +14,10 @@
     .InfoSlider .content .container .info{
         width: 65%;
     }
+    /*block with big nums*/
+    .InfoSlider header .block span{
+        font-size: 3.5em;
+    }
 }
 
 @media screen and (max-width: 900px){
@@ -21,7 +27,6 @@
     }
     .InfoSlider header .content{
         width: 80%;
-        padding: 1em 0 1em;
     }
     .InfoSlider .content .container{
         padding: 5em 0 5em;
