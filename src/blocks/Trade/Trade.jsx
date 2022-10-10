@@ -2,10 +2,25 @@ import React, {useEffect, useState} from 'react';
 import './Trade.css';
 import './TradeMedia.css';
 import dataCompanies from "./dataCompanies";
-import {useApi} from "../../hooks/useApi";
 import {Slide} from "react-awesome-reveal";
+import {storageDB} from "../../database/connect";
+import { ref,listAll,getDownloadURL } from "firebase/storage";
+import {checkAdmin} from "../../functions/checkAdmin";
+import TradeApiBlock from "./TradeApiBlock";
+import {Badge, FormControl} from "react-bootstrap";
+import {uploadImage} from "../../functions/uploadImage";
+import {numbers} from "../../functions/getLinkForDB";
 
 const Trade = ({lang}) => {
+
+    const admin = checkAdmin();
+
+    //state for images from storageDB
+    const [imageList,setImageList] = useState([]);
+    console.log(imageList,'image list from data base with sort');
+
+    //link to images directory in databse
+    const imagesRef = blockId => ref(storageDB,`/trade/${blockId}`)
 
     //for companies block
     const getCompanies = (start,end) =>{
@@ -22,57 +37,82 @@ const Trade = ({lang}) => {
         ))
     }
 
-    //api data
-    const dataCoin = useApi('/coins/aidos-kuneen').data;
-    const [data,setData] = useState([])
-    // console.log(data)
+    //for companies block
+    const getCompaniesAdmin = (start,end) =>{
+        return dataCompanies.slice(start,end).map(elem =>(
+            <div className={'m-2 mb-4'}>
+                <Badge className={'mb-1'}>Block {elem.id}</Badge>
+                {/*<FormControl size={"sm"} className={'mb-1'} value={elem.img} />*/}
+                {/*<FormControl size={"sm"} className={'mb-1'} value={elem.link} />*/}
+                <FormControl
+                    size={"sm"}
+                    type="file"
+                    onChange={e => uploadImage(e,elem.id - 1)}
+                    disabled={true}
+                />
+                {
+                    imageList.length >= dataCompanies.length ?
+                        <img
+                            src={imageList.find(img => img.id === elem.id - 1).image}
+                            alt=""
+                        />
+                        : ''
+                }
+            </div>
+        ))
+    }
 
-    const currentPrce = data['market_data']?data['market_data']['current_price']['usd'].toLocaleString()+'$':'';
-    const priceChange24h = data['market_data']?data['market_data']['price_change_percentage_24h']+'%':'';
-    const marketCap = data['market_data']?data['market_data']['market_cap']['usd'].toLocaleString()+'$':'';
-    const volumeCoin = data['market_data']?data['market_data']['total_volume']['usd'].toLocaleString()+'$':'';
+    const getImagesFromStorage = () => {
+        setImageList([])
+        for (let elem of dataCompanies){
+            listAll(imagesRef(numbers[elem.id - 1])).then(res => {
+                res.items.forEach(item => {
+                    getDownloadURL(item).then(url => {
+                        setImageList(prev => [...prev, {id:(elem.id - 1),image:url}])
+                    })
+                })
+            })
+        }
+    }
 
-    useEffect(() =>{
-        setData(dataCoin)
-    },[dataCoin])
 
+    useEffect(() => {
+        getImagesFromStorage()
+    },[])
 
     return (
         <div id={`trade`} className={`Trade container`}>
 
             <div className="content">
-                <Slide direction={'left'}>
-                <div className="api-info">
-                    <img src="/images/trade/logoAidos.svg" alt=""/>
-                    <div>
-                        <span className={'price'}>
-                            <h3>{currentPrce}</h3>
-                            <h6
-                                className={priceChange24h.startsWith('-')?'red':''}
-                            >
-                                {priceChange24h}
-                            </h6>
-                        </span>
-                        <span className={'volume'}>
-                            <h6>Market cap:<strong>{marketCap}</strong></h6>
-                            <h6>Volume:<strong>{volumeCoin}</strong></h6>
-                        </span>
-                    </div>
-                </div>
-                </Slide>
+
+                <TradeApiBlock />
 
                 <div className="companies">
-                    <Slide direction={'right'}>
-                        <div className="block one">
-                            {getCompanies(0,3)}
-                        </div>
-                        <div className="block two">
-                            {getCompanies(3,6)}
-                        </div>
-                        <div className="block three">
-                            {getCompanies(6,9)}
-                        </div>
-                    </Slide>
+                    {
+                        admin?
+                            <Slide direction={'right'}>
+                                <div className="block one">
+                                    {getCompaniesAdmin(0,3)}
+                                </div>
+                                <div className="block two">
+                                    {getCompaniesAdmin(3,6)}
+                                </div>
+                                <div className="block three">
+                                    {getCompaniesAdmin(6,9)}
+                                </div>
+                            </Slide>:
+                            <Slide direction={'right'}>
+                                <div className="block one">
+                                    {getCompanies(0,3)}
+                                </div>
+                                <div className="block two">
+                                    {getCompanies(3,6)}
+                                </div>
+                                <div className="block three">
+                                    {getCompanies(6,9)}
+                                </div>
+                            </Slide>
+                    }
                 </div>
             </div>
         </div>
