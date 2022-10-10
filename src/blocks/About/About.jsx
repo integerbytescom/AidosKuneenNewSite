@@ -46,7 +46,7 @@ const About = ({lang}) => {
                             Object.values(data).length?
                                 Object.values(data).map(elem =>(
                                 <div className="block" key={elem.id}>
-                                    <img src={elem.img} alt=""/>
+                                    <img src={'.' + elem.img} alt=""/>
                                     <span>
                                         {
                                             admin?

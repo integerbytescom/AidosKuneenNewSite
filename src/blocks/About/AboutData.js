@@ -3,7 +3,7 @@ import {getLang} from "../../functions/getLang";
 const aboutData = [
     {
         id:1,
-        img:'/images/about/lock.svg',
+        img:'./images/about/lock.svg',
         title:
             getLang()==='ru'?'Квантовая безопасность':
                 getLang()==='en'?'Quantum Security':
@@ -17,7 +17,7 @@ const aboutData = [
     },
     {
         id:2,
-        img:'/images/about/eye.svg',
+        img:'./images/about/eye.svg',
         title:
             getLang()==='ru'?'100% Анонимность':
                 getLang()==='en'?'100% Anonymous':
@@ -30,7 +30,7 @@ const aboutData = [
     },
     {
         id:3,
-        img:'/images/about/lock.svg',
+        img:'./images/about/lock.svg',
         title:
             getLang()==='ru'? 'Без цепей:':
                 getLang()==='en'?'No chains':

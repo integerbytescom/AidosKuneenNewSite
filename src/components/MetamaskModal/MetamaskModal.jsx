@@ -113,7 +113,7 @@ const MetamaskModal = ({show}) => {
                         {
                             chainId === 40272?
                                 <div className="block">
-                                    <img src="/images/general/globe.svg" alt="globe"/>
+                                    <img src="./images/general/globe.svg" alt="globe"/>
                                     <span>
                                         <h6>Connect to</h6>
                                         <p className={'small'}>Aidos Network</p>
@@ -132,7 +132,7 @@ const MetamaskModal = ({show}) => {
                                     </p>
                                     <img onClick={handleCopy}
                                          style={{cursor:"grab"}}
-                                         src="/images/general/copy.svg"
+                                         src="./images/general/copy.svg"
                                          alt="copy"
                                     />
                                 </div>:''
@@ -145,7 +145,7 @@ const MetamaskModal = ({show}) => {
                             <p>Connect Metamask</p>
                         </div>
                         <button onClick={connect} className={'success'}>
-                            {active? <img src="/images/general/success.svg" alt="success"/>:''}
+                            {active? <img src="./images/general/success.svg" alt="success"/>:''}
                             Connect
                         </button>
 
@@ -165,16 +165,16 @@ const MetamaskModal = ({show}) => {
                             <p>Add Network</p>
                             <img
                                 className={'info'}
-                                src="/images/general/info.svg"
+                                src="./images/general/info.svg"
                                 alt="info"
                                 onClick={handleShowInfo}
                             />
                         </div>
                         <button onClick={addADKNetworkAUTO} className={'add'}>
-                            <img src="/images/general/logo.svg" alt=""/>
+                            <img src="./images/general/logo.svg" alt=""/>
                             {
                                 chainId===40272?
-                                    <img style={{height:"12px"}} src="/images/general/success.svg" alt="success"/>:''
+                                    <img style={{height:"12px"}} src="./images/general/success.svg" alt="success"/>:''
                             }
                             Aidos Kuneen
                         </button>

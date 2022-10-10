@@ -18,7 +18,7 @@ const Router = () => {
     return (
         <>
             <Routes>
-                <Route path={`/`} element={<Main />} />
+                <Route exact path={`/`} element={<Main />} />
                 <Route path={`/admin`} element={<AdminLogin />} />
                 <Route path={`/admin/success`} element={<Admin />} />
             </Routes>

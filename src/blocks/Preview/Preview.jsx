@@ -35,7 +35,7 @@ const Preview = ({lang}) => {
         <div className={`Preview`}>
 
             <div className="container">
-                <img src="/images/preview/laptop.png" alt=""/>
+                <img src="./images/preview/laptop.png" alt=""/>
 
                 {
                     Object.values(data).length?

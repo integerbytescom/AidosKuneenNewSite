@@ -55,7 +55,7 @@ const Main = () => {
             <Parallax
                 className={'parallax-container'}
                 blur={0}
-                bgImage={'/images/preview/bg-main.png'}
+                bgImage={'./images/preview/bg-main.png'}
                 strength={media1000?400:-200}
                 bgImageStyle={{width:media1000?"200%":"100%",height:"110vh",top:media1000?"30%":"15%"}}
             >

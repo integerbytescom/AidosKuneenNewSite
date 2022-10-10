@@ -79,7 +79,7 @@ const InfoYears = ({lang}) => {
         <Fade delay={500}>
 
         <Fade delay={1000}>
-            <img className={'bg-info-years'} src="/images/about/bg.svg" alt=""/>
+            <img className={'bg-info-years'} src="./images/about/bg.svg" alt=""/>
         </Fade>
 
 
@@ -93,7 +93,7 @@ const InfoYears = ({lang}) => {
                 <img
                     height={20}
                     style={{transform:" rotate(180deg)",cursor:"pointer"}}
-                    src="/images/general/arrow-right.svg"
+                    src="./images/general/arrow-right.svg"
                     alt="left"
                 />
             </button>
@@ -170,7 +170,7 @@ const InfoYears = ({lang}) => {
                 <img
                     height={20}
                     style={{cursor:"pointer"}}
-                    src="/images/general/arrow-right.svg"
+                    src="./images/general/arrow-right.svg"
                     alt="left"
                 />
             </button>

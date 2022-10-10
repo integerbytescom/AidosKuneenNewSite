@@ -30,7 +30,7 @@ const NavbarTop = ({langState,handleChangeLang}) => {
         <Fade style={{zIndex:10}} direction={`down`}>
         <Navbar>
             <div className="logo">
-                <img src="/images/general/logo.svg" alt=""/>
+                <img src="./images/general/logo.svg" alt=""/>
                 <span>
                     Aidos Kuneen
                     {checkAdmin() && <Badge>Admin</Badge>}
@@ -87,7 +87,7 @@ const NavbarTop = ({langState,handleChangeLang}) => {
                     }
                     <img
                         style={{transform:`${showMetamask?'':'rotate(180deg)'}`}}
-                        src="/images/general/arrow-white.svg"
+                        src="./images/general/arrow-white.svg"
                         alt="arrow"
                     />
                 </button>
@@ -119,7 +119,7 @@ const NavbarTop = ({langState,handleChangeLang}) => {
             </div>
 
             <button className={'open-canvas'} onClick={handleShow}>
-                <img src="/images/general/open-canvas.svg" alt=""/>
+                <img src="./images/general/open-canvas.svg" alt=""/>
             </button>
 
             {/*offcanvas*/}

@@ -124,7 +124,7 @@ const InfoSlider = ({lang}) => {
             <div className="content">
                 <div className="container">
 
-                    <img src="/images/info-slider/card.svg" alt="adk card"/>
+                    <img src="./images/info-slider/card.svg" alt="adk card"/>
 
                     {
                         Object.values(data).length?
