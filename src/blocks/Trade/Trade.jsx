@@ -43,7 +43,7 @@ const Trade = ({lang}) => {
             <div className="content">
                 <Slide direction={'left'}>
                 <div className="api-info">
-                    <img src="./images/trade/logoAidos.svg" alt=""/>
+                    <img src="/images/trade/logoAidos.svg" alt=""/>
                     <div>
                         <span className={'price'}>
                             <h3>{currentPrce}</h3>

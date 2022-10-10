@@ -10,7 +10,7 @@ const FooterBottom = ({lang}) => {
 
             {/*from navbar top*/}
             <div className="logo">
-                <img src="./images/general/logo.svg" alt=""/>
+                <img src="/images/general/logo.svg" alt=""/>
                 <span>Aidos Kuneen</span>
             </div>
 

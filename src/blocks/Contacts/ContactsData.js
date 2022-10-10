@@ -1,41 +1,41 @@
 export const contactsData = [
     {
-        image:'./images/Contacts/social/facebook.svg',
+        image:'/images/Contacts/social/facebook.svg',
         url:'https://www.facebook.com/Aidos-Kuneen-101400758353414',
         alt:'facebook',
     },
     {
-        image:'./images/Contacts/social/github.svg',
+        image:'/images/Contacts/social/github.svg',
         url:'https://github.com/AidosKuneen/',
         alt:'github',
     },
     {
-        image:'./images/Contacts/social/in.svg',
+        image:'/images/Contacts/social/in.svg',
         url:'https://www.linkedin.com/company/aidos-kuneen/',
         alt:'in',
     },
     {
-        image:'./images/Contacts/social/inst.svg',
+        image:'/images/Contacts/social/inst.svg',
         url:'https://www.instagram.com/aidoskuneenofficial/',
         alt:'instagram',
     },
     {
-        image:'./images/Contacts/social/m.svg',
+        image:'/images/Contacts/social/m.svg',
         url:'https://medium.com/@aidoskuneen',
         alt:'medium',
     },
     {
-        image:'./images/Contacts/social/robot.svg',
+        image:'/images/Contacts/social/robot.svg',
         url:'https://www.reddit.com/user/AidosKuneenOfficial',
         alt:'robot',
     },
     {
-        image:'./images/Contacts/social/twitter.svg',
+        image:'/images/Contacts/social/twitter.svg',
         url:'https://twitter.com/aidos_kuneen',
         alt:'twitter',
     },
     {
-        image:'./images/Contacts/social/youtube.svg',
+        image:'/images/Contacts/social/youtube.svg',
         url:'https://www.youtube.com/channel/UCaR6V9HKQ0dR4aqiLqly1Vg',
         alt:'youtube',
     },

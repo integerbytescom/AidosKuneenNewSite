@@ -50,7 +50,7 @@ const Faq = ({lang}) => {
                     Object.values(data).length?
                         Object.values(data)
                             .sort((a,b) => a.id - b.id)
-                            .filter(a => a.id < (showMore?Object.values(data).length - 1 : 5))
+                            .filter(a => a.id < (showMore?Object.values(data).length : 5))
                             .map((elem) =>(
                         <Accordion.Item eventKey={elem.id} key={elem.id}>
                             <Accordion.Header>
@@ -84,14 +84,17 @@ const Faq = ({lang}) => {
             </Accordion>
 
             {/*"show more accordion items"*/}
-            <div className="w-100 d-flex justify-content-center mt-4">
-                <Button
-                    style={{background:'#0084F9',borderRadius:'.2em',padding:'.3em 3em'}}
-                    onClick={() => setShowMore(!showMore)}
-                >
-                    {showMore?'Close':'Show more'}
-                </Button>
-            </div>
+            {
+                (Object.values(data).length) > 5 ?
+                <div className="w-100 d-flex justify-content-center mt-4">
+                    <Button
+                        style={{background:'#0084F9',borderRadius:'.2em',padding:'.3em 3em'}}
+                        onClick={() => setShowMore(!showMore)}
+                    >
+                        {showMore?'Close':'Show more'}
+                    </Button>
+                </div>:''
+            }
 
             {/*if admin===true show button add block*/}
             {

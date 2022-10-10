@@ -12,7 +12,7 @@ const BgVideo = () => {
             {/*для платного перехода между видео и далее блоками*/}
             <Gradient />
             <video ref={videoRef} className={'video-bg'} autoPlay playsInline muted >
-                <source src="./video/video-bg.mp4" type="video/mp4" />
+                <source src="/video/video-bg.mp4" type="video/mp4" />
             </video>
         </div>
     );
