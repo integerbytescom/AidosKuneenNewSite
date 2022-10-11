@@ -26,57 +26,17 @@
         margin-top: 0;
     }
 
-    /*margin blocks*/
-    .Trade .content .companies .block{
-        width: 60%;
-    }
-    .Trade .content .companies .block.one{
-        margin-left: 0;
-    }
-    .Trade .content .companies .block.two{
-        margin-left: 20%;
-    }
-    .Trade .content .companies .block.three{
-        margin-left: 40%;
-    }
-
-    .Trade .content .companies .block a.circle-comp{
+    .Trade .content .companies a.circle-comp{
         width: 30%;
         height: 90px;
         border-radius: 1em;
     }
-    .Trade .content .companies .block a.circle-comp img{
-        width: 70%;
+    .Trade .content .companies a.circle-comp img{
+        width: 50%;
         max-height: 50px;
     }
 }
 
-@media screen and (max-width: 700px){
-    /*margin blocks*/
-    .Trade .content .companies .block{
-        width: 80%;
-    }
-    .Trade .content .companies .block.one{
-        margin-left: 0;
-    }
-    .Trade .content .companies .block.two{
-        margin-left: 10%;
-    }
-    .Trade .content .companies .block.three{
-        margin-left: 20%;
-    }
-}
-
-@media screen and (max-width: 550px){
-    .Trade .content .companies .block{
-        width: 100%;
-    }
-    .Trade .content .companies .block.one,
-    .Trade .content .companies .block.two,
-    .Trade .content .companies .block.three{
-        margin-left: 0;
-    }
-}
 @media screen and (max-width: 420px){
     /*api*/
     .Trade .content .api-info div{
@@ -90,12 +50,12 @@
     }
 
     /*krugi*/
-    .Trade .content .companies .block a.circle-comp{
-        width: 30%;
-        height: 65px;
+    .Trade .content .companies a.circle-comp{
+        width: 45%;
+        height: 70px;
     }
-    .Trade .content .companies .block a.circle-comp img{
-        width: 80%;
+    .Trade .content .companies a.circle-comp img{
+        width: 60%;
         max-height: 35px;
     }
 }

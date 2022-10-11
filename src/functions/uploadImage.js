@@ -2,8 +2,7 @@ import {ref, uploadBytesResumable} from "firebase/storage";
 import {storageDB} from "../database/connect";
 import {numbers} from "./getLinkForDB";
 
-export const uploadImage = async (e,blockId) => {
-    let file = e.target.files[0];
+export const uploadImage = async (file,blockId) => {
 
     let fileRef = ref(storageDB,`/trade/${numbers[blockId]}/${file.name}`);
     const uploadTask = uploadBytesResumable(fileRef,file);

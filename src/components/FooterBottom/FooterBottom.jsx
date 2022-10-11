@@ -15,7 +15,7 @@ const FooterBottom = ({lang}) => {
             </div>
 
             <p>
-                © 2020 Aidos Kuneen.
+                © {' ' + new Date().getFullYear() + ' '} Aidos Kuneen.
                 {
                     lang==='ru'?' Все права защищены':
                         lang==='en'?' All rights reserved':

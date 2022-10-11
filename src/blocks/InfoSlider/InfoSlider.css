@@ -30,6 +30,7 @@
 }
 /*block with number*/
 .InfoSlider header .block{
+;
     display: flex;
     flex-wrap: wrap;
     position: relative;

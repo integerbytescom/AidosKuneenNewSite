@@ -99,14 +99,16 @@ const Faq = ({lang}) => {
             {/*if admin===true show button add block*/}
             {
                 admin &&
-                <Button
-                    onClick={() => setShow(true)}
-                    size={"sm"}
-                    variant={"outline-success"}
-                    className={'mt-3'}
-                >
-                    Add block
-                </Button>
+                <div className={`w-100 d-flex justify-content-center`}>
+                    <Button
+                        onClick={() => setShow(true)}
+                        size={"sm"}
+                        variant={"outline-success"}
+                        className={'mt-3'}
+                    >
+                        Add block
+                    </Button>
+                </div>
             }
 
             </Fade>

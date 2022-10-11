@@ -44,7 +44,7 @@ const Main = () => {
 
             <BgVideo lang={langState} />
 
-            <Trade lang={langState} />
+            <Trade />
 
             <About lang={langState} />
             <InfoSlider lang={langState} />

@@ -36,7 +36,7 @@ const NavOffCanvas = ({show,handleClose,langState,handleChangeLang,showMetamask,
                             transition:".3s",
                             cursor:"inherit"
                         }}
-                        src="./images/general/arrow-white.svg"
+                        src="/images/general/arrow-white.svg"
                         alt="arrow"
                     />
                 </button>

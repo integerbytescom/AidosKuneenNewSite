@@ -8,10 +8,11 @@ const AddBlockInfo = ({data,lang}) => {
     const [showModal,setShowModal] = useState(false)
 
     return (
-        <>
+        <div className={'w-75 mt-3 d-flex justify-content-end'}>
+
             <Button
                 size={"sm"}
-                variant={"secondary"}
+                variant={"outline-success"}
                 className={`mx-3`}
                 onClick={() => setShowModal(true)}
             >
@@ -19,7 +20,7 @@ const AddBlockInfo = ({data,lang}) => {
             </Button>
 
             <AddBlockInfoModal lang={lang} show={showModal} onHide={() => setShowModal(false)} newId={getLastId(data)} />
-        </>
+        </div>
     );
 };
 
