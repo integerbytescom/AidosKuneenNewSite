@@ -2,14 +2,14 @@ import React, {useEffect, useState} from 'react';
 import './Trade.css';
 import './TradeMedia.css';
 import dataCompanies from "./dataCompanies";
-import {Slide} from "react-awesome-reveal";
-import {storageDB} from "../../database/connect";
+import {realtimeDB, storageDB} from "../../database/connect";
 import { ref,listAll,getDownloadURL } from "firebase/storage";
 import {checkAdmin} from "../../functions/checkAdmin";
 import TradeApiBlock from "./TradeApiBlock";
-import {Badge, FormControl} from "react-bootstrap";
-import {uploadImage} from "../../functions/uploadImage";
+import {Badge, FormControl, Spinner} from "react-bootstrap";
 import {numbers} from "../../functions/getLinkForDB";
+import {useGetData} from "../../hooks/useGetData";
+import {update,ref as refRlt} from "firebase/database";
 
 const Trade = ({lang}) => {
 
@@ -17,14 +17,18 @@ const Trade = ({lang}) => {
 
     //state for images from storageDB
     const [imageList,setImageList] = useState([]);
-    console.log(imageList,'image list from data base with sort');
+    // console.log(imageList,'image list from data base with sort');
 
     //link to images directory in databse
     const imagesRef = blockId => ref(storageDB,`/trade/${blockId}`)
 
+    //data from database
+    const dataDB = useGetData(`/pageData/trade/`);
+    // console.log(dataDB,'Trade data');
+
     //for companies block
-    const getCompanies = (start,end) =>{
-        return dataCompanies.slice(start,end).map(elem =>(
+    const getCompanies = () =>{
+        return Object.values(dataDB).map(elem =>(
             <a
                 className={'circle-comp'}
                 key={elem.id}
@@ -32,31 +36,51 @@ const Trade = ({lang}) => {
                 href={elem.link}
                 rel={'noreferrer'}
             >
-                <img src={elem.img} alt=""/>
+                {
+                    imageList.length >= Object.values(dataDB).length ?
+                        <img
+                            src={imageList.find(img => img.id === elem.id).image}
+                            alt={elem.link}
+                        /> :
+                        <Spinner animation={"border"} variant={"success"} />
+                }
             </a>
         ))
     }
 
+    //set link in database
+    const setLinkInDB = (value,id) =>{
+        console.log(id)
+        return update(refRlt(realtimeDB,`/pageData/trade/${id}`),{
+            link:value,
+        })
+    }
+
     //for companies block
-    const getCompaniesAdmin = (start,end) =>{
-        return dataCompanies.slice(start,end).map(elem =>(
+    const getCompaniesAdmin = () =>{
+        return Object.values(dataDB)
+            .sort((a,b) => a.id - b.id)
+            .map(elem =>(
             <div className={'m-2 mb-4'}>
-                <Badge className={'mb-1'}>Block {elem.id}</Badge>
-                {/*<FormControl size={"sm"} className={'mb-1'} value={elem.img} />*/}
-                {/*<FormControl size={"sm"} className={'mb-1'} value={elem.link} />*/}
+                <Badge className={'mb-1'}>Block {elem.id + 1}</Badge>
                 <FormControl
                     size={"sm"}
-                    type="file"
-                    onChange={e => uploadImage(e,elem.id - 1)}
-                    disabled={true}
+                    className={'mb-1'}
+                    value={elem.link}
+                    onChange={e => setLinkInDB(e.target.value,numbers[elem.id])}
                 />
+                {/*<FormControl*/}
+                {/*    size={"sm"}*/}
+                {/*    type="file"*/}
+                {/*    onChange={e => uploadImage(e,elem.id - 1)}*/}
+                {/*/>*/}
                 {
-                    imageList.length >= dataCompanies.length ?
+                    imageList.length >= Object.values(dataDB).length ?
                         <img
-                            src={imageList.find(img => img.id === elem.id - 1).image}
-                            alt=""
+                            src={imageList.find(img => img.id === elem.id).image}
+                            alt={elem.link}
                         />
-                        : ''
+                        : <Spinner animation={"border"} variant={"success"} />
                 }
             </div>
         ))
@@ -89,29 +113,12 @@ const Trade = ({lang}) => {
 
                 <div className="companies">
                     {
-                        admin?
-                            <Slide direction={'right'}>
-                                <div className="block one">
-                                    {getCompaniesAdmin(0,3)}
-                                </div>
-                                <div className="block two">
-                                    {getCompaniesAdmin(3,6)}
-                                </div>
-                                <div className="block three">
-                                    {getCompaniesAdmin(6,9)}
-                                </div>
-                            </Slide>:
-                            <Slide direction={'right'}>
-                                <div className="block one">
-                                    {getCompanies(0,3)}
-                                </div>
-                                <div className="block two">
-                                    {getCompanies(3,6)}
-                                </div>
-                                <div className="block three">
-                                    {getCompanies(6,9)}
-                                </div>
-                            </Slide>
+                        Object.values(dataDB).length?
+                            admin?
+                                getCompaniesAdmin():
+                                getCompanies()
+                            :
+                            <Spinner animation={"border"} variant={"light"} />
                     }
                 </div>
             </div>

@@ -5,7 +5,6 @@ import {numbers} from "./getLinkForDB";
 export const uploadImage = async (e,blockId) => {
     let file = e.target.files[0];
 
-
     let fileRef = ref(storageDB,`/trade/${numbers[blockId]}/${file.name}`);
     const uploadTask = uploadBytesResumable(fileRef,file);
 

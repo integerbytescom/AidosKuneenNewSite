@@ -67,38 +67,29 @@
 
 /*logos companies*/
 .Trade .content .companies{
-    width: 60%;
-}
-.Trade .content .companies .block{
     display: flex;
     justify-content: space-between;
-    align-items: center;
-    width: 80%;
+    flex-wrap: wrap;
+    width: 60%;
 }
-.Trade .content .companies .block.one{
-    margin-left: 20%;
-}
-.Trade .content .companies .block.two{
-    margin-left: 10%;
-}
-.Trade .content .companies .block a.circle-comp{
+.Trade .content .companies a.circle-comp{
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 150px;
-    height: 150px;
-    border-radius: 50%;
+    width: 30%;
+    height: 120px;
+    border-radius: 1.5em;
     background: var(--compan-block);
     margin: .5em;
     transition: .3s;
 }
-.Trade .content .companies .block a.circle-comp:hover{
+.Trade .content .companies a.circle-comp:hover{
     background: var(--compan-block-hover);
 }
-.Trade .content .companies .block a.circle-comp img{
+.Trade .content .companies a.circle-comp img{
     cursor: inherit;
     transition: .3s;
 }
-.Trade .content .companies .block a.circle-comp:hover img{
+.Trade .content .companies a.circle-comp:hover img{
     opacity: .5;
 }
