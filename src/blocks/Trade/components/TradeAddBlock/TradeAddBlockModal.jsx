@@ -49,6 +49,7 @@ const TradeAddBlockModal = ({show,onHide,lastId}) => {
 
                 <Form onSubmit={handleAddBlock}>
                     <FormControl
+                        required={true}
                         placeholder={"Enter link"}
                         className={'mb-1'}
                         size={"sm"}
@@ -57,6 +58,7 @@ const TradeAddBlockModal = ({show,onHide,lastId}) => {
                     />
 
                     <FormControl
+                        required={true}
                         className={'mb-1'}
                         size={"sm"}
                         type="file"

@@ -86,14 +86,24 @@ const Trade = () => {
             .sort((a,b) => a.id - b.id)
             .map(elem =>(
             <div className={'m-2 mb-4'}>
-                <Badge className={'mb-1'}>Block {elem.id + 1}</Badge>
+
+                <Badge
+                    className={'mb-1'}
+                    bg={"secondary"}
+                >
+                    Block {elem.id + 1}
+                </Badge>
+
                 <FormControl
                     size={"sm"}
                     className={'mb-1'}
                     value={elem.link}
                     onChange={e => setLinkInDB(e.target.value,numbers[elem.id])}
+                    required={true}
                 />
+
                 {getImage(elem)}< br/>
+
                 <Button
                     size={"sm"}
                     variant={"outline-danger"}

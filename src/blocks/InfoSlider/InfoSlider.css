@@ -15,52 +15,67 @@
     position: absolute;
 }
 
+/*swiper buttons*/
+.swiper.slider-info .swiper-button-next,
+.swiper.slider-info .swiper-button-prev {
+    height: auto;
+    margin-top: 0;
+    color: var(--white-op-80);
+}
+.swiper.slider-info .swiper-button-next:after,
+.swiper.slider-info .swiper-button-prev:after{
+    font-size: 1.2em;
+    font-weight: 900;
+}
+
+
 /*header*/
-.InfoSlider header{
+.InfoSlider header.container{
     width: 100%;
     display: flex;
     justify-content: flex-end;
     padding: 1em 0 6em;
 }
-.InfoSlider header .content{
+.InfoSlider header .swiper.slider-info{
     width: 50%;
-    display: flex;
-    justify-content: space-between;
-    background-image: none;
+    /*padding: 0 5%;*/
+    margin-right: 0;
+    margin-left: 0;
 }
 /*block with number*/
-.InfoSlider header .block{
-;
+.InfoSlider header .swiper-slide.block{
     display: flex;
     flex-wrap: wrap;
+    justify-content: center;
     position: relative;
     cursor: pointer;
     transition: .3s;
+    /*background: rgba(255, 0, 0, 0.2);*/
 }
-.InfoSlider header .block:hover{opacity: .5;}
-.InfoSlider header .block.active:hover{opacity: 1;cursor: not-allowed}
+.InfoSlider header .swiper-slide.block:hover{opacity: .5;}
+.InfoSlider header .swiper-slide.block.active:hover{opacity: 1;cursor: not-allowed}
 
-.InfoSlider header .block span{
-    width: 100%;
-    text-align: right;
+.InfoSlider header .swiper-slide.block span{
+    margin-right: -15%;
     font-size: 5em;
     color: #212234;
     font-weight: 900;
     transition: .3s;
+    /*background: rgba(218, 165, 32, 0.2);*/
 }
-.InfoSlider header .block.active span{
+.InfoSlider header .swiper-slide.block.active span{
     color: var(--but-nav);
 }
-.InfoSlider header .block h4{
+.InfoSlider header .swiper-slide.block h4{
     position: absolute;
+    right: 30%;
     bottom: -.5em;
-    left: -1em;
     color: #535571;
     font-weight: 400;
     transition: .3s;
     cursor: pointer;
 }
-.InfoSlider header .block.active h4{
+.InfoSlider header .swiper-slide.block.active h4{
     color: var(--white);
     cursor: not-allowed;
 }

@@ -11,9 +11,12 @@ export const numbers = [
     'twentySecondBlock','twentyThirdBlock','twentyFourthBlock',
     'twentyFifthBlock','twentySixthBlock','twentySeventhBlock',
     'twentyEightBlock','twentyNinthBlock','thirtyBlock',
+    'thirtyFirstBlock','thirtySecondBlock','thirtyThirdBlock',
+    'thirtyFourthBlock','thirtyFifthBlock','thirtySixthBlock',
+    'thirtySeventhBlock','thirtyEightBlock','thirtyNinthBlock',
+    'fortiethBlock','fortiethFirstBlock','fortiethSecondBlock',
 ]
 
 export const getLinkForDB = (id,blockPage) =>{
-
     return `/pageData/${blockPage}/${getLang()}/${numbers[id]}`
 }

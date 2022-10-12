@@ -9,7 +9,7 @@ import {getLinkForDB, numbers} from "../../functions/getLinkForDB";
 import {ref, update} from "firebase/database";
 import {realtimeDB} from "../../database/connect";
 import AddBlockInfo from "./AddBlockInfo/AddBlockInfo";
-import DeleteBlockDB from "../../components/DeleteBlockDB/DeleteBlockDB";
+import InfoSliderHeader from "./InfoSliderHeader";
 
 const InfoSlider = ({lang}) => {
 
@@ -47,46 +47,6 @@ const InfoSlider = ({lang}) => {
         })
     }
 
-    //for header block with big num
-    const getHeaderBlock = (actNum,num,text) => {
-        return(
-            <div
-                key={num}
-                className={`block ${activeNum===actNum?'active':''}`}
-                onClick={() => setActiveNum(actNum)}
-            >
-                <span>0{num}</span>
-                <h4>
-                    {text.slice(0,text.lastIndexOf(' '))}
-                    <br />
-                    {text.slice(text.lastIndexOf(' '),text.length)}
-                </h4>
-            </div>
-        )
-    }
-    //for header block for admin
-    const getHeaderBlockAdmin = (id,actNum,num,text) => {
-        return(
-            <div
-                key={id}
-                className={`block ${activeNum===actNum?'active':''}`}
-                onClick={() => setActiveNum(actNum)}
-            >
-                <input
-                    value={num}
-                    className={'admin-red mx-2 w-25'}
-                    onChange={(e) => setDataInDBNumTitle(e.target.value,getLinkForDB(id,'infoSlider'))}
-                />
-                <input
-                    value={text}
-                    className={'admin-red mx-2 mt-2 w-75'}
-                    onChange={(e) => setDataInDBTitle(e.target.value,getLinkForDB(id,'infoSlider'))}
-                />
-
-                <DeleteBlockDB url={getLinkForDB(id,'infoSlider')} id={id + 1} disable={false} />
-            </div>
-        )
-    }
     //for get textarea for admin
     const getAdminTextarea = (blockNum,id) =>{
         return(
@@ -102,21 +62,15 @@ const InfoSlider = ({lang}) => {
     return (
         <Fade delay={500}>
         <div className={`InfoSlider`}>
-                
-            <header className={`container`}>
-                <div className="content">
-                    {
-                        Object.values(data).length?
-                            Object.values(data)
-                                .sort((a,b) => a.id - b.id)
-                                .map(elem =>(
-                                admin?
-                                    getHeaderBlockAdmin(elem.id,elem.id + 1,elem["titleNum"],elem.title):
-                                    getHeaderBlock(elem.id + 1,elem["titleNum"],elem.title)
-                            )):''
-                    }
-                </div>
-            </header>
+
+            <InfoSliderHeader
+                data={data}
+                admin={admin}
+                activeNum={activeNum}
+                setActiveNum={setActiveNum}
+                setDataInDBTitle={setDataInDBTitle}
+                setDataInDBNumTitle={setDataInDBNumTitle}
+            />
 
             {
                 admin && Object.values(data).length?

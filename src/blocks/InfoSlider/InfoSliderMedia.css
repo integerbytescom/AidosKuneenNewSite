@@ -2,8 +2,8 @@
     .InfoSlider header{
         padding: 1em 0 1em;
     }
-    .InfoSlider header .content{
-        width: 65%;
+    .InfoSlider header .swiper.slider-info{
+        width: 55%;
     }
     .InfoSlider .content .container{
         padding: 10em 0 5em;
@@ -15,7 +15,7 @@
         width: 65%;
     }
     /*block with big nums*/
-    .InfoSlider header .block span{
+    .InfoSlider header .swiper-slide.block span{
         font-size: 3.5em;
     }
 }
@@ -25,8 +25,8 @@
         padding: 2em 0 0;
         background-position: 150% 75%;
     }
-    .InfoSlider header .content{
-        width: 80%;
+    .InfoSlider header .swiper.slider-info{
+        width: 65%;
     }
     .InfoSlider .content .container{
         padding: 5em 0 5em;
@@ -40,11 +40,11 @@
 }
 
 @media screen and (max-width: 600px){
+    .InfoSlider header .swiper.slider-info{
+        width: 100%;
+    }
     .InfoSlider .content .container{
         padding: 1em 0 5em;
-    }
-    .InfoSlider header .block span{
-        font-size: 2.5em;
     }
     .InfoSlider .content .container .info p{
         font-size: .7em;
@@ -52,9 +52,6 @@
 }
 
 @media screen and (max-width: 400px){
-    .InfoSlider header .content{
-        width: 95%;
-    }
     .InfoSlider .content .container .info p{
         font-size: .6em;
     }

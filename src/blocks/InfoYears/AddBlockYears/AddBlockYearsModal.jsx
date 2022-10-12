@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, { useState} from 'react';
 import {Alert, Badge, Button, Form, FormControl, Modal} from "react-bootstrap";
 import {ref, set} from "firebase/database";
 import {realtimeDB} from "../../../database/connect";
@@ -22,7 +22,9 @@ const AddBlockYearsModal = ({show,onHide,getLastId,lang}) => {
             }
         })
         .then(() =>setRes('Block has been added'))
+        .then(setTimeout(() => setRes(''),3000))
         .catch(err => setRes('Error: ' + err.message))
+        .finally(setTimeout(() => onHide(),3000))
     }
 
     return (
