@@ -57,9 +57,9 @@ const InfoSliderHeader = ({activeNum,setActiveNum,setDataInDBNumTitle,setDataInD
     return (
         <header className={`container`}>
                 <Swiper
-                    slidesPerView={2}
+                    slidesPerView={3}
                     spaceBetween={0}
-                    slidesPerGroup={2}
+                    slidesPerGroup={3}
                     navigation={true}
                     modules={[Navigation]}
                     className="slider-info"

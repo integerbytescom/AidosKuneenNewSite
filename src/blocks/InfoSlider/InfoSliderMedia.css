@@ -1,5 +1,5 @@
 @media screen and (max-width: 1400px){
-    .InfoSlider header{
+    .InfoSlider header.container{
         padding: 1em 0 1em;
     }
     .InfoSlider header .swiper.slider-info{
@@ -48,6 +48,12 @@
     }
     .InfoSlider .content .container .info p{
         font-size: .7em;
+    }
+    .InfoSlider header .swiper-slide.block span{
+        font-size: 2.5em;
+    }
+    .InfoSlider header .swiper-slide.block h4{
+        font-size: .8em;
     }
 }
 
