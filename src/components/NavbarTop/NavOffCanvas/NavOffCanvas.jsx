@@ -43,45 +43,30 @@ const NavOffCanvas = ({show,handleClose,langState,handleChangeLang,showMetamask,
 
                     <div className={`links-container`}>
                         <a rel={'noreferrer'} target={'_blank'} href="https://github.com/AidosKuneen/ADK-V2-Wallet/releases/tag/adk">
-                            {
-                                langState==='en'?'Download':
-                                    langState==='ru'?'Скачать':'Herunterladen'
-                            }
+                            {langState==='en'?'Download':'Скачать'}
                         </a>
 
                         <Link to='trade' spy={true} smooth={true} offset={-50} onClick={handleClose}>
-                            {
-                                langState==='en'?'Exchanges':
-                                    langState==='ru'?'Обмены':'Austausch'
-                            }
+                            {langState==='en'?'Exchanges':'Обмены'}
                         </Link>
 
                         <Link to='about' spy={true} smooth={true} offset={-50} onClick={handleClose}>
-                            {
-                                langState==='en'?'About us':
-                                    langState==='ru'?'Про нас':'Über uns'
-                            }
+                            {langState==='en'?'About us':'Про нас'}
                         </Link>
 
                         <Link to='faq' spy={true} smooth={true} offset={-100} onClick={handleClose}>
-                            F.A.Q
+                            FAQ
                         </Link>
 
-                        <Link to='form' spy={true} smooth={true} onClick={handleClose}>
-                            {
-                                langState==='en'?'Contacts':
-                                    langState==='ru'?'Контакты':'Kontakte'
-                            }
+                        <Link to='contacts' spy={true} smooth={true} onClick={handleClose}>
+                            {langState==='en'?'Contacts':'Контакты'}
                         </Link>
                     </div>
 
                 </div>
 
                 <NavDropdown
-                    title={langState==='en'?
-                        'English':langState==='ru'
-                            ?'Русский':'Deutsch'
-                    }
+                    title={langState==='en'?'English':'Русский'}
                     drop={"up"}
                     id="basic-nav-dropdown"
                 >
@@ -92,10 +77,6 @@ const NavOffCanvas = ({show,handleClose,langState,handleChangeLang,showMetamask,
                     {
                         getLang()==='ru'?'':
                             <NavDropdown.Item onClick={() => handleChangeLang('ru')}>Русский</NavDropdown.Item>
-                    }
-                    {
-                        getLang()==='de'?'':
-                            <NavDropdown.Item onClick={() => handleChangeLang('de')}>Deutsch</NavDropdown.Item>
                     }
                 </NavDropdown>
 

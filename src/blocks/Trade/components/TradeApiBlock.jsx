@@ -1,8 +1,11 @@
 import React, {useEffect, useState} from 'react';
 import {useApi} from "../../../hooks/useApi";
 import {Slide} from "react-awesome-reveal";
+import {getLang} from "../../../functions/getLang";
 
 const TradeApiBlock = () => {
+
+    const lang = getLang();
 
     //api data
     const dataCoin = useApi('/coins/aidos-kuneen').data;
@@ -32,8 +35,8 @@ const TradeApiBlock = () => {
                             </h6>
                         </span>
                     <span className={'volume'}>
-                            <h6>Market cap:<strong>{marketCap}</strong></h6>
-                            <h6>Volume:<strong>{volumeCoin}</strong></h6>
+                            <h6>{lang==='en'?'Market cap':'Рын. капит'}:<strong>{marketCap}</strong></h6>
+                            <h6>{lang==='en'?'Volume':'Объем'}:<strong>{volumeCoin}</strong></h6>
                         </span>
                 </div>
             </div>

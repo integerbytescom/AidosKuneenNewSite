@@ -51,7 +51,7 @@ const Contacts = ({lang}) => {
     }
 
     return (
-        <div className={`Contacts container mb-3`}>
+        <div className={`Contacts container mb-3`} id={'contacts'}>
             {/*form text block with email*/}
             <div className="form-text">
                 {

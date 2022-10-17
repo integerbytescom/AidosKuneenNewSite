@@ -40,39 +40,21 @@ const NavbarTop = ({langState,handleChangeLang}) => {
 
             <nav>
                 <Link to='about' spy={true} smooth={true} offset={-200} duration={0}>
-                    {
-                        langState==='en'?'About us':
-                            langState==='ru'?'Про нас':'Über uns'
-                    }
+                    {langState==='en'?'About us':'Про нас'}
                 </Link>
 
                 <Link to='trade' spy={true} smooth={true} offset={-100} duration={0}>
-                    {
-                        langState==='en'?'Exchanges':
-                            langState==='ru'?'Обмены':'Austausch'
-                    }
+                    {langState==='en'?'Exchanges':'Обмены'}
                 </Link>
 
                 <a rel={'noreferrer'} target={"_blank"} href="https://github.com/AidosKuneen/ADK-V2-Wallet/releases/tag/adk">
-                    {
-                        langState==='en'?'Wallet':
-                            langState==='ru'?'Кошелек':'Geldbörse'
-                    }
+                    {langState==='en'?'Wallet':'Кошелек'}
                 </a>
 
-                <Link
-                    to="faq"
-                    spy={true}
-                    smooth={true}
-                    offset={-300}
-                    duration={0}
-                >F.A.Q</Link>
+                <Link to="faq" spy={true} smooth={true} offset={-300} duration={0}>FAQ</Link>
 
-                <Link to="form" spy={true} smooth={true} offset={50} duration={0}>
-                    {
-                        langState==='en'?'Contact us':
-                            langState==='ru'?'Контакты':'Kontakte'
-                    }
+                <Link to="contacts" spy={true} smooth={true} offset={50} duration={0}>
+                    {langState==='en'?'Contact us':'Контакты'}
                 </Link>
             </nav>
 
@@ -95,10 +77,7 @@ const NavbarTop = ({langState,handleChangeLang}) => {
                 <div className="vert-line" />
 
                 <NavDropdown
-                    title={langState==='en'?
-                        'English':langState==='ru'
-                            ?'Русский':'Deutsch'
-                    }
+                    title={langState==='en'?'English':'Русский'}
                     drop={"down"}
                     id="basic-nav-dropdown"
                 >
@@ -109,10 +88,6 @@ const NavbarTop = ({langState,handleChangeLang}) => {
                     {
                         getLang()==='ru'?'':
                             <NavDropdown.Item onClick={() => handleChangeLang('ru')}>Русский</NavDropdown.Item>
-                    }
-                    {
-                        getLang()==='de'?'':
-                            <NavDropdown.Item onClick={() => handleChangeLang('de')}>Deutsch</NavDropdown.Item>
                     }
                 </NavDropdown>
 

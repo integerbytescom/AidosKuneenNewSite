@@ -38,12 +38,7 @@ const FormContact = ({lang}) => {
     return (
         <div className={`FormContact container`} id={'form'}>
 
-            <h1>
-                {
-                    lang==='ru'? 'Контакты':
-                        lang==='en'? 'Contacts us' : 'Kontaktiere uns'
-                }
-            </h1>
+            <h1>{lang==='ru'? 'Контакты':'Contacts us'}</h1>
 
             <Slide direction={'left'}>
             <Form ref={formRef} onSubmit={handleSendForm}>
