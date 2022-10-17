@@ -11,9 +11,13 @@ import {getLinkForDB} from "../../functions/getLinkForDB";
 import FaqAddBlockModal from "./FaqAddBlockModal";
 import {getLastId} from "../../functions/getLastId";
 import DeleteBlockDB from "../../components/DeleteBlockDB/DeleteBlockDB";
+import ShowBlock from "../../components/ShowBlock/ShowBlock";
 // import faqData from "./FaqData";
 
 const Faq = ({lang}) => {
+
+    //hide for block
+    const hideDB = useGetData(`/pageData/hideBlocks/accordionFAQ`);
 
     const admin = checkAdmin();
 
@@ -40,7 +44,11 @@ const Faq = ({lang}) => {
     }
 
     return (
-        <div className={`Faq container`}>
+        <div
+            className={`Faq container`}
+            // show/hide block
+            hidden={(hideDB.hide && !admin)}
+        >
 
             {/*<h1>FAQ</h1>*/}
 
@@ -82,6 +90,10 @@ const Faq = ({lang}) => {
                     <Spinner animation={"border"} variant={"light"} />
                 }
             </Accordion>
+
+            <div className="box w-100 d-flex mt-3 justify-content-center">
+                {admin && <ShowBlock block={'accordionFAQ'} />}
+            </div>
 
             {/*"show more accordion items"*/}
             {

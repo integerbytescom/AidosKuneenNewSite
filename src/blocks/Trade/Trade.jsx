@@ -12,11 +12,16 @@ import {useGetData} from "../../hooks/useGetData";
 import {update, ref as refRlt, remove} from "firebase/database";
 import TradeAddBlockModal from "./components/TradeAddBlock/TradeAddBlockModal";
 import {getLastId} from "../../functions/getLastId";
+import ShowBlock from "../../components/ShowBlock/ShowBlock";
 
 const Trade = () => {
 
     const admin = checkAdmin();
 
+    //hide for block
+    const hideDB = useGetData(`/pageData/hideBlocks/trade`);
+
+    //modal for admin
     const [modalShow, setModalShow] = useState(false);
 
     //state for images from storageDB
@@ -69,6 +74,7 @@ const Trade = () => {
         })
     }
 
+    //delete block with image from db
     const handleDelete = elem =>{
         const imageName = imageList.find(img => img.id === elem.id).name;
         const desertRef = ref(storageDB,`/trade/${numbers[elem.id]}/${imageName}`)
@@ -134,7 +140,16 @@ const Trade = () => {
 
     return (
         <>
-            <div id={`trade`} className={`Trade container`}>
+            <div
+                id={`trade`}
+                className={`Trade container`}
+                // show/hide block
+                hidden={(hideDB.hide && !admin)}
+            >
+
+                <div className="box w-100 mb-3 d-flex justify-content-center">
+                    {admin && <ShowBlock block={'trade'} />}
+                </div>
 
                 <div className="content">
 

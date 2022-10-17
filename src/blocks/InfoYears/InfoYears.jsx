@@ -14,11 +14,15 @@ import {getLinkForDB, numbers} from "../../functions/getLinkForDB";
 import AddBlockYears from "./AddBlockYears/AddBlockYears";
 import DeleteBlockDB from "../../components/DeleteBlockDB/DeleteBlockDB";
 import AddInnerBlock from "./AddInnerBlock";
+import ShowBlock from "../../components/ShowBlock/ShowBlock";
 
 const InfoYears = ({lang}) => {
 
     //check admin status
     const admin = checkAdmin();
+
+    //hide for block
+    const hideDB = useGetData(`/pageData/hideBlocks/infoYears`);
 
     //modal
     const [modal,setModal] = useState(false)
@@ -82,8 +86,11 @@ const InfoYears = ({lang}) => {
             <img className={'bg-info-years'} src="/images/about/bg.svg" alt=""/>
         </Fade>
 
-
-        <div className={`InfoYears`}>
+        <div
+            className={`InfoYears`}
+            // show/hide block
+            hidden={(hideDB.hide && !admin)}
+        >
 
             <button
                 className={'arrow-but'}
@@ -176,6 +183,11 @@ const InfoYears = ({lang}) => {
                 />
             </button>
         </div>
+
+
+            <div className="box w-100 d-flex mb-3 justify-content-center">
+                {admin && <ShowBlock block={'infoYears'} />}
+            </div>
 
             {/*add block for admin*/}
             {admin && Object.values(data).length ? <AddBlockYears data={data} lang={lang} /> : false}

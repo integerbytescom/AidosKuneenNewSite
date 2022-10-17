@@ -9,8 +9,12 @@ import {checkAdmin} from "../../functions/checkAdmin";
 import {ref, update} from "firebase/database";
 import {realtimeDB} from "../../database/connect";
 import {getLinkForDB} from "../../functions/getLinkForDB";
+import ShowBlock from "../../components/ShowBlock/ShowBlock";
 
 const About = ({lang}) => {
+
+    //hide for block
+    const hideDB = useGetData(`/pageData/hideBlocks/about`);
 
     //check admin
     const admin = checkAdmin()
@@ -32,7 +36,15 @@ const About = ({lang}) => {
     }
 
     return (
-        <div className={'About'} id={'about'}>
+        <div
+            className={'About'}
+            id={'about'}// show/hide block
+            hidden={(hideDB.hide && !admin)}
+        >
+
+            <div className="box w-100 d-flex justify-content-center">
+                {admin && <ShowBlock block={'about'} />}
+            </div>
 
             <Fade delay={500}>
                 <img className={'bg-info-years'} src="/images/about/bg.svg" alt=""/>

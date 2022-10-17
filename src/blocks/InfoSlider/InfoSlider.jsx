@@ -10,17 +10,21 @@ import {ref, update} from "firebase/database";
 import {realtimeDB} from "../../database/connect";
 import AddBlockInfo from "./AddBlockInfo/AddBlockInfo";
 import InfoSliderHeader from "./InfoSliderHeader";
+import ShowBlock from "../../components/ShowBlock/ShowBlock";
 
 const InfoSlider = ({lang}) => {
 
     //check admin
-    const admin = checkAdmin()
+    const admin = checkAdmin();
+
+    //hide for block
+    const hideDB = useGetData(`/pageData/hideBlocks/infoSlider`);
 
     //active num for slider info show
     const [activeNum,setActiveNum] = useState(1)
 
     //data from database
-    const data = useGetData(`/pageData/infoSlider/${lang}`)
+    const data = useGetData(`/pageData/infoSlider/${lang}`);
     // console.log(data,'InfoSlider')
 
     //spinner return
@@ -61,7 +65,11 @@ const InfoSlider = ({lang}) => {
 
     return (
         <Fade delay={500}>
-        <div className={`InfoSlider`}>
+        <div
+            className={`InfoSlider`}
+            // show/hide block
+            hidden={(hideDB.hide && !admin)}
+        >
 
             <InfoSliderHeader
                 data={data}
@@ -76,6 +84,10 @@ const InfoSlider = ({lang}) => {
                 admin && Object.values(data).length?
                 <AddBlockInfo data={data} lang={lang} />:false
             }
+
+            <div className="box w-100 d-flex justify-content-center">
+                {admin && <ShowBlock block={'infoSlider'} />}
+            </div>
 
             <div className="content">
                 <div className="container">

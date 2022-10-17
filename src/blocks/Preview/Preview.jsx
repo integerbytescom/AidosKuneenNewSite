@@ -8,11 +8,15 @@ import {checkAdmin} from "../../functions/checkAdmin";
 import {ref, update} from "firebase/database";
 import {realtimeDB} from "../../database/connect";
 import {getLinkForDB} from "../../functions/getLinkForDB";
+import ShowBlock from "../../components/ShowBlock/ShowBlock";
 
 const Preview = ({lang}) => {
 
     //for check admin
     const admin = checkAdmin();
+
+    //hide for block
+    const hideDB = useGetData(`/pageData/hideBlocks/walletDownload`);
 
     const data = useGetData(`pageData/walletDownload/${lang}`)
     // console.log(data,'wallet download data')
@@ -32,7 +36,11 @@ const Preview = ({lang}) => {
 
     return (
         <Fade delay={500}>
-        <div className={`Preview`}>
+        <div
+            className={`Preview`}
+            // show/hide block
+            hidden={(hideDB.hide && !admin)}
+        >
 
             <div className="container">
                 <img src="/images/preview/laptop.png" alt="laptop"/>
@@ -52,6 +60,11 @@ const Preview = ({lang}) => {
                                         Object.values(data)[0]['title']
                                 }
                             </h1>
+
+                            <div className="box w-100 d-flex mt-3 justify-content-center">
+                                {admin && <ShowBlock block={'walletDownload'} />}
+                            </div>
+
                             <h6>
                                 {
                                     admin?
