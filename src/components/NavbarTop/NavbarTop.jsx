@@ -30,7 +30,7 @@ const NavbarTop = ({langState,handleChangeLang}) => {
         <Fade style={{zIndex:10}} direction={`down`}>
         <Navbar>
             <div className="logo">
-                <img src="/images/general/logo.svg" alt=""/>
+                <img src="/images/general/logo-png.png" alt=""/>
                 <span>
                     Aidos Kuneen
                     {checkAdmin() && <Badge>Admin</Badge>}

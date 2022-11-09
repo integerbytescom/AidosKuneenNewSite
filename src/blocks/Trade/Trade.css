@@ -57,12 +57,12 @@
     font-weight: 400;
 }
 .Trade .content .api-info div span.volume{
-    margin-top: 2em;
+    margin-top: 1em;
 }
 .Trade .content .api-info div span.volume strong{
     color: #aaacbd;
     font-weight: 400;
-    margin-left: 1em;
+    margin-left: .5em;
 }
 
 /*logos companies*/
