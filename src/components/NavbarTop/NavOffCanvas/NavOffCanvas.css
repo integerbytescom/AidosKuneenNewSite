@@ -16,7 +16,7 @@
 
 /*body*/
 .NavOffCanvas.offcanvas{
-    background-image:url("/public/images/general/logo-off.svg");
+    background-image:url("/public/images/general/logo-circle.png");
     background-size: 70%;
     background-repeat: no-repeat;
     background-position: bottom right;

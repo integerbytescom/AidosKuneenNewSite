@@ -171,7 +171,7 @@ const MetamaskModal = ({show}) => {
                             />
                         </div>
                         <button onClick={addADKNetworkAUTO} className={'add'}>
-                            <img src="/images/general/logo.svg" alt=""/>
+                            <img src="/images/general/logo-png.png" alt=""/>
                             {
                                 chainId===40272?
                                     <img style={{height:"12px"}} src="/images/general/success.svg" alt="success"/>:''
