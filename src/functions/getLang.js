@@ -3,7 +3,8 @@ export const getLang = () => {
     if (!lang){
         window.localStorage.setItem('lang','en')
         return 'en'
-    }else {
-        return lang
-    }
+    }else if (lang && (lang !== 'en' && lang !== 'ru' )){
+        window.localStorage.setItem('lang','en')
+        return 'en'
+    }else return lang
 }
